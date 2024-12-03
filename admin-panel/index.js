@@ -2,19 +2,19 @@ const express = require("express");
 const cors = require("cors");
 let path = require("path");
 
-const db = require("./admin-panel/db/connectdb.js");
-const errorHandler = require("./admin-panel/Errorhandler/Errorhandler.js");
-const errormidd = require("./admin-panel/Errorhandler/error.js")
-const careerRoute = require("./admin-panel/routes/careerRoute.js");
-const adminRoute = require("./admin-panel/routes/adminRoute.js");
-const homepageRoute = require("./admin-panel/routes/homepageRoute.js");
-const contactRoute = require("./admin-panel/routes/contactRoute.js");
-const servicesRoute = require("./admin-panel/routes/servicesRoute.js");
-const aboutRoute = require("./admin-panel/routes/aboutRoute.js");
-const faqRoute = require("./admin-panel/routes/faqRoute.js");
-const pagesRoute = require("./admin-panel/routes/pagesRoute.js");
-const mediaRoute = require("./admin-panel/routes/mediaRoute.js");
-const caseStudyRoute = require("./admin-panel/routes/caseStudyRoute.js");
+const db = require("./db/connectdb.js");
+const errorHandler = require("./Errorhandler/Errorhandler.js");
+const errormidd = require("./Errorhandler/error.js")
+const careerRoute = require("./routes/careerRoute.js");
+const adminRoute = require("./routes/adminRoute.js");
+const homepageRoute = require("./routes/homepageRoute.js");
+const contactRoute = require("./routes/contactRoute.js");
+const servicesRoute = require("./routes/servicesRoute.js");
+const aboutRoute = require("./routes/aboutRoute.js");
+const faqRoute = require("./routes/faqRoute.js");
+const pagesRoute = require("./routes/pagesRoute.js");
+const mediaRoute = require("./routes/mediaRoute.js");
+const caseStudyRoute = require("./routes/caseStudyRoute.js");
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "admin-panel/.env" });
