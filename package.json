@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "admin-panel/index.js",
   "scripts": {
-    "start": "node admin-panel/index.js",
+    "run": "node admin-panel/index.js",
     "build": "npm install --prefix fifilo-main && npm run build --prefix fifilo-main",
-      "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
