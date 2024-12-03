@@ -1,0 +1,14 @@
+<svg id="o" xmlns="http://www.w3.org/2000/svg" width="475" height="475" viewBox="0 0 475 475">
+  <g id="Ellipse_118" data-name="Ellipse 118" transform="translate(130.977 130.977)" fill="none" stroke="#00e19a" stroke-width="20">
+    <circle cx="106.523" cy="106.523" r="106.523" stroke="none"/>
+    <circle cx="106.523" cy="106.523" r="96.523" fill="none"/>
+  </g>
+  <g id="Ellipse_116" data-name="Ellipse 116" fill="none" stroke="#00e19a" stroke-width="20">
+    <ellipse cx="237.5" cy="237.5" rx="237.5" ry="237.5" stroke="none"/>
+    <ellipse cx="237.5" cy="237.5" rx="227.5" ry="227.5" fill="none"/>
+  </g>
+  <g id="Ellipse_117" data-name="Ellipse 117" transform="translate(37.304 37.304)" fill="none" stroke="#00e19a" stroke-width="60">
+    <ellipse cx="200.196" cy="200.196" rx="200.196" ry="200.196" stroke="none"/>
+    <ellipse cx="200.196" cy="200.196" rx="170.196" ry="170.196" fill="none"/>
+  </g>
+</svg>
