@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "run": "node index.js",
+    "start": "node admin-panel/index.js",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "run": "node admin-panel/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
