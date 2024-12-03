@@ -4,6 +4,7 @@
   "main": "admin-panel/index.js",
   "scripts": {
     "run": "node admin-panel/index.js",
+    "start": "node admin-panel/index.js",
     "build": "npm install --prefix fifilo-main && npm run build --prefix fifilo-main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
