@@ -1,10 +1,10 @@
-require("dotenv").config({});
 const express = require("express");
 const cors = require("cors");
+let path = require("path");
+
 const db = require("./db/connectdb");
 const errorHandler = require("./Errorhandler/Errorhandler");
 const errormidd = require("./Errorhandler/error")
-let path = require("path");
 const careerRoute = require("./routes/careerRoute");
 const adminRoute = require("./routes/adminRoute");
 const homepageRoute = require("./routes/homepageRoute");
@@ -16,8 +16,10 @@ const pagesRoute = require("./routes/pagesRoute");
 const mediaRoute = require("./routes/mediaRoute.js");
 const caseStudyRoute = require("./routes/caseStudyRoute.js");
 
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({ path: "admin-panel/.env" });
+}
 const port = process.env.PORT || 4000;
-
 const app = express();
 app.use(cors());
 app.use(express.json())
@@ -29,7 +31,6 @@ process.on("uncaughtException", (err) => {
   console.log(`Shutting down the server due to Uncaught Exception`);
   process.exit(1);
 });
-
 
 
 

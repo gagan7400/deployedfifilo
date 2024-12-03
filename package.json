@@ -1,7 +1,7 @@
 {
   "name": "dashboard",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "admin-panel/index.js",
   "scripts": {
     "start": "node admin-panel/index.js",
     "build": "npm install --prefix fifilo-main && npm run build --prefix fifilo-main",
