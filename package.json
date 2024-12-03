@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node admin-panel/index.js",
     "build": "npm install --prefix fifilo-main && npm run build --prefix fifilo-main",
-    "run": "node admin-panel/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
