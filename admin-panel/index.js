@@ -55,7 +55,7 @@ app.use('/api/media', mediaRoute);
 app.use('/admin/casestudy/', caseStudyRoute);
 
 app.use(express.static(path.join(__dirname, "../fifilo-main/build")));
-
+ 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../fifilo-main/build/index.html"));
 });
