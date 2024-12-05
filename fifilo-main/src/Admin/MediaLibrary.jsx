@@ -23,7 +23,7 @@ const MediaLibrary = ({ onSelectImage, imageUploaded, showModal, setShowModal, s
 
 
   return (
-    <div>
+    <>
       <ul>
         {images.map((image, index) => (
           <li key={index}>
@@ -33,7 +33,7 @@ const MediaLibrary = ({ onSelectImage, imageUploaded, showModal, setShowModal, s
           </li>
         )).reverse()}
       </ul>
-    </div>
+    </>
   );
 };
 

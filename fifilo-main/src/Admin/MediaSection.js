@@ -11,14 +11,15 @@ const MediaSection = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const inputRef = useRef(null);
     const handleDelete = async (imageId) => {
-        if (window.confirm("Are You Sure,You Want Delete This")) {
+        if (window.confirm("Are You Sure You Want to Delete This?")) {
             try {
-                let { data } = await axios.delete(`/api/media/${imageId}`);
+                const { data } = await axios.delete(`/api/media/${imageId}`);
                 if (data.success) {
-                    setShowModal(false);
-                    setImageUplaoded("deleted");
-                } else {
                     console.log(data);
+                    setImageUplaoded((prev) => prev === "deleted" ? "deleted-again" : "deleted");
+                    setSelectedImage(null); // Clear the selected image
+                } else {
+                    console.error("Failed to delete image:", data);
                 }
             } catch (error) {
                 console.error("Error deleting image", error);
@@ -70,9 +71,10 @@ const MediaSection = () => {
                     </div>
                 </div>
                 {showModal && selectedImage && (
+
                     <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", display: "flex", justifyContent: "center", alignItems: "center", }}>
                         <div style={{ width: "50%", height: "50%", padding: "20px", backgroundColor: "#fff" }}>
-                           <button onClick={()=>{setShowModal(false)}}>X</button>
+                            <button onClick={() => { setShowModal(false) }}>X</button>
                             <h3>Attachment  Details</h3>
                             <img style={{ width: "100px" }} src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                             <h6>{selectedImage.filename}</h6>
@@ -81,7 +83,7 @@ const MediaSection = () => {
                             <button className="btn" onClick={() => handleDelete(selectedImage._id)} >
                                 Delete Permanently
                             </button>
-                           <div className="input__inr"> <input ref={inputRef} value={`/images/${selectedImage.filename}`} /></div>
+                            <div className="input__inr"> <input ref={inputRef} value={`/images/${selectedImage.filename}`} /></div>
                             <button onClick={handleCopy}>Clip to clipboard </button>
                             {message && <p>Copied</p>}
                         </div>    </div>
@@ -92,3 +94,5 @@ const MediaSection = () => {
 };
 
 export default MediaSection;
+
+
