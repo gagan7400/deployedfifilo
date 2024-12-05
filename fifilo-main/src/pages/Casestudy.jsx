@@ -19,7 +19,7 @@ export default function Casestudy() {
     let getCasestudy = async () => {
         try {
             console.log(name, name.split("-").join(""))
-            let { data } = await axios.get('/admin/casestudy/getcasestudy/' + name.split("-").join(""));
+            let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy/' + name.split("-").join(""));
             if (data.success) {
                 setCasestudy(data.data);
                 setLoading(false)
@@ -34,7 +34,7 @@ export default function Casestudy() {
     }
     let alldata = async () => {
         try {
-            let { data } = await axios.get('/admin/casestudy/getcasestudy');
+            let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy');
             if (data.success) {
                 setCasestudies(data.data);
                 setLoading(false)
@@ -75,17 +75,8 @@ export default function Casestudy() {
     useEffect(() => {
         AOS.init();
     }, [casestudy, casestudies]);
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         setLoading(false);
-    //     };
 
-    //     loadData();
-    //     return () => {
-    //     };
-
-    // }, []);
-    console.log(casestudy)
+    let classes = ["large", "medium", "normal", "small"]
     return (
         <>
             <Helmet>
@@ -115,7 +106,7 @@ export default function Casestudy() {
                         })}
                     </div>
                     <div className="bottom__bx" data-aos="fade-up" data-aos-duration="1000">
-                        <img src={(!loading && casestudy) ? `/images/${casestudy.heroSection.heroImg.filename}` : ""} alt="banner" />
+                        <img src={(!loading && casestudy) ? `http://localhost:5000/images/${casestudy.heroSection.heroImg.filename}` : ""} alt="banner" />
                     </div>
                 </div>
             </div>
@@ -188,7 +179,7 @@ export default function Casestudy() {
                                             <div className="scroll-border">
                                                 <div className="horizontal-border"></div>
                                                 <div className="horizontal-stroke active">
-                                                    <img src={card && card.icon && card.icon.filename && `/images/${card.icon.filename}`} alt="icon" />
+                                                    <img src={card && card.icon && card.icon.filename && `http://localhost:5000/images/${card.icon.filename}`} alt="icon" />
                                                 </div>
                                                 <div className="horizontal-stroke-arrow">
                                                     <div className="arrow-down">
@@ -232,7 +223,7 @@ export default function Casestudy() {
                                     <div className="col-lg-1 col-2 center__bx">
                                         <div className="border-section">
                                             <div className="stroke-circle">
-                                                <img src={card && card.icon && card.icon.filename && `/images/${card.icon.filename}`} alt="icon" />
+                                                <img src={card && card.icon && card.icon.filename && `http://localhost:5000/images/${card.icon.filename}`} alt="icon" />
                                             </div>
                                             <div className="stroke-border">
                                                 <div className="arrow-down">
@@ -268,7 +259,7 @@ export default function Casestudy() {
                     </div>
                     {!loading && casestudy && casestudy.sketches.imgs.map((img, index) => (
                         <div className="img__fullContainer" data-aos="fade-up" data-aos-duration="800" key={index}>
-                            <img src={img && img.filename && `/images/${img.filename}`} alt="" />
+                            <img src={img && img.filename && `http://localhost:5000/images/${img.filename}`} alt="" />
                         </div>
                     ))}
 
@@ -335,7 +326,7 @@ export default function Casestudy() {
                                             {!loading && casestudy && casestudy.typographyData.fontTable.map((typo, index) => (
                                                 <div className="font__row" key={index}>
                                                     <div className="font__data">
-                                                        <div className={typo.name}>
+                                                        <div className={classes[index]}>
                                                             <span className="bold">{typo.name} Text Bold</span>
                                                             <span className="regular">{typo.name} Text Regular</span>
                                                         </div>
@@ -371,7 +362,7 @@ export default function Casestudy() {
                 </div>
                 {!loading && casestudy && casestudy.updatedLook.imgs.map((img, index) => (
                     <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
-                        <img src={img && img.filename && `/images/${img.filename}`} alt="" />
+                        <img src={img && img.filename && `http://localhost:5000/images/${img.filename}`} alt="" />
                     </div>
                 ))}
 
@@ -401,7 +392,7 @@ export default function Casestudy() {
                 </div>
                 {!loading && casestudy && casestudy.fullWidthImg.length && casestudy.fullWidthImg.map((img, index) => (
                     <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
-                        <img src={img && img.filename && `/images/${img.filename}`} alt="" />
+                        <img src={img && img.filename && `http://localhost:5000/images/${img.filename}`} alt="" />
                     </div>
                 ))}
             </div>
@@ -432,7 +423,7 @@ export default function Casestudy() {
                                     <p>{value.heroSection.description}</p>
                                     <div className="img__box">
                                         <NavLink to={`/casestudy/${value.heroSection.casestudyName.split(" ").join("-")}`}>
-                                            <img src={(value.heroSection.cardImg && value.heroSection.cardImg.filename) && `/images/${value.heroSection.cardImg.filename}`} alt={value.heroSection.casestudyName} />
+                                            <img src={(value.heroSection.cardImg && value.heroSection.cardImg.filename) && `http://localhost:5000/images/${value.heroSection.cardImg.filename}`} alt={value.heroSection.casestudyName} />
                                         </NavLink>
                                     </div>
                                 </div>

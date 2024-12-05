@@ -635,7 +635,7 @@
 
 /***************Media Library***************/
 .mediaLibrary .modal-dialog {
-    height: calc(92% - 1px);
+    height: 92vh;
     max-width: 96%;
     margin: 2% auto;
 }
@@ -697,9 +697,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    max-height: 386px;
-    /* max-height: calc(100% - 500px); */
-
+    height: calc(100vh - 330px);
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -790,5 +788,11 @@
 @media only screen and (min-width: 1200px) and (max-width: 1439px) {
     .media__grids ul {
         grid-template-columns: repeat(8, 1fr);
+    }
+    .mediaLibrary .attachments-wrapper ul {
+        height: calc(100vh - 301px);
+    }
+    .mediaLibrary .modal-dialog {
+        height: 91vh;
     }
 }

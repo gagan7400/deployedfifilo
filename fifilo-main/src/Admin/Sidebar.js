@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 export default function Sidebar() {
   let dispatch = useDispatch();
   useEffect(() => {
-    document.body.style.backgroundColor = "#f0f0f0";
+    document.body.style.backgroundColor = "#F6F7F9";
     return () => {
       document.body.style.backgroundColor = "";
     };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import MediaLibrary from "./MediaLibrary";
 import ImageUpload from "./ImageUpload";
 import Sidebar from "./Sidebar";
@@ -8,10 +8,11 @@ const MediaSection = () => {
     const [imageUploaded, setImageUplaoded] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const inputRef = useRef(null);
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure,You Want Delete This")) {
             try {
-                let { data } = await axios.delete(`/api/media/${imageId}`);
+                let { data } = await axios.delete(`http://localhost:5000/api/media/${imageId}`);
                 if (data.success) {
                     setShowModal(false);
                     setImageUplaoded("deleted");
@@ -23,7 +24,22 @@ const MediaSection = () => {
             }
         }
     };
+    const handleCopy = () => {
+        if (inputRef.current) {
+            // Select the text
+            inputRef.current.select();
+            inputRef.current.setSelectionRange(0, 99999); // For mobile compatibility
 
+            // Copy the text to the clipboard
+            navigator.clipboard.writeText(inputRef.current.value)
+                .then(() => {
+                    // alert("Text copied to clipboard!");
+                })
+                .catch((err) => {
+                    console.error("Failed to copy text: ", err);
+                });
+        }
+    };
     const closeModal = () => {
         setShowModal(false);
         setSelectedImage(null);
@@ -50,18 +66,18 @@ const MediaSection = () => {
                 </div>
                 {showModal && selectedImage && (
                     <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", display: "flex", justifyContent: "center", alignItems: "center", }}>
-                        <div style={{ background: "#fff", padding: "30px", borderRadius: "8px", width: "700px", height: "auto", position: "relative", textAlign: "center", }} >
-                            <span style={{ position: "absolute", top: "10px", right: "15px", fontSize: "24px", cursor: "pointer", }} onClick={closeModal} > &times; </span>
-                            <h3>Image Details</h3>
-                            <p> <strong>Filename:</strong> {selectedImage.filename}</p>
-                            <p><strong>Uploaded At:</strong>{" "} {new Date(selectedImage.createdAt).toLocaleString()} </p>
-                            <img src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} style={{ width: "50%" }} />
-                            <br />    <button style={{ backgroundColor: "red", color: "white", border: "none", padding: "10px 20px", cursor: "pointer", borderRadius: "4px", marginTop: "20px", }}
-                                onClick={() => handleDelete(selectedImage._id)} >
-                                Delete
-                            </button>
-                        </div>
-                    </div>
+                       <div  style={{   width: "50%", height: "50%",padding:"20px" , backgroundColor: "#fff"  }}>
+                      <h3>Attachment  Details</h3>
+                        <img style={{ width: "100px" }} src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                        <h6>{selectedImage.filename}</h6>
+                        <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
+                        <p>{new Date(selectedImage.createdAt).toDateString()} </p>
+                        <button className="btn" onClick={() => handleDelete(selectedImage._id)} >
+                            Delete Permanently
+                        </button>
+                        <p> <input ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} /> </p>
+                        <button onClick={handleCopy}>Clip to clipboard </button>
+                   </div>    </div>
                 )}
             </div>
         </>

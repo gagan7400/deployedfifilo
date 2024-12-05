@@ -11,6 +11,7 @@ const imageSchema = new mongoose.Schema({
     filePath: String,
     filename: String,
     altText: String,
+    size: String,
     createdAt: { type: Date, default: Date.now },
 });
 
@@ -22,20 +23,22 @@ const storage = multer.diskStorage({
         cb(null, "uploads/images");
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
+        cb(null, file.originalname);
     },
 });
 
 const upload = multer({ storage: storage });
 router.post("/upload", upload.single("image"), async (req, res) => {
+    console.log(req.file)
     try {
         const newImage = new Image({
             filePath: `/uploads/images/${req.file.filename}`,
             filename: req.file.filename,
             altText: req.body.altText || "",
+            size: Number(req.file.size) * 0.001
         });
         await newImage.save();
-        res.json({ success: true, image: newImage });
+        res.json({ success: true, image: newImage, r: req.file });
     } catch (error) {
         res.status(500).json({ error: "Failed to upload image" });
     }

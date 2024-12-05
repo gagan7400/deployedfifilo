@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import MediaLibrary from "./MediaLibrary";
 import ImageUpload from "./ImageUpload";
 import axios from "axios";
@@ -8,10 +8,11 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     const [imageUploaded, setImageUplaoded] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const inputRef = useRef(null);
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure,You Want Delete This")) {
             try {
-                let { data } = await axios.delete(`/api/media/${imageId}`);
+                let { data } = await axios.delete(`http://localhost:5000/api/media/${imageId}`);
                 if (data.success) {
                     setShowModal(false);
                     setImageUplaoded("deleted");
@@ -24,9 +25,26 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
         }
     };
 
+
     const closeModal = () => {
         setShowModal(false);
         setSelectedImage(null);
+    };
+    const handleCopy = () => {
+        if (inputRef.current) {
+            // Select the text
+            inputRef.current.select();
+            inputRef.current.setSelectionRange(0, 99999); // For mobile compatibility
+
+            // Copy the text to the clipboard
+            navigator.clipboard.writeText(inputRef.current.value)
+                .then(() => {
+                    // alert("Text copied to clipboard!");
+                })
+                .catch((err) => {
+                    console.error("Failed to copy text: ", err);
+                });
+        }
     };
     if (!isOpen) return null;
     return (
@@ -67,22 +85,17 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                         </div>
                                         <div className="col-lg-3 col-md-3">
                                             {showModal && selectedImage && (
-                                                <div style={{ width: "100%", height: "70%", display: "flex", justifyContent: "center", alignItems: "center", }}>
-                                                    <div style={{ padding: "20px", borderRadius: "8px", width: "400px", position: "relative", textAlign: "center", }} >
-                                                        <span style={{ position: "absolute", top: "10px", right: "15px", fontSize: "24px", cursor: "pointer", }} onClick={closeModal} > &times; </span>
-                                                        <h3>Image Details</h3>
-                                                        <p> <strong>Filename:</strong> {selectedImage.filename}</p>
-                                                        <p><strong>Uploaded At:</strong>{" "} {new Date(selectedImage.createdAt).toLocaleString()} </p>
-                                                        <img src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} style={{ width: "100%" }} />
-                                                        <button style={{ backgroundColor: "red", color: "white", border: "none", padding: "10px 20px", cursor: "pointer", borderRadius: "4px", marginTop: "20px", }}
-                                                            onClick={() => handleDelete(selectedImage._id)} >
-                                                            Delete
-                                                        </button>
-                                                        <button style={{ backgroundColor: "green", color: "white", border: "none", padding: "10px 20px", cursor: "pointer", borderRadius: "4px", marginTop: "20px", }}
-                                                            onClick={() => onSelectImage(selectedImage)} >
-                                                            Select
-                                                        </button>
-                                                    </div>
+                                                <div className="attachment__details">
+                                                    <h3>Attachment  Details</h3>
+                                                    <img style={{ width: "100px" }} src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                                                    <h6>{selectedImage.filename}</h6>
+                                                    <p>{selectedImage.size? selectedImage.size:100} KB</p>
+                                                    <p>{new Date(selectedImage.createdAt).toDateString()} </p>
+                                                    <button className="btn" onClick={() => handleDelete(selectedImage._id)} >
+                                                        Delete Permanently
+                                                    </button>
+                                                    <p> <input ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} /> </p>
+                                                    <button onClick={handleCopy}>Clip to clipboard </button>
                                                 </div>
                                             )}
                                         </div>
@@ -91,7 +104,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn__update">Save changes</button>
+                            <button type="button" className="btn btn__update" onClick={() => onSelectImage(selectedImage)}>Set Feautured Image</button>
                         </div>
                     </div>
                 </div>
