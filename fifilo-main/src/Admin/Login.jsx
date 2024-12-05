@@ -124,7 +124,7 @@ const Login = () => {
                 <style>
 
                 </style>
-                <div className="col-lg-4 col-md-5">
+                <div className="col-xxl-3 col-lg-4 col-md-5">
                     <form onSubmit={submithandler}>
                         <div className="form__card">
                             <div className="contact__form" data-aos="fade-up" data-aos-duration="800">
@@ -142,7 +142,7 @@ const Login = () => {
                                     {errors.email && <div className="error text-danger position-absolute" style={{ color: "#f0f1f1" }} >{errors.email}</div>}
                                 </div>
                                 <div className="inr__input" >
-                                    <span className='icon'><img src="assets/imgs/password.svg" alt="contact__form" /></span>
+                                    <span className='icon'><img src="assets/imgs/lock.svg" alt="contact__form" /></span>
                                     <input
                                         type="password"
                                         name="Password"
@@ -161,7 +161,6 @@ const Login = () => {
                         </div>
                     </form>
                 </div>
-
             </div>
         </>
     );

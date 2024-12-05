@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import MediaLibrary from "./MediaLibrary";
 import ImageUpload from "./ImageUpload";
 import axios from "axios";
@@ -7,6 +7,7 @@ import axios from "axios";
 const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     const [imageUploaded, setImageUplaoded] = useState("");
     const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState(false)
     const [selectedImage, setSelectedImage] = useState(null);
     const inputRef = useRef(null);
     const handleDelete = async (imageId) => {
@@ -39,13 +40,18 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
             // Copy the text to the clipboard
             navigator.clipboard.writeText(inputRef.current.value)
                 .then(() => {
-                    // alert("Text copied to clipboard!");
+                    setMessage(true)
                 })
                 .catch((err) => {
                     console.error("Failed to copy text: ", err);
                 });
         }
     };
+    useEffect(() => {
+        setTimeout(() => {
+            setMessage(false)
+        }, 3000)
+    }, [message])
     if (!isOpen) return null;
     return (
         <>
@@ -86,16 +92,18 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                         <div className="col-lg-3 col-md-3">
                                             {showModal && selectedImage && (
                                                 <div className="attachment__details">
+                                                    {/* <button onClick={()=>{setShowModal(false)}}>X</button> */}
                                                     <h3>Attachment  Details</h3>
                                                     <img style={{ width: "100px" }} src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                                     <h6>{selectedImage.filename}</h6>
-                                                    <p>{selectedImage.size? selectedImage.size:100} KB</p>
+                                                    <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
                                                     <p>{new Date(selectedImage.createdAt).toDateString()} </p>
                                                     <button className="btn" onClick={() => handleDelete(selectedImage._id)} >
                                                         Delete Permanently
                                                     </button>
-                                                    <p> <input ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} /> </p>
+                                                    <div className="input__inr">  <input ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} /></div>
                                                     <button onClick={handleCopy}>Clip to clipboard </button>
+                                                    {message && <p>Copied!</p>}
                                                 </div>
                                             )}
                                         </div>

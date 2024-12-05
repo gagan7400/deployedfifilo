@@ -27,17 +27,17 @@ export default function Sidebar() {
             </li>
             <li className="nav-item">
               <NavLink to="/pages" className="nav-link"  >
-                <img src="assets/imgs/task.svg" alt="pages Icon" />Pages
+                <img src="assets/imgs/pages.svg" alt="pages Icon" />Pages
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/section/casestudies" className="nav-link"  >
-                <img src="assets/img/casestudy.svg" alt="pages Icon" />Case Studies
+                <img src="assets/imgs/case-studies.svg" alt="pages Icon" />Case Studies
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/section/job" className="nav-link"  >
-                <img src="assets/img/job.svg" alt="Jobs Icon" />Jobs
+                <img src="assets/imgs/jobs.svg" alt="Jobs Icon" />Jobs
               </NavLink>
             </li>
             <li className="nav-item">
