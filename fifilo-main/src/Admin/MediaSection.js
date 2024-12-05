@@ -74,14 +74,14 @@ const MediaSection = () => {
                         <div style={{ width: "50%", height: "50%", padding: "20px", backgroundColor: "#fff" }}>
                            <button onClick={()=>{setShowModal(false)}}>X</button>
                             <h3>Attachment  Details</h3>
-                            <img style={{ width: "100px" }} src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                            <img style={{ width: "100px" }} src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                             <h6>{selectedImage.filename}</h6>
                             <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
                             <p>{new Date(selectedImage.createdAt).toDateString()} </p>
                             <button className="btn" onClick={() => handleDelete(selectedImage._id)} >
                                 Delete Permanently
                             </button>
-                           <div className="input__inr"> <input ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} /></div>
+                           <div className="input__inr"> <input ref={inputRef} value={`/images/${selectedImage.filename}`} /></div>
                             <button onClick={handleCopy}>Clip to clipboard </button>
                             {message && <p>Copied</p>}
                         </div>    </div>

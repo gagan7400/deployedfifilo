@@ -13,7 +13,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure,You Want Delete This")) {
             try {
-                let { data } = await axios.delete(`http://localhost:5000/api/media/${imageId}`);
+                let { data } = await axios.delete(`/api/media/${imageId}`);
                 if (data.success) {
                     setShowModal(false);
                     setImageUplaoded("deleted");
@@ -94,14 +94,14 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                                 <div className="attachment__details">
                                                     {/* <button onClick={()=>{setShowModal(false)}}>X</button> */}
                                                     <h3>Attachment  Details</h3>
-                                                    <img style={{ width: "100px" }} src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                                                    <img style={{ width: "100px" }} src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                                     <h6>{selectedImage.filename}</h6>
                                                     <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
                                                     <p>{new Date(selectedImage.createdAt).toDateString()} </p>
                                                     <button className="btn" onClick={() => handleDelete(selectedImage._id)} >
                                                         Delete Permanently
                                                     </button>
-                                                    <div className="input__inr">  <input ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} /></div>
+                                                    <div className="input__inr">  <input ref={inputRef} value={`/images/${selectedImage.filename}`} /></div>
                                                     <button onClick={handleCopy}>Clip to clipboard </button>
                                                     {message && <p>Copied!</p>}
                                                 </div>
