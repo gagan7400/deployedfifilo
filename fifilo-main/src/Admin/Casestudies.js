@@ -22,9 +22,10 @@ export default function Casestudies() {
         }
     }
     useEffect(() => {
-        alldata()
+        alldata() 
     }, [])
 
+    
     let deleteCaseStudy = async (id) => {
         if (window.confirm("Are You Want To Delete This")) {
             try {
