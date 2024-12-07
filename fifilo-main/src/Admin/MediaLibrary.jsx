@@ -6,7 +6,7 @@ const MediaLibrary = ({ onSelectImage, imageUploaded, showModal, setShowModal, s
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/media");
+        const response = await axios.get("/api/media");
         setImages(response.data);
       } catch (error) {
         console.error("Error fetching images", error);
@@ -28,7 +28,7 @@ const MediaLibrary = ({ onSelectImage, imageUploaded, showModal, setShowModal, s
         {images.map((image, index) => (
           <li key={index}>
             <div className="thumbnail" onClick={() => handleImageClick(image)} >
-              <img src={`http://localhost:5000/images/${image.filename}`} alt={image.filename} />
+              <img src={`/images/${image.filename}`} alt={image.filename} />
             </div>
           </li>
         )).reverse()}

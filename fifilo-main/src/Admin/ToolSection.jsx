@@ -21,7 +21,7 @@ export default function ToolSection({ tool, index, handleTools, removeTools }) {
     return (
         <div className="image__block">
             <div className="single__img">
-                <img src={tool.filename ? `http://localhost:5000/images/${tool.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                <img src={tool.filename ? `/images/${tool.filename}` : "assets/imgs/avatar.svg"} alt="" />
             </div>
             <div className="btn__grp">
                 <button className="btn" onClick={() => { openMediaLibrary() }}><img src="assets/imgs/edit-05.svg" alt="" /></button>

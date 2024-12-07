@@ -25,7 +25,7 @@ export default function CareerCardSection({ card, index, handleCardChange }) {
         <div className="col-lg-12">
             <div className="profile__block">
                 <div className="image__block">
-                    <img src={card.cardImg.filename ? `http://localhost:5000/images/${card.cardImg.filename}` : "/assets/imgs/avatar.svg"} alt="" />
+                    <img src={card.cardImg.filename ? `/images/${card.cardImg.filename}` : "/assets/imgs/avatar.svg"} alt="" />
                 </div>
                 <div className="btn__grp">
                     <button className="btn" onClick={() => { openMediaLibrary() }}><img src="/assets/imgs/edit-05.svg" alt="" /></button>

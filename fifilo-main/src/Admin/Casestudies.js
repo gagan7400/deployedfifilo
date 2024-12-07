@@ -11,7 +11,7 @@ export default function Casestudies() {
     const [allData, setAllData] = useState([]);
     let alldata = async () => {
         try {
-            let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy');
+            let { data } = await axios.get('/admin/casestudy/getcasestudy');
             if (data.success) {
                 setAllData(data.data)
             } else {
@@ -25,12 +25,12 @@ export default function Casestudies() {
         alldata() 
     }, [])
 
-    
+
     let deleteCaseStudy = async (id) => {
         if (window.confirm("Are You Want To Delete This")) {
             try {
 
-                let { data } = await axios.delete('http://localhost:5000/admin/casestudy/deletecasestudy/' + id, {
+                let { data } = await axios.delete('/admin/casestudy/deletecasestudy/' + id, {
                     headers: {
                         "x-auth-token": localStorage.getItem("token"),
                     },

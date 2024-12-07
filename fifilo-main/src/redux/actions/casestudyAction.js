@@ -13,7 +13,7 @@ const handleError = (error, dispatch, failType) => {
 export const createCasestudyPage = ({ heroSection, seoSection }) => async (dispatch) => {
     try {
         dispatch({ type: "CREATE_CASESTUDYPAGE_REQUEST" });
-        await fetch("http://localhost:5000/admin/casestudy/createcasestudypage", {
+        await fetch("/admin/casestudy/createcasestudypage", {
             method: 'POST',
             body: JSON.stringify({ heroSection, seoSection }),
             headers: {
@@ -45,7 +45,7 @@ export const createCasestudyPage = ({ heroSection, seoSection }) => async (dispa
 export const getCasestudyPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_CASESTUDYPAGE_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudypage');
+        const { data } = await axios.get('/admin/casestudy/getcasestudypage');
         dispatch({ type: "ALL_CASESTUDYPAGE_SUCCESS", payload: data });
     } catch (error) {
         handleError(error, dispatch, "ALL_CASESTUDYPAGE_FAIL");
@@ -56,7 +56,7 @@ export const getCasestudyPage = () => async (dispatch) => {
 export const publishcasestudyPage = (id) => async (dispatch) => {
     try {
         dispatch({ type: "ALL_PUBLISHCASESTUDYPAGE_REQUEST" });
-        await axios.put(`http://localhost:5000/admin/casestudy/publishcasestudypage/${id}`, {}, config);
+        await axios.put(`/admin/casestudy/publishcasestudypage/${id}`, {}, config);
         dispatch({ type: "ALL_PUBLISHCASESTUDYPAGE_SUCCESS" });
         dispatch(getCasestudyPage());
     } catch (error) {
@@ -68,7 +68,7 @@ export const publishcasestudyPage = (id) => async (dispatch) => {
 export const getPublishCasestudyPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETPUBLISHCASESTUDYPAGE_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/casestudy/getpublishedcasestudypage');
+        const { data } = await axios.get('/admin/casestudy/getpublishedcasestudypage');
         dispatch({ type: "ALL_GETPUBLISHCASESTUDYPAGE_SUCCESS", payload: data.data });
     } catch (error) {
         handleError(error, dispatch, "ALL_GETPUBLISHCASESTUDYPAGE_FAIL");
@@ -79,7 +79,7 @@ export const getPublishCasestudyPage = () => async (dispatch) => {
 export const deleteCasestudyPage = (id) => async (dispatch) => {
     try {
         dispatch({ type: "DELETE_CASESTUDYPAGE_REQUEST" });
-        await axios.delete(`http://localhost:5000/admin/casestudy/deletecasestudypage/${id}`, config);
+        await axios.delete(`/admin/casestudy/deletecasestudypage/${id}`, config);
         dispatch({ type: "DELETE_CASESTUDYPAGE_SUCCESS" });
         dispatch(getCasestudyPage());
     } catch (error) {
@@ -92,7 +92,7 @@ export const updateCasestudyPageAction = ({ casestudydata, id }) => async (dispa
     try {
         dispatch({ type: "UPDATE_CASESTUDYPAGE_REQUEST" });
         const multipartConfig = { ...config };
-        await axios.put(`http://localhost:5000/admin/casestudy/updatecasestudypage/${id}`, casestudydata, multipartConfig);
+        await axios.put(`/admin/casestudy/updatecasestudypage/${id}`, casestudydata, multipartConfig);
         dispatch({ type: "UPDATE_CASESTUDYPAGE_SUCCESS" });
         dispatch(getCasestudyPage());
     } catch (error) {

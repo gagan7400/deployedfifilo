@@ -13,7 +13,7 @@ const MediaSection = () => {
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure You Want to Delete This?")) {
             try {
-                const { data } = await axios.delete(`http://localhost:5000/api/media/${imageId}`);
+                const { data } = await axios.delete(`/api/media/${imageId}`);
                 if (data.success) {
                     console.log(data);
                     setImageUplaoded((prev) => prev === "deleted" ? "deleted-again" : "deleted");
@@ -83,7 +83,7 @@ const MediaSection = () => {
                                 <div class="modal-body">
                                     <div className="row">
                                         <div className="col-lg-9 col-md-9"><div class="upload__img ">
-                                            <img style={{ width: "100px" }} src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                                            <img style={{ width: "100px" }} src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                         </div>
                                         </div>
                                         <div className="col-lg-3 col-md-3"> <div className="file__details">

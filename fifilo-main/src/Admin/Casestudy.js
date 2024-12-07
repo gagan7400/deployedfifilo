@@ -81,7 +81,7 @@ const Casestudy = () => {
     useEffect(() => {
         const getCasestudy = async () => {
             try {
-                let { data } = await axios.get(`http://localhost:5000/admin/casestudy/getcasestudy/${name}`);
+                let { data } = await axios.get(`/admin/casestudy/getcasestudy/${name}`);
                 console.log(data)
                 if (data.success) {
                     setCasestudy(data.data);
@@ -282,7 +282,7 @@ const Casestudy = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let { data } = await axios.put('http://localhost:5000/admin/casestudy/updatecasestudy/' + casestudy._id,
+            let { data } = await axios.put('/admin/casestudy/updatecasestudy/' + casestudy._id,
                 {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg

@@ -3,7 +3,7 @@ import axios from 'axios'
 export const createFaqPage = ({ heroSection, faqSection }) => async (dispatch) => {
     try {
         dispatch({ type: "CREATE_FAQPAGE_REQUEST" });
-        await fetch("http://localhost:5000/admin/faq/createfaqpage", {
+        await fetch("/admin/faq/createfaqpage", {
             method: 'POST',
             body: JSON.stringify({ heroSection, faqSection }),
             headers: {
@@ -34,7 +34,7 @@ export const createFaqPage = ({ heroSection, faqSection }) => async (dispatch) =
 export const getFaqPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_FAQPAGE_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/faq/getfaqpage');
+        const { data } = await axios.get('/admin/faq/getfaqpage');
         if (data.success) {
             dispatch({
                 type: "ALL_FAQPAGE_SUCCESS",
@@ -63,7 +63,7 @@ export const publishFaqPage = (id) => async (dispatch) => {
             }
         };
 
-        const { data } = await axios.put(`http://localhost:5000/admin/faq/publishfaqpage/${id}`, {}, config);
+        const { data } = await axios.put(`/admin/faq/publishfaqpage/${id}`, {}, config);
         if (data.success) {
             dispatch({
                 type: "ALL_PUBLISHFAQPAGE_SUCCESS",
@@ -87,7 +87,7 @@ export const getPublishFaqPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETPUBLISHFAQPAGE_REQUEST" });
 
-        const { data } = await axios.get('http://localhost:5000/admin/faq/getpublishedfaqpage');
+        const { data } = await axios.get('/admin/faq/getpublishedfaqpage');
 
         if (data.success) {
 
@@ -116,7 +116,7 @@ export const deletefaqPage = (id) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.delete(`http://localhost:5000/admin/faq/deletefaqpage/${id}`, config);
+        const { data } = await axios.delete(`/admin/faq/deletefaqpage/${id}`, config);
         if (data.success) {
 
             await dispatch({
@@ -147,7 +147,7 @@ export const updateFaqAction = ({ faqData, id }) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.put(`http://localhost:5000/admin/faq/updatefaqpage/${id}`,
+        const { data } = await axios.put(`/admin/faq/updatefaqpage/${id}`,
             faqData,
             config
         );

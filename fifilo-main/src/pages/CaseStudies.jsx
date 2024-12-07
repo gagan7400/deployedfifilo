@@ -22,7 +22,7 @@ export default function Work() {
   let [loading, setLoading] = useState(true)
   let alldata = async () => {
     try {
-      let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy');
+      let { data } = await axios.get('/admin/casestudy/getcasestudy');
       if (data.success) {
         setCasestudy(data.data);
         setLoading(false)
@@ -156,7 +156,7 @@ export default function Work() {
         <title>{(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.title}</title>
         <meta name="keywords" content={(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.keywordstitle} />
         <meta name="description" content={(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.descriptiontitle} />
-        {(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.seoImg.filename}`} />}
+        {(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="comn__bnr work__bnr">
@@ -233,7 +233,7 @@ export default function Work() {
                   <p>{v.heroSection.description}</p>
                   <div className="img__box">
                     <NavLink to={`/${v.heroSection.pageName}/`} >
-                      <img src={(v.heroSection.cardImg && v.heroSection.cardImg.filename) && `http://localhost:5000/images/${v.heroSection.cardImg.filename}`} alt={v.heroSection.casestudyName} />
+                      <img src={(v.heroSection.cardImg && v.heroSection.cardImg.filename) && `/images/${v.heroSection.cardImg.filename}`} alt={v.heroSection.casestudyName} />
                     </NavLink>
                   </div>
                 </div>

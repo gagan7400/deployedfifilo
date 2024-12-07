@@ -2,7 +2,7 @@ import axios from 'axios'
 export const getjobs = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_JOBS_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/career/jobs');
+        const { data } = await axios.get('/admin/career/jobs');
 
         dispatch({
             type: "ALL_JOBS_SUCCESS",
@@ -24,7 +24,7 @@ export const deleteJob = (id) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.delete(`http://localhost:5000/admin/career/jobs/${id}`,
+        const { data } = await axios.delete(`/admin/career/jobs/${id}`,
             config
         );
 
@@ -50,7 +50,7 @@ export const createjob = (Jobdata) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.post('http://localhost:5000/admin/career/jobs',
+        const { data } = await axios.post('/admin/career/jobs',
             Jobdata,
             config
         );
@@ -75,7 +75,7 @@ export const updatejobAction = ({ Jobdata, id }) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.put(`http://localhost:5000/admin/career/job/${id}`,
+        const { data } = await axios.put(`/admin/career/job/${id}`,
             Jobdata,
             config
         );
@@ -111,7 +111,7 @@ const handleError = (error, dispatch, failType) => {
 export const getCareerPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_CAREERPAGE_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/career/getcareerpage');
+        const { data } = await axios.get('/admin/career/getcareerpage');
         dispatch({ type: "ALL_CAREERPAGE_SUCCESS", payload: data });
     } catch (error) {
         handleError(error, dispatch, "ALL_CAREERPAGE_FAIL");
@@ -122,7 +122,7 @@ export const getCareerPage = () => async (dispatch) => {
 export const publishCareerPage = (id) => async (dispatch) => {
     try {
         dispatch({ type: "ALL_PUBLISHCAREERPAGE_REQUEST" });
-        await axios.put(`http://localhost:5000/admin/career/publishcareerpage/${id}`, {}, config);
+        await axios.put(`/admin/career/publishcareerpage/${id}`, {}, config);
         dispatch({ type: "ALL_PUBLISHCAREERPAGE_SUCCESS" });
         dispatch(getCareerPage());
     } catch (error) {
@@ -134,7 +134,7 @@ export const publishCareerPage = (id) => async (dispatch) => {
 export const getpublishCareerPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETPUBLISHCAREERPAGE_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/career/getpublishedcareerpage');
+        const { data } = await axios.get('/admin/career/getpublishedcareerpage');
         dispatch({ type: "ALL_GETPUBLISHCAREERPAGE_SUCCESS", payload: data.data });
     } catch (error) {
         handleError(error, dispatch, "ALL_GETPUBLISHCAREERPAGE_FAIL");
@@ -145,7 +145,7 @@ export const getpublishCareerPage = () => async (dispatch) => {
 export const deleteCareerPage = (id) => async (dispatch) => {
     try {
         dispatch({ type: "DELETE_CAREERPAGE_REQUEST" });
-        await axios.delete(`http://localhost:5000/admin/career/deletecareerpage/${id}`, config);
+        await axios.delete(`/admin/career/deletecareerpage/${id}`, config);
         dispatch({ type: "DELETE_CAREERPAGE_SUCCESS" });
         dispatch(getCareerPage());
     } catch (error) {
@@ -158,7 +158,7 @@ export const updateCareerPageAction = ({ careerdata, id }) => async (dispatch) =
     try {
         dispatch({ type: "UPDATE_CAREERPAGE_REQUEST" });
         const multipartConfig = { ...config };
-        await axios.put(`http://localhost:5000/admin/career/updatecareerpage/${id}`, careerdata, multipartConfig);
+        await axios.put(`/admin/career/updatecareerpage/${id}`, careerdata, multipartConfig);
         dispatch({ type: "UPDATE_CAREERPAGE_SUCCESS" });
         dispatch(getCareerPage());
     } catch (error) {

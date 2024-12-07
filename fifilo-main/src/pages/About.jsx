@@ -307,7 +307,7 @@ export default function About() {
         <title>{(!publishedLoading && publishedData) && publishedData.seoSection.title}</title>
         <meta name="keywords" content={(!publishedLoading && publishedData) && publishedData.seoSection.keywords}></meta>
         <meta name="description" content={(!publishedLoading && publishedData) && publishedData.seoSection.description}></meta>
-        {(!publishedLoading && publishedData) && publishedData.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedLoading && publishedData) && publishedData.seoSection.seoImg.filename}`} />}
+        {(!publishedLoading && publishedData) && publishedData.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedLoading && publishedData) && publishedData.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="comn__bnr about__bnr">
@@ -368,7 +368,7 @@ export default function About() {
                     <div className="col-lg-1 col-md-1 col-2 center__bx">
                       <div className="border-section">
                         <div className="stroke-circle">
-                          <img src={(v.icon && v.icon.filename) ? `http://localhost:5000/images/${v.icon.filename}` : ""} alt="icon" />
+                          <img src={(v.icon && v.icon.filename) ? `/images/${v.icon.filename}` : ""} alt="icon" />
                         </div>
                         <div className="stroke-border">
                           <div className="arrow-down">
@@ -396,7 +396,7 @@ export default function About() {
                         <div className="border-section">
                           <div className="stroke-circle">
 
-                            <img src={(v.icon && v.icon.filename) ? `http://localhost:5000/images/${v.icon.filename}` : ""} alt="icon" />
+                            <img src={(v.icon && v.icon.filename) ? `/images/${v.icon.filename}` : ""} alt="icon" />
                           </div>
                           <div className="stroke-border">
                             <div className="arrow-down">
@@ -431,7 +431,7 @@ export default function About() {
               return <div className="col-lg-3 col-md-6 col-6" key={index + 1}>
                 <div className="team__card" data-aos="fade-up" data-aos-duration="800">
                   <div className="img__team">
-                    <img src={member.memberImg && member.memberImg.filename ? "http://localhost:5000/images/" + member.memberImg.filename : "assets/img/img_fullsize.png"} alt="our-team" />
+                    <img src={member.memberImg && member.memberImg.filename ? "/images/" + member.memberImg.filename : "assets/img/img_fullsize.png"} alt="our-team" />
                   </div>
                   <div className="team__detail">
                     <div>

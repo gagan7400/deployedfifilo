@@ -8,7 +8,7 @@ export const contactus = (Contactdata) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.post('http://localhost:5000/admin/contactus',
+        const { data } = await axios.post('/admin/contactus',
             Contactdata,
             config
         );
@@ -28,7 +28,7 @@ export const contactus = (Contactdata) => async (dispatch) => {
 export const getContactPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_CONTACTPAGE_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/contactus/getcontactpage');
+        const { data } = await axios.get('/admin/contactus/getcontactpage');
         dispatch({
             type: "ALL_CONTACTPAGE_SUCCESS",
             payload: data.data,
@@ -50,7 +50,7 @@ export const publishContactPage = (id) => async (dispatch) => {
             }
         };
 
-        const { data } = await axios.put(`http://localhost:5000/admin/contactus/publishcontactpage/${id}`, {}, config);
+        const { data } = await axios.put(`/admin/contactus/publishcontactpage/${id}`, {}, config);
         dispatch({
             type: "ALL_PUBLISHCONTACTPAGE_SUCCESS",
             payload: data,
@@ -67,7 +67,7 @@ export const getPublishContactPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETPUBLISHCONTACTPAGE_REQUEST" });
 
-        const { data } = await axios.get('http://localhost:5000/admin/contactus/getpublishedcontactpage');
+        const { data } = await axios.get('/admin/contactus/getpublishedcontactpage');
 
         dispatch({
             type: "ALL_GETPUBLISHCONTACTPAGE_SUCCESS",
@@ -90,7 +90,7 @@ export const deleteContactPage = (id) => async (dispatch) => {
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.delete(`http://localhost:5000/admin/contactus/deletecontactpage/${id}`, config);
+        const { data } = await axios.delete(`/admin/contactus/deletecontactpage/${id}`, config);
         await dispatch({
             type: "DELETE_CONTACTPAGE_SUCCESS",
             payload: data.data,
@@ -113,7 +113,7 @@ export const updateContactPageAction = ({ contactPageData, id }) => async (dispa
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.put(`http://localhost:5000/admin/contactus/updatecontactpage/${id}`,
+        const { data } = await axios.put(`/admin/contactus/updatecontactpage/${id}`,
             contactPageData,
             config
         );

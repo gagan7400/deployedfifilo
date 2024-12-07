@@ -24,7 +24,7 @@ export default function ServicepageServicecard({ card, index, handleServiceCardC
         <div className="col-lg-12">
             <div className="profile__block">
                 <div className="image__block">
-                    <img src={card.serviceImg.filename ? `http://localhost:5000/images/${card.serviceImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                    <img src={card.serviceImg.filename ? `/images/${card.serviceImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
                 </div>
                 <div className="btn__grp">
                     <button className="btn"><img src="assets/imgs/edit-05.svg" alt="" onClick={() => { openMediaLibrary() }} /></button>

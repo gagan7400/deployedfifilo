@@ -21,7 +21,7 @@ export default function Home() {
 
   let alldata = async () => {
     try {
-      let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy');
+      let { data } = await axios.get('/admin/casestudy/getcasestudy');
       if (data.success) {
         setCasestudies(data.data);
         setLoading(false)
@@ -171,7 +171,7 @@ export default function Home() {
         <title>{(!homeloading && publishedhomepage) && publishedhomepage.seoSection.title}</title>
         <meta name='keywords' content={(!homeloading && publishedhomepage) && publishedhomepage.seoSection.keywords} />
         <meta name='description' content={(!homeloading && publishedhomepage) && publishedhomepage.seoSection.description} />
-        {(!homeloading && publishedhomepage) && publishedhomepage.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!homeloading && publishedhomepage) && publishedhomepage.seoSection.seoImg.filename}`} />}
+        {(!homeloading && publishedhomepage) && publishedhomepage.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!homeloading && publishedhomepage) && publishedhomepage.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="hero__bnr dark__bnr">
@@ -230,7 +230,7 @@ export default function Home() {
                   <p>{card.heroSection.description}</p>
                   <div className="img__box"  >
                     <NavLink to={`/casestudy/${card.heroSection.pageName}/`} >
-                      <img src={(card.heroSection.homeImg && card.heroSection.homeImg.filename) && `http://localhost:5000/images/${card.heroSection.homeImg.filename}`} alt={card.heroSection.casestudyName} />
+                      <img src={(card.heroSection.homeImg && card.heroSection.homeImg.filename) && `/images/${card.heroSection.homeImg.filename}`} alt={card.heroSection.casestudyName} />
                     </NavLink>
                   </div>
                 </div>
@@ -279,7 +279,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-3 d-none d-lg-block">
                       <div className="services__img">
-                        <img src={`http://localhost:5000/images/${service.serviceImgs && service.serviceImgs.filename}`} alt={service.heading} />
+                        <img src={`/images/${service.serviceImgs && service.serviceImgs.filename}`} alt={service.heading} />
                       </div>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export default function Home() {
                 {publishedhomepage.reviewsSection.map((item, index) => (
                   <div className="item__slide" key={index} data-aos="fade-up" data-aos-duration="800">
                     <div className="img__bx">
-                      <img src={item.clientImgs && item.clientImgs.filename ? `http://localhost:5000/images/${item.clientImgs.filename}` : "assets/imgs/avatar.svg"} alt="clients" />
+                      <img src={item.clientImgs && item.clientImgs.filename ? `/images/${item.clientImgs.filename}` : "assets/imgs/avatar.svg"} alt="clients" />
                     </div>
                     <div className="content__box">
                       <h6>
@@ -346,7 +346,7 @@ export default function Home() {
                 {!homeloading && publishedhomepage.clientSection.clientLogos.map((card, index) => {
                   return <div className="col-lg-2 col-md-2 col-6" key={index}>
                     <div className="card__logo">
-                      <img src={card ? `http://localhost:5000/images/${card && card.filename}` : "assets/img/clients-logo-01.png"} data-aos="zoom-in" data-aos-duration="1200" alt="clients-logo" />
+                      <img src={card ? `/images/${card && card.filename}` : "assets/img/clients-logo-01.png"} data-aos="zoom-in" data-aos-duration="1200" alt="clients-logo" />
                     </div>
                   </div>
                 })

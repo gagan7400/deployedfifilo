@@ -13,7 +13,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     // const handleDelete = async (imageId) => {
     //     if (window.confirm("Are You Sure,You Want Delete This")) {
     //         try {
-    //             let { data } = await axios.delete(`http://localhost:5000/api/media/${imageId}`);
+    //             let { data } = await axios.delete(`/api/media/${imageId}`);
     //             console.log(data)
     //             if (data.success) {
     //                 console.log(data)
@@ -31,7 +31,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure You Want to Delete This?")) {
             try {
-                const { data } = await axios.delete(`http://localhost:5000/api/media/${imageId}`);
+                const { data } = await axios.delete(`/api/media/${imageId}`);
                 if (data.success) {
                     console.log(data);
                     setImageUplaoded((prev) => prev === "deleted" ? "deleted-again" : "deleted");
@@ -114,7 +114,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                                     <div className="attachment__details">
                                                         <h6>Attachment  Details</h6>
                                                         <div class="upload__img">
-                                                            <img src={`http://localhost:5000/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                                                            <img src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                                         </div>
                                                         <div class="file__details">
                                                             <p><span>{selectedImage.filename}</span></p>
@@ -123,7 +123,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                                             <button class="btn" onClick={() => handleDelete(selectedImage._id)}>Delete Permanently</button>
                                                         </div>
                                                         <div class="input__inr">
-                                                            <input class="form-control" ref={inputRef} value={`http://localhost:5000/images/${selectedImage.filename}`} />
+                                                            <input class="form-control" ref={inputRef} value={`/images/${selectedImage.filename}`} />
                                                         </div>
                                                         <div className="position-relative">
                                                             <button class="btn btn__copy" onClick={handleCopy}>Clip to clipboard </button>

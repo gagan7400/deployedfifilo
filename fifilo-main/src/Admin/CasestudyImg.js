@@ -44,10 +44,10 @@ export default function CasestudyImg({ name, heroSection, setHeroSection }) {
                 <div className="image__block">
                     <div className="single__img">
                         {name === "heroImg" ?
-                            <img src={heroSection.heroImg.filename ? `http://localhost:5000/images/${heroSection.heroImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                            <img src={heroSection.heroImg.filename ? `/images/${heroSection.heroImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
                             : name == "cardImg" ?
-                                <img src={heroSection.cardImg && heroSection.cardImg.filename ? `http://localhost:5000/images/${heroSection.cardImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
-                                : <img src={heroSection.homeImg && heroSection.homeImg.filename ? `http://localhost:5000/images/${heroSection.homeImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                                <img src={heroSection.cardImg && heroSection.cardImg.filename ? `/images/${heroSection.cardImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                                : <img src={heroSection.homeImg && heroSection.homeImg.filename ? `/images/${heroSection.homeImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
                         }
                     </div>
                     <div className="btn__grp">

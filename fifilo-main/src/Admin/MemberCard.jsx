@@ -24,7 +24,7 @@ export default function MemberCard({ card, index, handleMembersCardChange }) {
         <div className="col-lg-12">
             <div className="profile__block">
                 <div className="image__block">
-                    <img src={card.memberImg.filename ? `http://localhost:5000/images/${card.memberImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                    <img src={card.memberImg.filename ? `/images/${card.memberImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
                 </div>
                 <div className="btn__grp">
                     <button className="btn" onClick={() => { openMediaLibrary() }}><img src="/assets/imgs/edit-05.svg" alt="" /></button>

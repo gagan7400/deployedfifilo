@@ -94,7 +94,7 @@ export default function Careerform({ closemodel }) {
             // formdata.append("resume", resume)
             // dispatch(contactus({ name: Name, email: Email, phonenumber: Number, message: Message, servicerequired, resume: resume[1] }))
             try {
-                let data = await fetch("http://localhost:5000/admin/contactus/jobapplicant", {
+                let data = await fetch("/admin/contactus/jobapplicant", {
                     method: "POST",
                     body: formdata,
                 });
