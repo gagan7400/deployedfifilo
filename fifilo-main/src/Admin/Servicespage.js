@@ -15,7 +15,7 @@ const ServicesForm = () => {
     useEffect(() => {
         dispatch(getpublishServicePage())
     }, [])
-    const { publishedServicePage, publishLoading } = useSelector((state) => state.services);
+    const { publishedServicePage, publishedServiceLoading } = useSelector((state) => state.services);
 
     const [heroSection, setHeroSection] = useState({
         heading: "",
@@ -212,7 +212,7 @@ const ServicesForm = () => {
         <>
             <Sidebar titles="Services  Page" />
             <div className="main__content">
-            {publishLoading && <Loader />}
+                {publishedServiceLoading && <Loader />}
                 <div className="page__editors">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">

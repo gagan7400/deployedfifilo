@@ -1,10 +1,10 @@
 export const casestudyReducer = (state = {
     casestudyloading: true,
     error: null,
-     casestudydata: null,
+    casestudydata: null,
     publishedcasestudydata: null,
     updatecasestudyloading: true,
-    deleteloading: false
+    deleteloading: true
 }, action) => {
     switch (action.type) {
         case "ALL_CASESTUDYPAGE_REQUEST":

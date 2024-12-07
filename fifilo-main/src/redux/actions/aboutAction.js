@@ -14,7 +14,7 @@ const getAuthConfig = (isMultipart = false) => ({
 export const getAboutPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_ABOUTPAGE_REQUEST" });
-        const { data } = await axios.get('/admin/about/getaboutpage');
+        const { data } = await axios.get('http://localhost:5000/admin/about/getaboutpage');
         if (data.success) {
             dispatch({ type: "ALL_ABOUTPAGE_SUCCESS", payload: data.data });
         } else {
@@ -29,7 +29,7 @@ export const publishAboutPage = (id) => async (dispatch) => {
     try {
         dispatch({ type: "ALL_PUBLISHABOUTPAGE_REQUEST" });
         const { data } = await axios.put(
-            `/admin/about/publishaboutpage/${id}`,
+            `http://localhost:5000/admin/about/publishaboutpage/${id}`,
             {},
             getAuthConfig()
         );
@@ -47,7 +47,7 @@ export const publishAboutPage = (id) => async (dispatch) => {
 export const getPublishAboutPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETPUBLISHABOUTPAGE_REQUEST" });
-        const { data } = await axios.get('/admin/about/getpublishedaboutpage');
+        const { data } = await axios.get('http://localhost:5000/admin/about/getpublishedaboutpage');
         if (data.success) {
             dispatch({ type: "ALL_GETPUBLISHABOUTPAGE_SUCCESS", payload: data.data });
         } else {
@@ -62,7 +62,7 @@ export const deleteAboutPage = (id) => async (dispatch) => {
     try {
         dispatch({ type: "DELETE_ABOUTPAGE_REQUEST" });
         const { data } = await axios.delete(
-            `/admin/about/deleteaboutpage/${id}`,
+            `http://localhost:5000/admin/about/deleteaboutpage/${id}`,
             getAuthConfig()
         );
         if (data.success) {
@@ -79,7 +79,7 @@ export const updateAboutPageAction = ({ aboutData, id }) => async (dispatch) => 
     try {
         dispatch({ type: "UPDATE_ABOUTPAGE_REQUEST" });
         const { data } = await axios.put(
-            `/admin/about/updateaboutpage/${id}`,
+            `http://localhost:5000/admin/about/updateaboutpage/${id}`,
             aboutData,
             getAuthConfig(false)
         );

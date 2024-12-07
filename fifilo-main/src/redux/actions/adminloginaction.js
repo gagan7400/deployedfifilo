@@ -7,7 +7,7 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: "LOGIN_REQUEST" });
     const config = { headers: { "Content-Type": "application/json" } };
-    await fetch("/admin/login", {
+    await fetch("http://localhost:5000/admin/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {

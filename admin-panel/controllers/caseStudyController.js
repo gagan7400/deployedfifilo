@@ -24,7 +24,8 @@ const getCaseStudy = async (req, res) => {
 const getCaseStudyByName = async (req, res) => {
     try {
         let { name } = req.params;
-        const result = await caseStudyModel.findOne({ "heroSection.casestudyName": name });
+        const result = await caseStudyModel.findOne({ "heroSection.pageName": name });
+        if (!result) { return res.status(404).json({ success: false, message: `Case study with pageName '${name}' not found.` }); }
         res.send({ success: true, data: result });
     } catch (err) {
         res.status(400).json({ success: false, message: err.message });

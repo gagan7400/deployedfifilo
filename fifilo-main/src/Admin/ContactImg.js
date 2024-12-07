@@ -25,7 +25,7 @@ export default function ContactImg({ updateContact, index, name, data }) {
 
             <div className="profile__block">
                 <div className="image__block">
-                    <img src={data && data.filename ? `/images/${data.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                    <img src={data && data.filename ? `http://localhost:5000/images/${data.filename}` : "assets/imgs/avatar.svg"} alt="" />
                 </div>
                 <div className="btn__grp">
                     <button className="btn" type="button" onClick={openMediaLibrary}><img src="assets/imgs/edit-05.svg"

@@ -16,6 +16,7 @@ const Casestudy = () => {
 
     const [heroSection, setHeroSection] = useState({
         casestudyName: "",
+        pageName: "",
         description: "",
         buttonsContent: "",
         workButtons: [{ url: "", name: "" }],
@@ -80,7 +81,8 @@ const Casestudy = () => {
     useEffect(() => {
         const getCasestudy = async () => {
             try {
-                let { data } = await axios.get(`/admin/casestudy/getcasestudy/${name}`);
+                let { data } = await axios.get(`http://localhost:5000/admin/casestudy/getcasestudy/${name}`);
+                console.log(data)
                 if (data.success) {
                     setCasestudy(data.data);
                     setHeroSection({ ...data.data.heroSection });
@@ -106,21 +108,21 @@ const Casestudy = () => {
 
         getCasestudy();
     }, [name]);
-    const addFullWidthImg = () => {
-        let newImg = { filename: "", path: "" }
-        setFullWidthImg(prevState => ([...prevState, { ...newImg }]));
-    }
-    const removeFullWidthImg = (index) => {
-        if (window.confirm("Are You Sure ,You Want To Delete This")) {
-            const updatedContent = fullWidthImg.filter((_, i) => i !== index);
-            setFullWidthImg([...updatedContent]);
-        }
-    }
-    const handleFullWidthImg = (index, data) => {
-        const newImg = fullWidthImg.map((img) => ({ ...img }));
-        newImg[index] = data;
-        setFullWidthImg([...newImg])
-    }
+    // const addFullWidthImg = () => {
+    //     let newImg = { filename: "", path: "" }
+    //     setFullWidthImg(prevState => ([...prevState, { ...newImg }]));
+    // }
+    // const removeFullWidthImg = (index) => {
+    //     if (window.confirm("Are You Sure ,You Want To Delete This")) {
+    //         const updatedContent = fullWidthImg.filter((_, i) => i !== index);
+    //         setFullWidthImg([...updatedContent]);
+    //     }
+    // }
+    // const handleFullWidthImg = (index, data) => {
+    //     const newImg = fullWidthImg.map((img) => ({ ...img }));
+    //     newImg[index] = data;
+    //     setFullWidthImg([...newImg])
+    // }
     const addFontTable = () => {
         setTypographyData((prevState) => ({
             ...prevState,
@@ -280,7 +282,7 @@ const Casestudy = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let { data } = await axios.put('/admin/casestudy/updatecasestudy/' + casestudy._id,
+            let { data } = await axios.put('http://localhost:5000/admin/casestudy/updatecasestudy/' + casestudy._id,
                 {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg
@@ -312,11 +314,11 @@ const Casestudy = () => {
                         <ol className="breadcrumb">
                             <li className="breadcrumb-item"><NavLink to="/section/casestudies">Back</NavLink></li>
                             <li className="breadcrumb-item"><img src="assets/imgs/chevron-right.svg" alt="" /></li>
-                            <li className="breadcrumb-item active">{pageData?.heroSection?.casestudyName}</li>
+                            <li className="breadcrumb-item active">{!loading && casestudy?.heroSection?.casestudyName}</li>
                         </ol>
                     </nav>
                     <div className="page__title">
-                        <h5>{pageData?.heroSection?.casestudyName}</h5>
+                        <h5>{!loading && casestudy?.heroSection?.casestudyName}</h5>
                     </div>
                     <div className="page__editContent">
                         <ul className="nav nav-pills" id="pills-tab" role="tablist">
@@ -381,10 +383,23 @@ const Casestudy = () => {
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="input__inr">
-                                                        <label htmlFor="heroheading">Casestudy Name</label>
+                                                        <label htmlFor="heroPagename">Page Name</label>
                                                         <input required type="text"
-                                                            name="heroSection"
-                                                            id="heroheading"
+                                                            name="heroPagename"
+                                                            id="heroPagename"
+                                                            className="form-control"
+                                                            value={heroSection.pageName}
+                                                            onChange={(e) => setHeroSection({ ...heroSection, pageName: e.target.value })}
+                                                            placeholder="Enter page Name"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-12">
+                                                    <div className="input__inr">
+                                                        <label htmlFor="casestudyName">Casestudy Name</label>
+                                                        <input required type="text"
+                                                            name="casestudyName"
+                                                            id="casestudyName"
                                                             className="form-control"
                                                             value={heroSection.casestudyName}
                                                             onChange={(e) => setHeroSection({ ...heroSection, casestudyName: e.target.value })}
@@ -467,9 +482,7 @@ const Casestudy = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <label htmlFor="buttonsContent">Hero IMg</label>
-
-                                            </div>
+                                                </div>
                                             <div className="update__block">
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>

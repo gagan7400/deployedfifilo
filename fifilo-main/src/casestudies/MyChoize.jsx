@@ -39,7 +39,7 @@ export default function MyChoize() {
       <div className="caseStudies__bnr myChoize__bnr">
         <div className="container">
           <div className="top__bx" data-aos="fade-up" data-aos-duration="800">
-            <h1>Mychoize</h1>
+            <h1>Myc  c dcdchoize</h1>
             <h6>India's largest Car Rental Company Owned by ORIX</h6>
           </div>
           <div className="center__bx" data-aos="fade-up" data-aos-duration="900">

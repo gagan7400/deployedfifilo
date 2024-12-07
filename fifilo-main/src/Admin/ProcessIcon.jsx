@@ -42,10 +42,10 @@ export default function ProcessIcon({ handleContentCardChange, card, name, index
             <div className="profile__block">
                 <div className="image__block">
                     {card && !heroSection ?
-                        <img src={card.icon.filename ? `/images/${card.icon.filename}` : "assets/img/img_fullsize.png"} alt="" />
+                        <img src={card.icon.filename ? `http://localhost:5000/images/${card.icon.filename}` : "assets/img/img_fullsize.png"} alt="" />
                         : name === "heroImg" ?
-                            <img src={heroSection.heroImg.filename ? `/images/${heroSection.heroImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
-                            : <img src={heroSection.cardImg && heroSection.cardImg.filename ? `/images/${heroSection.cardImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                            <img src={heroSection.heroImg.filename ? `http://localhost:5000/images/${heroSection.heroImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                            : <img src={heroSection.cardImg && heroSection.cardImg.filename ? `http://localhost:5000/images/${heroSection.cardImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
                     }
                 </div>
                 <div className="btn__grp">

@@ -121,9 +121,6 @@ const Login = () => {
         <>
             <div className="contact__bnr hero__bnr" ref={heroBnrRef} >
                 <ToastContainer autoClose={2000} />
-                <style>
-
-                </style>
                 <div className="col-xxl-3 col-lg-4 col-md-5">
                     <form onSubmit={submithandler}>
                         <div className="form__card">
@@ -161,6 +158,7 @@ const Login = () => {
                         </div>
                     </form>
                 </div>
+
             </div>
         </>
     );

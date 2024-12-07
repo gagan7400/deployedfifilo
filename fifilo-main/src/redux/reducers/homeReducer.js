@@ -1,5 +1,5 @@
 export const homePageReducer = (state = {
-    homeloading: false,
+    homeloading: true,
     homedata: null,
     publishedhomepage: null,
     publisherror: null,

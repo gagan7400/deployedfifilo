@@ -3,7 +3,7 @@ export const pageReducer = (state = { pageData: null, pageloading: true }, actio
     switch (action.type) {
         case "PAGEDATA":
             return {
-                pageloading: false,
+                pageloading: true,
                 pageData: action.payload
             };
         default:

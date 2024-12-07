@@ -4,37 +4,40 @@ import $ from "jquery";
 import { another, getdata } from "../casestudies/New";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import DOMPurify from 'dompurify';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from "../layout/Loader";
 export default function Casestudy() {
-    let { name } = useParams()
-    // const { pageData } = useSelector((state) => state.page);
+    let { name } = useParams();
     let [casestudy, setCasestudy] = useState(null);
     let [casestudies, setCasestudies] = useState(null);
     let [loading, setLoading] = useState(true);
-    console.log(name, name.split("-").join(""))
+    let nav = useNavigate();
+    let location = useLocation();
+    useEffect(() => {
+        getCasestudy();
+    }, [location]);
     let getCasestudy = async () => {
         try {
-            console.log(name, name.split("-").join(""))
-            let { data } = await axios.get('/admin/casestudy/getcasestudy/' + name.split("-").join(""));
+            let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy/' + name);
             if (data.success) {
                 setCasestudy(data.data);
                 setLoading(false)
             } else {
                 setCasestudy(null);
-                alert("error occured");
+                nav("/not-found")
             }
         } catch (error) {
             setCasestudy(null)
             setCasestudy(null);
+            nav("/not-found")
         }
     }
     let alldata = async () => {
         try {
-            let { data } = await axios.get('/admin/casestudy/getcasestudy');
+            let { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy');
             if (data.success) {
                 setCasestudies(data.data);
                 setLoading(false)
@@ -78,6 +81,7 @@ export default function Casestudy() {
 
     let classes = ["large", "medium", "normal", "small"]
     return (
+
         <>
             <Helmet>
                 <title>MyChoize | Enhancing Car Rental Experiences | Fifilo Design</title>
@@ -86,9 +90,10 @@ export default function Casestudy() {
                     content="Discover how Fifilo Design transformed MyChoize, India’s largest car rental company, by streamlining the booking process, improving website performance, and enhancing personalization features. Boost customer satisfaction and conversion rates with a user-friendly design."
                 />
             </Helmet>
-            <div className="caseStudies__bnr myChoize__bnr">
+            <div className={`caseStudies__bnr ${!loading && casestudy ? casestudy.heroSection.casestudyName.toLowerCase() : ``} `}>
                 {(loading && !casestudy) && <Loader />}
                 <div className="container">
+
                     <div className="top__bx" data-aos="fade-up" data-aos-duration="800">
                         <h1 dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(!loading && casestudy ? casestudy.heroSection.casestudyName : ``)
@@ -106,7 +111,7 @@ export default function Casestudy() {
                         })}
                     </div>
                     <div className="bottom__bx" data-aos="fade-up" data-aos-duration="1000">
-                        <img src={(!loading && casestudy) ? `/images/${casestudy.heroSection.heroImg.filename}` : ""} alt="banner" />
+                        <img src={(!loading && casestudy) ? `http://localhost:5000/images/${casestudy.heroSection.heroImg.filename}` : ""} alt="banner" />
                     </div>
                 </div>
             </div>
@@ -179,7 +184,7 @@ export default function Casestudy() {
                                             <div className="scroll-border">
                                                 <div className="horizontal-border"></div>
                                                 <div className="horizontal-stroke active">
-                                                    <img src={card && card.icon && card.icon.filename && `/images/${card.icon.filename}`} alt="icon" />
+                                                    <img src={card && card.icon && card.icon.filename && `http://localhost:5000/images/${card.icon.filename}`} alt="icon" />
                                                 </div>
                                                 <div className="horizontal-stroke-arrow">
                                                     <div className="arrow-down">
@@ -223,7 +228,7 @@ export default function Casestudy() {
                                     <div className="col-lg-1 col-2 center__bx">
                                         <div className="border-section">
                                             <div className="stroke-circle">
-                                                <img src={card && card.icon && card.icon.filename && `/images/${card.icon.filename}`} alt="icon" />
+                                                <img src={card && card.icon && card.icon.filename && `http://localhost:5000/images/${card.icon.filename}`} alt="icon" />
                                             </div>
                                             <div className="stroke-border">
                                                 <div className="arrow-down">
@@ -259,7 +264,7 @@ export default function Casestudy() {
                     </div>
                     {!loading && casestudy && casestudy.sketches.imgs.map((img, index) => (
                         <div className="img__fullContainer" data-aos="fade-up" data-aos-duration="800" key={index}>
-                            <img src={img && img.filename && `/images/${img.filename}`} alt="" />
+                            <img src={img && img.filename && `http://localhost:5000/images/${img.filename}`} alt="" />
                         </div>
                     ))}
 
@@ -362,37 +367,38 @@ export default function Casestudy() {
                 </div>
                 {!loading && casestudy && casestudy.updatedLook.imgs.map((img, index) => (
                     <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
-                        <img src={img && img.filename && `/images/${img.filename}`} alt="" />
+                        <img src={img && img.filename && `http://localhost:5000/images/${img.filename}`} alt="" />
                     </div>
                 ))}
-
-                <div className="container" data-aos="fade-up" data-aos-duration="800">
-                    <div className="row justify-content-center">
-                        {!loading && casestudy.impactAndImprovement && casestudy.impactAndImprovement.heading && <div className="col-lg-10">
-                            <div className="content__box" data-aos="fade-up" data-aos-duration="800">
-                                <h3 dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(!loading && casestudy && casestudy.impactAndImprovement.heading)
-                                }} />
-                                <div dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(!loading && casestudy && casestudy.impactAndImprovement.description)
-                                }} />
-                            </div>
-                        </div>}
-                        <div className="col-lg-10">
-                            <div className="content__box">
-                                <h3 dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(!loading && casestudy && casestudy.howFifiloDesignsDrives.heading)
-                                }} />
-                                <p dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(!loading && casestudy && casestudy.howFifiloDesignsDrives.description)
-                                }} />
+                {!loading && casestudy?.impactAndImprovement &&
+                    <div className="container" data-aos="fade-up" data-aos-duration="800">
+                        <div className="row justify-content-center">
+                            {!loading && casestudy?.impactAndImprovement && casestudy.impactAndImprovement.heading == "" && <div className="col-lg-10">
+                                <div className="content__box" data-aos="fade-up" data-aos-duration="800">
+                                    <h3 dangerouslySetInnerHTML={{
+                                        __html: DOMPurify.sanitize(!loading && casestudy && casestudy.impactAndImprovement.heading)
+                                    }} />
+                                    <div dangerouslySetInnerHTML={{
+                                        __html: DOMPurify.sanitize(!loading && casestudy && casestudy.impactAndImprovement.description)
+                                    }} />
+                                </div>
+                            </div>}
+                            <div className="col-lg-10">
+                                <div className="content__box">
+                                    <h3 dangerouslySetInnerHTML={{
+                                        __html: DOMPurify.sanitize(!loading && casestudy && casestudy.howFifiloDesignsDrives.heading)
+                                    }} />
+                                    <p dangerouslySetInnerHTML={{
+                                        __html: DOMPurify.sanitize(!loading && casestudy && casestudy.howFifiloDesignsDrives.description)
+                                    }} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
                 {!loading && casestudy && casestudy.fullWidthImg.length && casestudy.fullWidthImg.map((img, index) => (
                     <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
-                        <img src={img && img.filename && `/images/${img.filename}`} alt="" />
+                        <img src={img && img.filename && `http://localhost:5000/images/${img.filename}`} alt="" />
                     </div>
                 ))}
             </div>
@@ -405,9 +411,8 @@ export default function Casestudy() {
                         </h2>
                     </div>
                     <div className="inner__gapTop row">
-                        {console.log(!loading && casestudies && casestudy && casestudies.filter((item) => item.heroSection.casestudyName !== casestudy.heroSection.casestudyName).slice(0, 2))}
                         {!loading && casestudies && casestudy && casestudies.filter((item) => item.heroSection.casestudyName !== casestudy.heroSection.casestudyName).slice(0, 2).map((value, index) => (
-                            <div className="col-lg-6 col-md-6" data-aos={index % 2 == 0 ? "fade-right" : "fade-left"} data-aos-duration="800">
+                            <div className="col-lg-6 col-md-6" data-aos={index % 2 == 0 ? "fade-right" : "fade-left"} data-aos-duration="800" key={index}>
                                 <div className="card__caseStudies">
                                     <div className="top__keywords">
                                         {(!loading && value) && value.heroSection.workButtons.map((btn, index) => {
@@ -415,64 +420,21 @@ export default function Casestudy() {
                                         })}
                                     </div>
                                     <h4>
-                                        <NavLink to={`/casestudy/${value.heroSection.casestudyName.split(" ").join("-")}`}>
+                                        <NavLink to={`/${value.heroSection.pageName}/`} >
                                             {value.heroSection.casestudyName}{" "}
                                             <img src="./assets/img/arrow-up-right.svg" alt="case-studies" />
                                         </NavLink>
                                     </h4>
                                     <p>{value.heroSection.description}</p>
                                     <div className="img__box">
-                                        <NavLink to={`/casestudy/${value.heroSection.casestudyName.split(" ").join("-")}`}>
-                                            <img src={(value.heroSection.cardImg && value.heroSection.cardImg.filename) && `/images/${value.heroSection.cardImg.filename}`} alt={value.heroSection.casestudyName} />
+                                        <NavLink to={`/${value.heroSection.pageName}/`}  >
+                                            <img src={(value.heroSection.cardImg && value.heroSection.cardImg.filename) && `http://localhost:5000/images/${value.heroSection.cardImg.filename}`} alt={value.heroSection.casestudyName} />
                                         </NavLink>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    {/* <div className="inner__gapTop row">
-                        <div className="col-lg-6 col-md-6" data-aos="fade-right" data-aos-duration="800">
-                            <div className="card__caseStudies">
-                                <div className="top__keywords">
-                                    <span>Branding</span>
-                                    <span>UI/UX Design</span>
-                                </div>
-                                <h4>
-                                    <NavLink to="/flipfolder/">
-                                        Flip Folder{" "}
-                                        <img src="./assets/img/arrow-up-right.svg" alt="case-studies" />
-                                    </NavLink>
-                                </h4>
-                                <p>Dive into the hassle free world of sheet music</p>
-                                <div className="img__box">
-                                    <NavLink to="/flipfolder/">
-                                        <img src="./assets/img/cs-7.png" alt="case-studies" />
-                                    </NavLink>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-6 col-md-6" data-aos="fade-left" data-aos-duration="800">
-                            <div className="card__caseStudies">
-                                <div className="top__keywords">
-                                    <span>Website Development</span>
-                                    <span>UI/UX Design</span>
-                                </div>
-                                <h4>
-                                    <NavLink to="/tw-challenge/">
-                                        TWChallenge{" "}
-                                        <img src="./assets/img/arrow-up-right.svg" alt="case-studies" />
-                                    </NavLink>
-                                </h4>
-                                <p>Cultivating culture of engagement</p>
-                                <div className="img__box">
-                                    <NavLink to="/tw-challenge/">
-                                        <img src="./assets/img/cs-6.png" alt="case-studies" />
-                                    </NavLink>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
 

@@ -124,7 +124,7 @@ export default function ContactUs() {
         <title>{(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.keywords} />
         <meta name="description" content={(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.description} />
-        {(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.seoImg.filename}`} />}
+        {(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="contact__bnr bg__dark">
@@ -149,14 +149,14 @@ export default function ContactUs() {
                           <li key={index}>
                             {contact.name === "email" ?
                               <a href={`mailto:${contact && contact.value && contact.value}`}>
-                                <img src={contact && contact.icon && contact.icon.filename && `/images/${contact.icon.filename}`} alt="mail" />
+                                <img src={contact && contact.icon && contact.icon.filename && `http://localhost:5000/images/${contact.icon.filename}`} alt="mail" />
                                 {contact.value}  </a>
                               :
                               contact.name === "phonenumber" ? <a href={contact.name == "phonenumber" ? `tel:${contact.value}` : "/"}>
-                                <img src={contact && contact.icon && contact.icon.filename && `/images/${contact.icon.filename}`} alt="phonenumber" />
+                                <img src={contact && contact.icon && contact.icon.filename && `http://localhost:5000/images/${contact.icon.filename}`} alt="phonenumber" />
                                 {contact.value}  </a>
                                 :
-                                <a href="/contact-us/"> <img src={contact && contact.icon && contact.icon.filename && `/images/${contact.icon.filename}`} alt="contact" /> {contact.value}
+                                <a href="/contact-us/"> <img src={contact && contact.icon && contact.icon.filename && `http://localhost:5000/images/${contact.icon.filename}`} alt="contact" /> {contact.value}
                                 </a>
                             }
                           </li>

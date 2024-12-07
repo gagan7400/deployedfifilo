@@ -7,6 +7,7 @@ import useCursorPosition from "../layout/useCursorPosition";
 import { useSelector, useDispatch } from 'react-redux'
 import { getpublishServicePage } from '../redux/actions/servicesAction';
 import DOMPurify from 'dompurify';
+import Loader from "../layout/Loader";
 
 export default function Services() {
   useCursorPosition('dark__bnr');
@@ -61,11 +62,12 @@ export default function Services() {
         <title>{(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.title}</title>
         <meta name="keywords" content={(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.keywords} />
         <meta name="description" content={(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.description} />
-        {(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename}`} />}
+        {(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
 
       <div className="comn__bnr service__bnr">
+        {publishedServiceLoading && <Loader/>}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
@@ -1455,7 +1457,7 @@ export default function Services() {
             {!publishedServiceLoading && publishedServicePage ? publishedServicePage.toolSection.toolsLogo.map((img, index) => {
               return <div className="col-lg-3 col-md-4 col-6" key={index}>
                 <div className="card__bx">
-                  <img src={img && img.filename ? `/images/${img.filename}` : ''} data-aos="zoom-in" alt="card__bx" />
+                  <img src={img && img.filename ? `http://localhost:5000/images/${img.filename}` : ''} data-aos="zoom-in" alt="card__bx" />
                 </div>
               </div>
             }) : ""}

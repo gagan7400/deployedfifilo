@@ -27,7 +27,7 @@ const ImageUpload = ({ imageUploaded, setImageUplaoded }) => {
 
         if (im) {
             try {
-                const response = await axios.post("/api/media/upload", formData, {
+                const response = await axios.post("http://localhost:5000/api/media/upload", formData, {
                     headers: { "Content-Type": "multipart/form-data" },
                 });
                 console.log(response);

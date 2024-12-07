@@ -20,7 +20,7 @@ export default function HomepageClients({ client, index, handleClients, removeCl
     return (
         <div className="image__block">
             <div className="single__img">
-                <img src={client.filename ? `/images/${client.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                <img src={client.filename ? `http://localhost:5000/images/${client.filename}` : "assets/imgs/avatar.svg"} alt="" />
             </div>
             <div className="btn__grp">
                 <button className="btn" onClick={() => { openMediaLibrary() }}><img src="assets/imgs/edit-05.svg" alt="" /></button>

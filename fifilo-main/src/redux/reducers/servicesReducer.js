@@ -1,12 +1,12 @@
  
 export const servicesReducer = (
     state = {
-        loading: false,
-        updateServiceLoading: false,
-        deleteLoading: false,
-        publishLoading: false,
-        getServiceLoading: false,
-        publishedServiceLoading: false,
+        loading: true,
+        updateServiceLoading: true,
+        deleteLoading: true,
+        publishLoading: true,
+        getServiceLoading: true,
+        publishedServiceLoading: true,
         allServicesData: null,
         publishedServiceContent: null,
         publishedServicePage: null,

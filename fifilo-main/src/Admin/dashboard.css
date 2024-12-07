@@ -635,10 +635,10 @@
 
 /***************Media Library***************/
 .mediaLibrary .modal-dialog {
-    max-width: 96%;
+    height: 92%;
     margin: auto;
+    max-width: 96%;
     min-width: 96%;
-height: 95%;
 }
 
 .mediaLibrary .modal-content {
@@ -653,6 +653,7 @@ height: 95%;
 
 .mediaLibrary .modal-body {
     padding: 24px;
+    overflow: hidden;
 }
 
 .mediaLibrary .modal-body .tab-content {
@@ -685,22 +686,21 @@ height: 95%;
 }
 
 .mediaLibrary .attachments-wrapper {
-    height: 100%;
     border-right: 1px solid #eaecf0;
-    padding-top: 24px;
-    overflow: hidden;
+    height: 100%;
+    padding: 16px 0;
 }
 
 .mediaLibrary .attachments-wrapper ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    height: calc(100vh - 330px);
-    overflow-y: auto;
+    height: 100%;
+    list-style: none;
+    margin: 0;
     overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
 }
 
 .mediaLibrary .attachments-wrapper ul li {
@@ -786,32 +786,37 @@ height: 95%;
     object-position: center;
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+/*@media only screen and (min-width: 1200px) and (max-width: 1439px) {
     .media__grids ul {
         grid-template-columns: repeat(8, 1fr);
     }
     .mediaLibrary .attachments-wrapper ul {
         height: calc(100vh - 280px);
     }
-    /* .mediaLibrary .modal-dialog {
+     .mediaLibrary .modal-dialog {
         height: 91vh;
-    } */
-}
+    } 
+}*/
 
 .attachment__details {
-    padding: 24px 0 24px 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
 .attachment__details .upload__img {
     max-width: 160px;
     max-height: 160px;
 }
+
 .attachment__details .upload__img img {
-    max-width: 160px;
-    max-height: 160px;
     display: block;
+    max-height: 120px;
+    max-width: 120px;
+    border: 1px solid #eaecf0;
 }
 
 .attachment__details .file__details {
@@ -843,6 +848,11 @@ height: 95%;
 /* .attachment__details .input__inr {
 
 } */
+.attachment__detailsInr {
+    overflow: hidden;
+    padding: 24px 0 24px 24px;
+    height: calc(100% - 45px);
+}
 
 .attachment__details .btn__copy {
     border: 1px solid var(--color-yellow);

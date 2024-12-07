@@ -2187,35 +2187,35 @@ ul li {
   min-height: 100vh;
 }
 
-.caseStudies__bnr.tribeStays__bnr {
+.caseStudies__bnr.tribestays {
   background: #e3431e;
 }
 
-.caseStudies__bnr.cureHub__bnr {
+.caseStudies__bnr.curehub {
   background: #f97316;
 }
 
-.caseStudies__bnr.spvMortgages__bnr {
+.caseStudies__bnr.spvmortgages {
   background: #023047;
 }
 
-.caseStudies__bnr.interact__bnr {
+.caseStudies__bnr.interact {
   background: #2196f3;
 }
 
-.caseStudies__bnr.festiveFolks__bnr {
+.caseStudies__bnr.festivefolks {
   background: #df2096;
 }
 
-.caseStudies__bnr.myChoize__bnr {
+.caseStudies__bnr.mychoize {
   background: #2c2960;
 }
 
-.caseStudies__bnr.twChallenge__bnr {
-  background: #ee9820;
+.caseStudies__bnr.twchallenge {
+  background: #ee9820; 
 }
 
-.caseStudies__bnr.flipFolder__bnr {
+.caseStudies__bnr.flipfolder {
   background: #e7584a;
 }
 
@@ -2223,6 +2223,7 @@ ul li {
   font: normal normal 700 88px / 124% var(--font);
   letter-spacing: -0.88px;
   color: var(--color-white);
+  text-transform: capitalize;
 }
 
 .caseStudies__bnr .top__bx h6 {

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const caseStudySchema = new mongoose.Schema({
     heroSection: {
         casestudyName: String,
+        pageName: String,
         description: String,
         buttonsContent: String,
         workButtons: [{ url: String, name: String, _id: false }],
