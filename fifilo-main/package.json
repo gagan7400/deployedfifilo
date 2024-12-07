@@ -66,6 +66,5 @@
     "css": "text/css",
     "html": "text/html",
     "js": "text/js"
-  },
-    "proxy": "http://localhost:5000"
+  }
 }
