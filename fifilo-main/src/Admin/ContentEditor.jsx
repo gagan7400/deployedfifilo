@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import MediaLibrary from "./MediaLibrary";
 import ImageUpload from "./ImageUpload";
-
+ 
 const ContentEditor = () => {
     const [selectedImageUrl, setSelectedImageUrl] = useState(null);
-    const [ImageUplaoded, setImageUplaoded] = useState(null);
+     const [ImageUplaoded, setImageUplaoded] = useState(null);
     const [section, setSection] = useState(null);
 
     const handleImageSelect = (imageUrl) => {
