@@ -31,6 +31,9 @@ const upload = multer({ storage: storage });
 router.post("/upload", upload.single("image"), async (req, res) => {
     console.log(req.file)
     try {
+        if (!req.file) {
+            return res.status(400).json({ success: false, error: "No file uploaded" });
+        }
         const newImage = new Image({
             filePath: `/uploads/images/${req.file.filename}`,
             filename: req.file.filename,
@@ -40,7 +43,7 @@ router.post("/upload", upload.single("image"), async (req, res) => {
         await newImage.save();
         res.json({ success: true, image: newImage, r: req.file });
     } catch (error) {
-        res.status(500).json({ error: "Failed to upload image" });
+        res.status(500).json({ success: false, error: "Failed to upload image" });
     }
 });
 
