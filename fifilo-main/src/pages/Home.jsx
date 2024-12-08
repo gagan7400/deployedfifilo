@@ -222,14 +222,14 @@ export default function Home() {
                     ))}
                   </div>
                   <h4>
-                    <NavLink to={`/casestudy/${card.heroSection.pageName}/`}>
+                    <NavLink to={`/${card.heroSection.pageName}/`}>
                       {card.heroSection.casestudyName}{" "}
                       <img src="assets/img/arrow-up-right.svg" alt="case-studies" />
                     </NavLink>
                   </h4>
                   <p>{card.heroSection.description}</p>
                   <div className="img__box"  >
-                    <NavLink to={`/casestudy/${card.heroSection.pageName}/`} >
+                    <NavLink to={`/${card.heroSection.pageName}/`} >
                       <img src={(card.heroSection.homeImg && card.heroSection.homeImg.filename) && `/images/${card.heroSection.homeImg.filename}`} alt={card.heroSection.casestudyName} />
                     </NavLink>
                   </div>
