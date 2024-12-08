@@ -208,9 +208,7 @@ export default function Home() {
         <div className="container">
           <div className="main__heading" data-aos="fade-up" data-aos-duration="800">
             <p>Our work</p>
-            <h2>
-              Featured <span>Case Studies</span>
-            </h2>
+            <h2>  Featured <span>Case Studies</span>   </h2>
           </div>
           <div className="inner__gapTop row">
             {!loading && casestudies && casestudies.slice(0, 3).map((card, index) => (
