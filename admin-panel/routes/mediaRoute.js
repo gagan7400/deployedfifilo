@@ -20,16 +20,30 @@ const Image = mongoose.model("Image", imageSchema);
 //home page routes
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "uploads/images");
+        const uploadPath = path.join(__dirname, "../uploads/images");
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
+        }
+        cb(null, uploadPath);
     },
     filename: (req, file, cb) => {
-        cb(null, file.originalname);
+        const ext = path.extname(file.originalname);
+        const name = path.basename(file.originalname, ext);
+        let finalName = file.originalname;
+
+        // Check if a file with the same name already exists
+        let counter = 1;
+        while (fs.existsSync(path.join(__dirname, "../uploads/images", finalName))) {
+            finalName = `${name}-${counter}${ext}`;
+            counter++;
+        }
+        cb(null, finalName);
     },
 });
 
+
 const upload = multer({ storage: storage });
 router.post("/upload", upload.single("image"), async (req, res) => {
-    console.log(req.file)
     try {
         if (!req.file) {
             return res.status(400).json({ success: false, error: "No file uploaded" });
@@ -38,11 +52,14 @@ router.post("/upload", upload.single("image"), async (req, res) => {
             filePath: `/uploads/images/${req.file.filename}`,
             filename: req.file.filename,
             altText: req.body.altText || "",
-            size: Number(req.file.size) * 0.001
+            size: Number(req.file.size) * 0.001, // File size in KB
         });
         await newImage.save();
-        res.json({ success: true, image: newImage, r: req.file });
+
+
+        res.json({ success: true, image: newImage });
     } catch (error) {
+        console.error("Error uploading image:", error);
         res.status(500).json({ success: false, error: "Failed to upload image" });
     }
 });
@@ -57,24 +74,26 @@ router.get("/", async (req, res) => {
     }
 });
 
-// Delete an image
 router.delete("/:id", async (req, res) => {
     try {
         const image = await Image.findById(req.params.id);
-        if (image) {
-            const filePath = `.${image.filePath}`;
-            if (fs.existsSync(filePath)) {
-                fs.unlinkSync(filePath); // Delete the file from the server
-            }
-            await Image.findByIdAndDelete(req.params.id) // Remove the database record
-            res.json({ success: true, message: "Image Deleted Successfully" });
-        } else {
-            res.status(404).json({ message: "Image not found", success: false });
+        if (!image) {
+            return res.status(404).json({ message: "Image not found", success: false });
         }
+
+        const filePath = path.join(__dirname, "..", image.filePath);
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+
+        await Image.findByIdAndDelete(req.params.id);
+        res.json({ success: true, message: "Image deleted successfully" });
     } catch (error) {
-        res.status(500).json({ error: error, message: "Failed to delete image", success: false });
+        console.error("Error deleting image:", error);
+        res.status(500).json({ error: "Failed to delete image", success: false });
     }
 });
+
 
 
 
