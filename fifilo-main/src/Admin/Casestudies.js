@@ -22,14 +22,12 @@ export default function Casestudies() {
         }
     }
     useEffect(() => {
-        alldata() 
+        alldata()
     }, [])
-
 
     let deleteCaseStudy = async (id) => {
         if (window.confirm("Are You Want To Delete This")) {
             try {
-
                 let { data } = await axios.delete('/admin/casestudy/deletecasestudy/' + id, {
                     headers: {
                         "x-auth-token": localStorage.getItem("token"),

@@ -861,3 +861,49 @@
     padding: 8px 12px;
     width: fit-content;
 }
+
+.modalLibrary .modal-dialog {
+    max-width: 60%;
+    min-width: 60%;
+    /* min-height: 50%; */
+    height: 70%;
+}
+
+.modalLibrary .modal-header {
+    padding: 24px;
+}
+
+.modalLibrary .modal-body {
+    padding: 0;
+    border-top: 1px solid #eaecf0;
+}
+
+.modalLibrary .upload__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modalLibrary .upload__img img {
+    border: 1px solid #eaecf0;
+    display: block;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.modalLibrary .attachment__detailsInr {
+    height: 100%;
+    border-left: 1px solid #eaecf0;
+    padding: 24px;
+}
+
+.modalLibrary .modal-body .row {
+    height: 100%;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+    .media__grids ul {
+        grid-template-columns: repeat(9, 1fr);
+    }
+}

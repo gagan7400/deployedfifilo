@@ -6,74 +6,45 @@ import axios from 'axios';
 import ProcessIcon from './ProcessIcon';
 import { Editor } from "@tinymce/tinymce-react";
 import SketchesImg from './SketchesImg';
-import CasestudyImg from './CasestudyImg';
 const CasestudyPage = () => {
+
     const [heroSection, setHeroSection] = useState({
         casestudyName: "",
-        pageName: "",
         description: "",
         buttonsContent: "",
         workButtons: [{ url: "", name: "" }],
         heroImg: { filename: "", path: "" },
-        cardImg: { filename: "", path: "" },
-        homeImg: { filename: "", path: "" },
+        cardImg: { filename: "", path: "" }
     });
-
     const [overviewSection, setOverviewSection] = useState({
         briefInsight: {
             contentBox: { heading: "", description: "" },
-            overviewBox: [{ name: "", value: "" }],
+            overviewBox: [{ name: "", value: "" }]
         },
         coreIssue: { heading: "", description: "" },
-        Strategy: { heading: "", description: "" },
+        Strategy: { heading: "", description: "" }
     });
-
     const [designProcessSection, setDesignProcessSection] = useState({
         heading: "",
-        content: [{ heading: "", description: "", icon: { filename: "", path: "" } }],
+        content: [{ heading: '', description: '', icon: { filename: "", path: "" } }],
     });
-
-    const [sketches, setSketches] = useState({
-        heading: "",
-        description: "",
-        imgs: [{ filename: "", path: "" }],
-    });
-
+    const [sketches, setSketches] = useState({ heading: "", description: "", imgs: [{ filename: "", path: "" }], });
     const [styleGuideSection, setStyleGuideSection] = useState({
         heading: "",
         description: "",
         sectionName: "",
         BrandcolorSections: [{ name: "", hex: "" }],
         SecondaryColorSections: [{ name: "", hex: "" }],
-    });
-
+    })
     const [typographyData, setTypographyData] = useState({
         heading: "",
         fontFamily: "",
-        fontFamilyName: "",
-        fontTable: [{ name: "", fontSize: "", lineHeight: "" }],
-    });
-
-    const [impactAndImprovement, setImpactAndImprovement] = useState({
-        heading: "",
-        description: "",
-    });
-
-    const [howFifiloDesignsDrives, setHowFifiloDesignsDrives] = useState({
-        heading: "",
-        description: "",
-    });
-
-    const [updatedLook, setUpdatedLook] = useState({
-        heading: "",
-        description: "",
-        imgs: [{ filename: "", path: "" }],
-    });
-
-    const [fullWidthImg, setFullWidthImg] = useState([{ filename: "", path: "" }]);
-
-
-
+        fontTable: [{ name: "", fontSize: "", lineHeight: "", }],
+    })
+    const [impactAndImprovement, setImpactAndImprovement] = useState({ heading: "", description: "" });
+    const [howFifiloDesignsDrives, setHowFifiloDesignsDrives] = useState({ heading: "", description: "" });
+    const [updatedLook, setUpdatedLook] = useState({ heading: "", description: "", imgs: [{ filename: "", path: "" }] })
+    const [fullWidthImg, setFullWidthImg] = useState([{ name: "", filename: "", path: "" }]);
     const addFullWidthImg = () => {
         let newImg = { filename: "", path: "" }
         setFullWidthImg(prevState => ([...prevState, { ...newImg }]));
@@ -336,10 +307,10 @@ const CasestudyPage = () => {
                                     aria-selected="false">How Fifilo Designs</button>
                             </li>
                             {/* <li className="nav-item" role="presentation">
-                                <button className="nav-link" id="pills-fullWidthImg-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-fullWidthImg" type="button" role="tab" aria-controls="pills-fullWidthImg"
-                                    aria-selected="false">FullWidthImg</button>
-                            </li> */}
+                            <button className="nav-link" id="pills-fullWidthImg-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-fullWidthImg" type="button" role="tab" aria-controls="pills-fullWidthImg"
+                                aria-selected="false">FullWidthImg</button>
+                        </li> */}
                         </ul>
                         <div className="tab-content" id="pills-tabContent">
                             <div className="tab-pane fade show active" id="pills-hero" role="tabpanel"
@@ -350,23 +321,10 @@ const CasestudyPage = () => {
                                             <div className="row">
                                                 <div className="col-lg-12">
                                                     <div className="input__inr">
-                                                        <label htmlFor="heroPagename">Page Name</label>
+                                                        <label htmlFor="heroheading">Casestudy Name</label>
                                                         <input required type="text"
-                                                            name="heroPagename"
-                                                            id="heroPagename"
-                                                            className="form-control"
-                                                            value={heroSection.pageName}
-                                                            onChange={(e) => setHeroSection({ ...heroSection, pageName: e.target.value })}
-                                                            placeholder="Enter page Name"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-12">
-                                                    <div className="input__inr">
-                                                        <label htmlFor="casestudyName">Casestudy Name</label>
-                                                        <input required type="text"
-                                                            name="casestudyName"
-                                                            id="casestudyName"
+                                                            name="heroSection"
+                                                            id="heroheading"
                                                             className="form-control"
                                                             value={heroSection.casestudyName}
                                                             onChange={(e) => setHeroSection({ ...heroSection, casestudyName: e.target.value })}
@@ -439,19 +397,13 @@ const CasestudyPage = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="col-lg-12">
-                                                    <div className="seo__card">
-                                                        <div className="card__block">
-                                                            <div className="row">
-                                                                <CasestudyImg heroSection={heroSection} name="heroImg" setHeroSection={setHeroSection} />
-                                                                <CasestudyImg heroSection={heroSection} name="cardImg" setHeroSection={setHeroSection} /></div>
-                                                            <CasestudyImg heroSection={heroSection} name="homeImg" setHeroSection={setHeroSection} />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
+                                                <label htmlFor="buttonsContent">Hero IMg</label>
+                                                <ProcessIcon heroSection={heroSection} name="heroImg" setHeroSection={setHeroSection} />
+                                                <label htmlFor="buttonsContent">Card Img</label>
+                                                <ProcessIcon heroSection={heroSection} name="cardImg" setHeroSection={setHeroSection} />
+                                            </div>
                                             <div className="update__block">
-                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
                                     </div>
@@ -470,6 +422,8 @@ const CasestudyPage = () => {
                                                             name="briefInsightHeading"
                                                             id="briefInsightHeading"
                                                             className="form-control"
+                                                            // value={overviewSection.briefInsight.contentBox.heading}
+                                                            // onChange={(e) => setOverviewSection({ ...overviewSection, briefInsight: { ...overviewSection.briefInsight, contentBox: { ...overviewSection.briefInsight.contentBox, heading: e.target.value } } })}
                                                             value={overviewSection.briefInsight.contentBox.heading}
                                                             onChange={(e) => handleOverviewSectionChange("briefInsight", "contentBox", { heading: e.target.value })}
                                                             placeholder="Enter BriefInsight Heading"
@@ -602,7 +556,7 @@ const CasestudyPage = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
                                     </div>
@@ -674,7 +628,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -731,7 +685,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -756,7 +710,7 @@ const CasestudyPage = () => {
                                             <div className="col-lg-12">
                                                 <div className="input__inr">
                                                     <label htmlFor="styleGuideSectiondescription" className="form-label">Description</label>
-                                                    <textarea required rows={4}
+                                                    <input required type="text"
                                                         id="styleGuideSectionDescription"
                                                         name="styleGuideSectionDescription"
                                                         className="form-control"
@@ -867,7 +821,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -886,19 +840,6 @@ const CasestudyPage = () => {
                                                         value={typographyData.heading}
                                                         onChange={(e) => setTypographyData({ ...typographyData, heading: e.target.value })}
                                                         placeholder="Enter Heading"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="col-lg-12">
-                                                <div className="input__inr">
-                                                    <label htmlFor="typographyDatafontFamily" className="form-label">fontFamily Name</label>
-                                                    <input required type="text"
-                                                        id="typographyDatafontFamily"
-                                                        name="typographyDatafontFamily"
-                                                        className="form-control"
-                                                        value={typographyData.fontFamilyName}
-                                                        onChange={(e) => setTypographyData({ ...typographyData, fontFamilyName: e.target.value })}
-                                                        placeholder="Enter fontFamily"
                                                     />
                                                 </div>
                                             </div>
@@ -979,7 +920,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1037,7 +978,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1086,7 +1027,7 @@ const CasestudyPage = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1124,43 +1065,12 @@ const CasestudyPage = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {/* <div className="tab-pane fade" id="pills-fullWidthImg" role="tabpanel" aria-labelledby="pills-fullWidthImg-tab">
-                                <div className="edit__tools">
-                                    <div className="card__block">
-                                        <div className="row">
-                                            <div className="col-lg-12">
-                                                <div className="seo__card">
-                                                    {fullWidthImg.map((img, index) => (
-                                                        <div className="card__block" key={index} >
-                                                            <div className="testimonial__box">
-                                                                <div className="top__heading">
-                                                                    <p>Img {index + 1}</p>
-                                                                    <button className="btn" onClick={() => removeFullWidthImg(index)} ><img src="assets/imgs/trash.svg" alt="" />Delete</button>
-                                                                </div>
-                                                                <div className="row">
-                                                                    <SketchesImg handleFullWidthImg={handleFullWidthImg} index={index} img={img} />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                    <div className="add__review">
-                                                        <button className="btn" onClick={addFullWidthImg}><img src="assets/imgs/plus.svg" alt="" />Add Img</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -482,7 +482,9 @@ const Casestudy = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </div>
+                                                <label htmlFor="buttonsContent">Hero IMg</label>
+
+                                            </div>
                                             <div className="update__block">
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>

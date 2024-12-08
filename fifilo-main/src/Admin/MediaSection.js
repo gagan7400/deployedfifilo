@@ -51,7 +51,6 @@ const MediaSection = () => {
         setSelectedImage(null);
     };
     const baseUrl = `${window.location.protocol}//${window.location.host}`;
-    console.log(baseUrl);
     return (
         <>
             <Sidebar />
@@ -73,7 +72,7 @@ const MediaSection = () => {
                     </div>
                 </div>
                 {showModal && selectedImage && (
-                    <div className="modal modalLibrary" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", display: "flex", justifyContent: "center", alignItems: "center", }}>
+                    <div className="modal modalLibrary mediaLibrary" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", display: "flex", justifyContent: "center", alignItems: "center", }}>
                         <div className="modal-dialog ">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -82,22 +81,27 @@ const MediaSection = () => {
                                 </div>
                                 <div class="modal-body">
                                     <div className="row">
-                                        <div className="col-lg-9 col-md-9"><div class="upload__img ">
-                                            <img style={{ width: "100px" }} src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
+                                        <div className="col-lg-8 col-md-8"><div class="upload__img ">
+                                            <img src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                         </div>
                                         </div>
-                                        <div className="col-lg-3 col-md-3"> <div className="file__details">
-                                            <h6>{selectedImage.filename}</h6>
-                                            <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
-                                            <p>{new Date(selectedImage.createdAt).toDateString()} </p>
-                                            <button className="btn" onClick={() => handleDelete(selectedImage._id)} > Delete Permanently  </button>
-                                        </div>
-                                            <div className="input__inr">
-                                                <input ref={inputRef} value={`${baseUrl}/images/${selectedImage.filename}`} />
-                                            </div>
-                                            <div className="position-relative">
-                                                <button class="btn btn__copy" onClick={handleCopy}>Clip to clipboard </button>
-                                                {message && <p className="position-absolute">Copied!</p>}
+                                        <div className="col-lg-4 col-md-4">
+                                            <div className="attachment__detailsInr">
+                                                <div className="attachment__details">
+                                                    <div className="file__details">
+                                                        <h6>{selectedImage.filename}</h6>
+                                                        <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
+                                                        <p>{new Date(selectedImage.createdAt).toDateString()} </p>
+                                                        <button className="btn" onClick={() => handleDelete(selectedImage._id)} > Delete Permanently  </button>
+                                                    </div>
+                                                    <div className="input__inr">
+                                                        <input ref={inputRef} className="form-control" value={`${baseUrl}/images/${selectedImage.filename}`} />
+                                                    </div>
+                                                    <div className="position-relative">
+                                                        <button class="btn btn__copy" onClick={handleCopy}>Clip to clipboard </button>
+                                                        {message && <p className="position-absolute">Copied!</p>}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
