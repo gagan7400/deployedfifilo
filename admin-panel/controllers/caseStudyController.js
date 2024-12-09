@@ -4,8 +4,8 @@ const { caseStudyModel, caseStudyPageModel } = require("../models/caseStudyModel
 
 const createCaseStudy = async (req, res) => {
     try {
-        const { heroSection, overviewSection, designProcessSection, sketches, styleGuideSection, typographyData, impactAndImprovement, howFifiloDesignsDrives, updatedLook, fullWidthImg } = req.body;
-        const caseStudy = new caseStudyModel({ heroSection, overviewSection, designProcessSection, sketches, styleGuideSection, impactAndImprovement, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg });
+        const { heroSection, seoSection, overviewSection, designProcessSection, sketches, styleGuideSection, typographyData, impactAndImprovement, howFifiloDesignsDrives, updatedLook, fullWidthImg } = req.body;
+        const caseStudy = new caseStudyModel({ heroSection,seoSection, overviewSection, designProcessSection, sketches, styleGuideSection, impactAndImprovement, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg });
         await caseStudy.save();
         res.status(201).json({ success: true, data: caseStudy });
     } catch (err) {
@@ -51,7 +51,7 @@ const deleteCaseStudy = async (req, res) => {
 const updateCaseStudy = async (req, res) => {
     try {
         const { id } = req.params; // We're updating the about  by ID
-        const { heroSection, overviewSection, designProcessSection, sketches, styleGuideSection, typographyData, impactAndImprovement, howFifiloDesignsDrives, updatedLook, fullWidthImg } = req.body;
+        const { heroSection, overviewSection, seoSection, designProcessSection, sketches, styleGuideSection, typographyData, impactAndImprovement, howFifiloDesignsDrives, updatedLook, fullWidthImg } = req.body;
 
         const casestudy = await caseStudyModel.findById(id);
 
@@ -119,6 +119,13 @@ const updateCaseStudy = async (req, res) => {
                 ...fullWidthImg
             };
         }
+        if (seoSection) {
+            casestudy.seoSection = {
+                ...casestudy.seoSection,
+                ...seoSection
+            };
+        }
+
         casestudy.updatedAt = Date.now();
 
         await casestudy.save();

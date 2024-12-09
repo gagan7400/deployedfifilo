@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MediaLibraryModal from "./MediaLibraryModal";
 
-export default function CasestudyImg({ name, heroSection, setHeroSection }) {
+export default function CasestudyImg({ name, heroSection, setHeroSection, casestudy }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -39,15 +39,16 @@ export default function CasestudyImg({ name, heroSection, setHeroSection }) {
     return (
 
         <div className="col-lg-6">
-            <label htmlFor="buttonsContent">{name}</label>
-            <div className="uploaded__images">
+            <div className='input__inr'>
+                <label htmlFor="buttonsContent" >  {casestudy}  </label>
+            </div> <div className="uploaded__images">
                 <div className="image__block">
                     <div className="single__img">
                         {name === "heroImg" ?
-                            <img src={heroSection.heroImg.filename ? `/images/${heroSection.heroImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                            <img src={heroSection.heroImg.filename ? `/images/${heroSection.heroImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
                             : name == "cardImg" ?
-                                <img src={heroSection.cardImg && heroSection.cardImg.filename ? `/images/${heroSection.cardImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
-                                : <img src={heroSection.homeImg && heroSection.homeImg.filename ? `/images/${heroSection.homeImg.filename}` : "assets/imgs/avatar.svg"} alt="" />
+                                <img src={heroSection.cardImg && heroSection.cardImg.filename ? `/images/${heroSection.cardImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
+                                : <img src={heroSection.homeImg && heroSection.homeImg.filename ? `/images/${heroSection.homeImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
                         }
                     </div>
                     <div className="btn__grp">

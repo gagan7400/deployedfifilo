@@ -6,7 +6,7 @@ const caseStudySchema = new mongoose.Schema({
         pageName: String,
         description: String,
         buttonsContent: String,
-        workButtons: [{ url: String, name: String, _id: false }],
+        workButtons: [{ name: String, _id: false }],
         heroImg: { filename: String, path: String },
         cardImg: { filename: String, path: String },
         homeImg: { filename: String, path: String },
@@ -33,7 +33,7 @@ const caseStudySchema = new mongoose.Schema({
         description: String,
         sectionName: String,
         BrandcolorSections: [{ name: String, hex: String }],
-        SecondaryColorSections: [{ name: String, hex: String, _id: false }],
+        SecondaryColorSections: [{ hex: String, _id: false }],
     },
     typographyData: {
         heading: String,
@@ -63,6 +63,12 @@ const caseStudySchema = new mongoose.Schema({
     howFifiloDesignsDrives: {
         heading: String,
         description: String
+    },
+    seoSection: {
+        title: String,
+        keywords: String,
+        description: String,
+        seoImg: { filename: String, path: String }
     },
 
 }, { timestamps: true });

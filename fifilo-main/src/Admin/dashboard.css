@@ -279,7 +279,7 @@
 .edit__tools .input__inr label {
     font: normal normal 400 14px/142.857% var(--font);
     color: #363a44;
-    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .edit__tools .input__inr .form-control,

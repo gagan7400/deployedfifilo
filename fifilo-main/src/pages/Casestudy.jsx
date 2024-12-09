@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import DOMPurify from 'dompurify';
-import { useDispatch, useSelector } from 'react-redux';
 import Loader from "../layout/Loader";
 export default function Casestudy() {
     let { name } = useParams();
@@ -84,11 +83,11 @@ export default function Casestudy() {
 
         <>
             <Helmet>
-                <title>MyChoize | Enhancing Car Rental Experiences | Fifilo Design</title>
-                <meta
-                    name="description"
-                    content="Discover how Fifilo Design transformed MyChoize, India’s largest car rental company, by streamlining the booking process, improving website performance, and enhancing personalization features. Boost customer satisfaction and conversion rates with a user-friendly design."
-                />
+                <title>{(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.title}</title>
+                <meta name="keywords" content={(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.keywords}></meta>
+                <meta name="description" content={(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.description}></meta>
+                {(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.seoImg.filename}`} />}
+                <meta property="og:image:alt" content="Description of the feature image" />
             </Helmet>
             <div className={`caseStudies__bnr ${!loading && casestudy ? casestudy.heroSection.casestudyName.toLowerCase() : ``} `}>
                 {(loading && !casestudy) && <Loader />}
@@ -373,7 +372,7 @@ export default function Casestudy() {
                 {!loading && casestudy?.impactAndImprovement &&
                     <div className="container" data-aos="fade-up" data-aos-duration="800">
                         <div className="row justify-content-center">
-                            {!loading && casestudy?.impactAndImprovement && casestudy.impactAndImprovement.heading == "" && <div className="col-lg-10">
+                            {!loading && casestudy?.impactAndImprovement && casestudy.impactAndImprovement.heading !== "" && <div className="col-lg-10">
                                 <div className="content__box" data-aos="fade-up" data-aos-duration="800">
                                     <h3 dangerouslySetInnerHTML={{
                                         __html: DOMPurify.sanitize(!loading && casestudy && casestudy.impactAndImprovement.heading)
@@ -395,8 +394,8 @@ export default function Casestudy() {
                             </div>
                         </div>
                     </div>
-                }
-                {!loading && casestudy && casestudy.fullWidthImg.length && casestudy.fullWidthImg.map((img, index) => (
+                }{console.log(!loading && casestudy && casestudy.fullWidthImg.length)}
+                {!loading && casestudy && casestudy.fullWidthImg.length !== 0 && casestudy.fullWidthImg.map((img, index) => (
                     <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
                         <img src={img && img.filename && `/images/${img.filename}`} alt="" />
                     </div>

@@ -13,7 +13,8 @@ export default function SeoImg({ seoSection, setSeoSection, updateContact, index
 
     // Handle image selection
     const handleImageSelect = (image) => {
-        setSelectedImage(image); // Set the selected image data
+        console.log(image)
+                setSelectedImage(image); // Set the selected image data
         if (setSeoSection && !name) {
             setSeoSection({ ...seoSection, seoImg: { filename: image.filename, path: image.filePath } })
         } else {
@@ -29,7 +30,7 @@ export default function SeoImg({ seoSection, setSeoSection, updateContact, index
             <div className="uploaded__images">
                 <div className="image__block">
                     <div className="single__img">
-                        {(seoSection && !name) ? <img src={seoSection.seoImg.filename ? `/images/${seoSection.seoImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
+                        {(seoSection && !name) ? <img src={seoSection.seoImg?.filename ? `/images/${seoSection.seoImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
                             : <img src={data && data.filename ? `/images/${data.filename}` : "assets/imgs/avatar.svg"} alt="" />
                         }
                     </div>

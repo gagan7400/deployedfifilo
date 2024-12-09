@@ -208,7 +208,9 @@ export default function Home() {
         <div className="container">
           <div className="main__heading" data-aos="fade-up" data-aos-duration="800">
             <p>Our work</p>
-            <h2>  Featured <span>Case Studies</span>   </h2>
+            <h2>
+              Featured <span>Case Studies</span>
+            </h2>
           </div>
           <div className="inner__gapTop row">
             {!loading && casestudies && casestudies.slice(0, 3).map((card, index) => (
@@ -220,14 +222,14 @@ export default function Home() {
                     ))}
                   </div>
                   <h4>
-                    <NavLink to={`/${card.heroSection.pageName}/`}>
+                    <NavLink to={`/casestudy/${card.heroSection.pageName}/`}>
                       {card.heroSection.casestudyName}{" "}
                       <img src="assets/img/arrow-up-right.svg" alt="case-studies" />
                     </NavLink>
                   </h4>
                   <p>{card.heroSection.description}</p>
                   <div className="img__box"  >
-                    <NavLink to={`/${card.heroSection.pageName}/`} >
+                    <NavLink to={`/casestudy/${card.heroSection.pageName}/`} >
                       <img src={(card.heroSection.homeImg && card.heroSection.homeImg.filename) && `/images/${card.heroSection.homeImg.filename}`} alt={card.heroSection.casestudyName} />
                     </NavLink>
                   </div>

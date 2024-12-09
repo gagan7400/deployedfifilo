@@ -166,7 +166,7 @@ const Aboutpage = () => {
         <>
             <Sidebar titles="About Page" />
             <div className="main__content" >
-                {publishedLoading && <Loader/>}
+                {publishedLoading && <Loader />}
                 <div className="page__editors">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
@@ -365,7 +365,7 @@ const Aboutpage = () => {
                                                                             <input required type="text"
                                                                                 className="form-control"
                                                                                 name="heading"
-                                                                                  id="cardheading"
+                                                                                id="cardheading"
                                                                                 value={card.heading}
                                                                                 onChange={(event) => handleContentCardChange(index, event)}
                                                                                 placeholder="Enter Heading"
