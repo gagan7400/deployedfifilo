@@ -270,7 +270,7 @@ const CasestudyPage = () => {
                 <div className="page__editors">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><NavLink to="/section/casestudies">Back</NavLink></li>
+                            <li className="breadcrumb-item"><NavLink to="/section/casestudies">casestudies</NavLink></li>
                             <li className="breadcrumb-item"><img src="assets/imgs/chevron-right.svg" alt="" /></li>
                             <li className="breadcrumb-item active">New Casestudy</li>
                         </ol>
