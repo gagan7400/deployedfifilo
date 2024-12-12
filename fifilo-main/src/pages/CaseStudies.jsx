@@ -217,7 +217,10 @@ export default function Work() {
         <div className="container">
           <div className="inner__gapTop row">
             {(!loading && casestudy) ? casestudy.map((v, i) => (
-              <div key={i} className={(i == 0 || i == casestudy.length - 1) ? "col-12" : i % 2 == 0 ? "col-lg-5 col-md-12" : "col-lg-7 col-md-12"} data-aos="fade-right" data-aos-duration="800">
+              <div key={i} className={(i === 0 || (i % 2 !== 0 && i === casestudy.length - 1)) ? "col-12"
+                : Math.floor((i - 1) / 2) % 2 === 0
+                  ? (i % 2 === 0 ? "col-lg-5 col-md-12" : "col-lg-7 col-md-12")
+                  : (i % 2 === 0 ? "col-lg-7 col-md-12" : "col-lg-5 col-md-12")} data-aos="fade-right" data-aos-duration="800">
                 <div className="card__caseStudies">
                   <div className="top__keywords">
                     {v.heroSection.workButtons.map((btn, index) => {
@@ -240,7 +243,7 @@ export default function Work() {
               </div>)) : ""}
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }

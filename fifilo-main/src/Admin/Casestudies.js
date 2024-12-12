@@ -5,15 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
 import { pageAction } from '../redux/actions/pagedataAction';
+import Loader from '../layout/Loader';
 
 export default function Casestudies() {
     let dispatch = useDispatch();
     const [allData, setAllData] = useState([]);
+
     let alldata = async () => {
         try {
             let { data } = await axios.get('/admin/casestudy/getcasestudy');
             if (data.success) {
-                setAllData(data.data)
+                setAllData(data.data);
             } else {
                 alert("error occured");
             }

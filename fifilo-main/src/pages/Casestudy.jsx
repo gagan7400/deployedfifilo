@@ -80,7 +80,6 @@ export default function Casestudy() {
 
     let classes = ["large", "medium", "normal", "small"]
     return (
-
         <>
             <Helmet>
                 <title>{(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.title}</title>
@@ -89,7 +88,7 @@ export default function Casestudy() {
                 {(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.seoImg.filename}`} />}
                 <meta property="og:image:alt" content="Description of the feature image" />
             </Helmet>
-            <div className={`caseStudies__bnr ${!loading && casestudy ? casestudy.heroSection.casestudyName.toLowerCase() : ``} `}>
+            <div className={`caseStudies__bnr ${!loading && casestudy ? casestudy.heroSection.casestudyName.split(" ").join("").split("-").join("").toLowerCase() : ``} `}>
                 {(loading && !casestudy) && <Loader />}
                 <div className="container">
 
@@ -394,7 +393,7 @@ export default function Casestudy() {
                             </div>
                         </div>
                     </div>
-                }{console.log(!loading && casestudy && casestudy.fullWidthImg.length)}
+                }
                 {!loading && casestudy && casestudy.fullWidthImg.length !== 0 && casestudy.fullWidthImg.map((img, index) => (
                     <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
                         <img src={img && img.filename && `/images/${img.filename}`} alt="" />

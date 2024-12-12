@@ -10,24 +10,6 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     const [message, setMessage] = useState(false)
     const [selectedImage, setSelectedImage] = useState(null);
     const inputRef = useRef(null);
-    // const handleDelete = async (imageId) => {
-    //     if (window.confirm("Are You Sure,You Want Delete This")) {
-    //         try {
-    //             let { data } = await axios.delete(`/api/media/${imageId}`);
-    //             console.log(data)
-    //             if (data.success) {
-    //                 console.log(data)
-    //                 setShowModal(false);
-    //                 closeModal()
-    //                 setImageUplaoded("deleted");
-    //             } else {
-    //                 console.log(data);
-    //             }
-    //         } catch (error) {
-    //             console.error("Error deleting image", error);
-    //         }
-    //     }
-    // };
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure You Want to Delete This?")) {
             try {
