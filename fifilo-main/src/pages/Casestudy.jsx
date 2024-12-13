@@ -395,7 +395,7 @@ export default function Casestudy() {
                     </div>
                 }
                 {!loading && casestudy && casestudy.fullWidthImg.length !== 0 && casestudy.fullWidthImg.map((img, index) => (
-                    <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
+                    img.filename && <div className="img__fullWidth" data-aos="fade-up" data-aos-duration="800" key={index}>
                         <img src={img && img.filename && `/images/${img.filename}`} alt="" />
                     </div>
                 ))}
