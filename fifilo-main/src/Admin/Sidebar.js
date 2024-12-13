@@ -31,7 +31,7 @@ export default function Sidebar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/section/casestudies" className="nav-link"  >
+              <NavLink to="/casestudies" className="nav-link"  >
                 <img src="assets/imgs/case-studies.svg" alt="pages Icon" />Case Studies
               </NavLink>
             </li>
@@ -46,7 +46,7 @@ export default function Sidebar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/section/editor" className="nav-link"  >
+              <NavLink to="/section/media" className="nav-link"  >
                 <img src="assets/imgs/media.svg" alt="media Icon" />Media Library
               </NavLink>
             </li>

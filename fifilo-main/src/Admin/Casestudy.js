@@ -88,7 +88,7 @@ const Casestudy = () => {
     useEffect(() => {
         const getCasestudy = async () => {
             try {
-                let { data } = await axios.get(`http://localhost:5000/admin/casestudy/getcasestudy/${name}`);
+                let { data } = await axios.get(`/admin/casestudy/getcasestudy/${name}`);
                 if (data.success) {
                     setCasestudy(data.data);
                     setHeroSection({ ...data.data.heroSection });
@@ -275,7 +275,7 @@ const Casestudy = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let { data } = await axios.put('http://localhost:5000/admin/casestudy/updatecasestudy/' + casestudy._id,
+            let { data } = await axios.put('/admin/casestudy/updatecasestudy/' + casestudy._id,
                 {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg,
@@ -309,7 +309,7 @@ const Casestudy = () => {
                 <div className="page__editors">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><NavLink to="/section/casestudies">casestudies</NavLink></li>
+                            <li className="breadcrumb-item"><NavLink to="/casestudies">Case Studies</NavLink></li>
                             <li className="breadcrumb-item"><img src="assets/imgs/chevron-right.svg" alt="" /></li>
                             <li className="breadcrumb-item active">{!loading && heroSection?.casestudyName}</li>
                         </ol>
@@ -387,7 +387,7 @@ const Casestudy = () => {
                                                             className="form-control"
                                                             value={heroSection.pageName}
                                                             onChange={(e) => setHeroSection({ ...heroSection, pageName: e.target.value })}
-                                                            placeholder="Enter page Name"
+                                                            placeholder="Enter page Url"
                                                         />
                                                     </div>
                                                 </div>

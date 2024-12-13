@@ -53,7 +53,7 @@ export default function Casestudies() {
                     <div className="page__editors">
                         <div className="page__title">
                             <h5>Pages</h5>
-                            <NavLink to="/pages/casestudy/newcasestudy" className="btn btn__update">
+                            <NavLink to="/casestudies/newcasestudy" className="btn btn__update">
                                 <img src="/assets/imgs/plusyellow.svg" alt="" />
                                 Create a New CaseStudy
                             </NavLink>

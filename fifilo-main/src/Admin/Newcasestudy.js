@@ -242,7 +242,7 @@ const CasestudyPage = () => {
         if (heroSection || overviewSection || designProcessSection ||
             sketches || styleGuideSection || typographyData || howFifiloDesignsDrives || updatedLook || fullWidthImg) {
             try {
-                let { data } = await axios.post('http://localhost:5000/admin/casestudy/createcasestudy/', {
+                let { data } = await axios.post('/admin/casestudy/createcasestudy/', {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg, seoSection
                 }, {
@@ -271,7 +271,7 @@ const CasestudyPage = () => {
                 <div className="page__editors">
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><NavLink to="/section/casestudies">casestudies</NavLink></li>
+                            <li className="breadcrumb-item"><NavLink to="/casestudies">Case Studies</NavLink></li>
                             <li className="breadcrumb-item"><img src="assets/imgs/chevron-right.svg" alt="" /></li>
                             <li className="breadcrumb-item active">New Casestudy</li>
                         </ol>
@@ -353,7 +353,7 @@ const CasestudyPage = () => {
                                                             className="form-control"
                                                             value={heroSection.pageName}
                                                             onChange={(e) => setHeroSection({ ...heroSection, pageName: e.target.value })}
-                                                            placeholder="Enter page Name"
+                                                            placeholder="Enter page Url"
                                                         />
                                                     </div>
                                                 </div>
