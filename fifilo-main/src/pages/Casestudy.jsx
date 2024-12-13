@@ -154,7 +154,7 @@ export default function Casestudy() {
                                         <h3 dangerouslySetInnerHTML={{
                                             __html: DOMPurify.sanitize(!loading && casestudy ? casestudy.overviewSection.Strategy.heading : ``)
                                         }} />
-                                        <p dangerouslySetInnerHTML={{
+                                        <div dangerouslySetInnerHTML={{
                                             __html: DOMPurify.sanitize(!loading && casestudy ? casestudy.overviewSection.Strategy.description : ``)
                                         }} />
                                     </div>
