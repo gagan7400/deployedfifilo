@@ -4,7 +4,7 @@ import Footer from "../layout/Footer";
 
 const Layout = ({ children }) => {
     const location = useLocation();
-    const hideNavbarFooterRoutes = ["admin", "pages", "dashboard", "section"];
+    const hideNavbarFooterRoutes = ["admin", "pages", "dashboard", "section", "casestudies"];
 
     const shouldHide = hideNavbarFooterRoutes.includes(location.pathname.split("/")[1]);
     return (

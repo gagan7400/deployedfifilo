@@ -298,8 +298,6 @@ const Casestudy = () => {
             console.log(error)
             alert("Error Occured")
         }
-
-
     };
     return (
         <>
