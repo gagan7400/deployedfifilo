@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from './Sidebar';
-import { Editor } from "@tinymce/tinymce-react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getpublishServicePage, updateServicePageAction } from '../redux/actions/servicesAction';
-import ServicepageServicecard from './ServicepageServicecard';
 import ToolSection from './ToolSection';
 import SeoImg from './SeoImg';
 import { NavLink } from 'react-router-dom';
 import HomepageuploadSection from './HomepageuploadSection';
 import Loader from '../layout/Loader';
+import JoditEditor from 'jodit-react';
 const ServicesForm = () => {
+    const editor = useRef(null);
     let dispatch = useDispatch();
     const { pageData } = useSelector((state) => state.page);
     useEffect(() => {
@@ -324,7 +324,6 @@ const ServicesForm = () => {
                                                     <button className="btn" onClick={() => removeServiceCard(index)}><img src="assets/imgs/trash.svg" alt="trash icon" />Delete</button>
                                                 </div>
                                                 <div className="row">
-                                                    {/* <ServicepageServicecard card={card} index={index} handleServiceCardChange={handleServiceCardChange} /> */}
                                                     <div className="col-lg-12">
                                                         <div className="input__inr">
                                                             <label htmlFor={`cardId${index}`} className="form-label">Service Id</label>
@@ -380,7 +379,7 @@ const ServicesForm = () => {
                                                     <div className="col-lg-12">
                                                         <div className="input__inr">
                                                             <label htmlFor={`servicesCardList${index}`}>Unordered List</label>
-                                                            <Editor
+                                                            {/* <Editor
                                                                 value={card.cardList}
                                                                 apiKey="jd3e97w8li70lbzue44vverzarnpb6y52c1aht6swqstquwz"
                                                                 init={{
@@ -397,6 +396,11 @@ const ServicesForm = () => {
                                                                         "undo redo | formatselect | bold italic backcolor  | \ alignleft aligncenter alignright alignjustify | \ bullist numlist | removeformat | help",
                                                                 }}
                                                                 onEditorChange={(newContent) => handleCardListChange(index, newContent)}
+                                                            /> */}
+                                                            <JoditEditor
+                                                                ref={editor}
+                                                                value={card.cardList}
+                                                                onChange={(newContent) => handleCardListChange(index, newContent)} // Save content on every keystroke
                                                             />
                                                         </div>
                                                     </div>

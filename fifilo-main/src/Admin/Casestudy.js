@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Sidebar from './Sidebar';
 import { NavLink, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import axios from 'axios';
 import ProcessIcon from './ProcessIcon';
-import { Editor } from "@tinymce/tinymce-react";
 import SketchesImg from './SketchesImg';
 import "./dashboard.css";
 import CasestudyImg from './CasestudyImg';
 import SeoImg from './SeoImg';
 import Loader from '../layout/Loader';
+import JoditEditor from 'jodit-react';
 const Casestudy = () => {
     let { name } = useParams();
+    const editor = useRef(null);
     let [casestudy, setCasestudy] = useState(null);
     let [loading, setLoading] = useState(true);
     const [heroSection, setHeroSection] = useState({
@@ -88,7 +88,7 @@ const Casestudy = () => {
     useEffect(() => {
         const getCasestudy = async () => {
             try {
-                let { data } = await axios.get(`/admin/casestudy/getcasestudy/${name}`);
+                let { data } = await axios.get(`http://localhost:5000/admin/casestudy/getcasestudy/${name}`);
                 if (data.success) {
                     setCasestudy(data.data);
                     setHeroSection({ ...data.data.heroSection });
@@ -275,7 +275,7 @@ const Casestudy = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let { data } = await axios.put('/admin/casestudy/updatecasestudy/' + casestudy._id,
+            let { data } = await axios.put('http://localhost:5000/admin/casestudy/updatecasestudy/' + casestudy._id,
                 {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg,
@@ -369,11 +369,7 @@ const Casestudy = () => {
                                 <button className="nav-link" id="pills-seo-tab" data-bs-toggle="pill" data-bs-target="#pills-seo"
                                     type="button" role="tab" aria-controls="pills-seo" aria-selected="false">SEO</button>
                             </li>
-                            {/* <li className="nav-item" role="presentation">
-                                <button className="nav-link" id="pills-fullWidthImg-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-fullWidthImg" type="button" role="tab" aria-controls="pills-fullWidthImg"
-                                    aria-selected="false">FullWidthImg</button>
-                            </li> */}
+
                         </ul>
                         <div className="tab-content" id="pills-tabContent">
                             <div className="tab-pane fade show active" id="pills-hero" role="tabpanel"
@@ -602,23 +598,10 @@ const Casestudy = () => {
                                                 <div className="col-lg-12">
                                                     <div className="input__inr">
                                                         <label htmlFor="Strategy Description">Strategy Description</label>
-                                                        <Editor
+                                                        <JoditEditor
+                                                            ref={editor}
                                                             value={overviewSection.Strategy.description}
-                                                            apiKey="jd3e97w8li70lbzue44vverzarnpb6y52c1aht6swqstquwz"
-                                                            init={{
-                                                                height: 400,
-                                                                menubar: true,
-                                                                plugins: [
-                                                                    "advlist",
-                                                                    "lists",
-                                                                    "link", "image", "charmap", "preview", "anchor", // Optional additional features
-                                                                    "searchreplace", "visualblocks", "code", "fullscreen",
-                                                                    "insertdatetime", "media", "table", "paste", "help", "wordcount"
-                                                                ],
-                                                                toolbar:
-                                                                    "undo redo | formatselect | bold italic backcolor  | \ alignleft aligncenter alignright alignjustify | \ bullist numlist | removeformat | help",
-                                                            }}
-                                                            onEditorChange={(newContent) => handleOverviewSectionChange("Strategy", "description", newContent)}
+                                                            onChange={(newContent) => handleOverviewSectionChange("Strategy", "description", newContent)} // Save content on every keystroke
                                                         />
                                                     </div>
                                                 </div>
@@ -856,19 +839,6 @@ const Casestudy = () => {
                                                                     <button className="btn" onClick={() => removeColorSection('SecondaryColorSections', index)} ><img src="assets/imgs/trash.svg" alt="" />Delete</button>
                                                                 </div>
                                                                 <div className='row'>
-                                                                    {/* <div className="col-lg-12">
-                                                                        <div className="input__inr">
-                                                                            <label htmlFor="ColorName" className="form-label">Color Name</label>
-                                                                            <input required type="text"
-                                                                                id="ColorName"
-                                                                                name="ColorName"
-                                                                                className="form-control"
-                                                                                value={color.name}
-                                                                                onChange={(e) => handleColorInputChange(e, 'SecondaryColorSections', index, 'name')}
-                                                                                placeholder="Enter Color Name"
-                                                                            />
-                                                                        </div>
-                                                                    </div> */}
                                                                     <div className="col-lg-12">
                                                                         <div className="input__inr">
                                                                             <label htmlFor="ColorHexcode" className="form-label">Color Hex Code</label>
@@ -1092,23 +1062,10 @@ const Casestudy = () => {
                                                 <div className="col-lg-12">
                                                     <div className="input__inr">
                                                         <label htmlFor="description">Description</label>
-                                                        <Editor
+                                                        <JoditEditor
+                                                            ref={editor}
                                                             value={impactAndImprovement.description}
-                                                            apiKey="jd3e97w8li70lbzue44vverzarnpb6y52c1aht6swqstquwz"
-                                                            init={{
-                                                                height: 400,
-                                                                menubar: true,
-                                                                plugins: [
-                                                                    "advlist",
-                                                                    "lists",
-                                                                    "link", "image", "charmap", "preview", "anchor", // Optional additional features
-                                                                    "searchreplace", "visualblocks", "code", "fullscreen",
-                                                                    "insertdatetime", "media", "table", "paste", "help", "wordcount"
-                                                                ],
-                                                                toolbar:
-                                                                    "undo redo | formatselect | bold italic backcolor  | \ alignleft aligncenter alignright alignjustify | \ bullist numlist | removeformat | help",
-                                                            }}
-                                                            onEditorChange={(newContent) => setImpactAndImprovement({ ...impactAndImprovement, description: newContent })}
+                                                            onChange={(newContent) => setImpactAndImprovement({ ...impactAndImprovement, description: newContent })} // Save content on every keystroke
                                                         />
                                                     </div>
                                                 </div>
@@ -1211,37 +1168,6 @@ const Casestudy = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* <div className="tab-pane fade" id="pills-fullWidthImg" role="tabpanel" aria-labelledby="pills-fullWidthImg-tab">
-                                <div className="edit__tools">
-                                    <div className="card__block">
-                                        <div className="row">
-                                            <div className="col-lg-12">
-                                                <div className="seo__card">
-                                                    {fullWidthImg.map((img, index) => (
-                                                        <div className="card__block" key={index} >
-                                                            <div className="testimonial__box">
-                                                                <div className="top__heading">
-                                                                    <p>Img {index + 1}</p>
-                                                                    <button className="btn" onClick={() => removeFullWidthImg(index)} ><img src="assets/imgs/trash.svg" alt="" />Delete</button>
-                                                                </div>
-                                                                <div className="row">
-                                                                    <SketchesImg handleFullWidthImg={handleFullWidthImg} index={index} img={img} />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                    <div className="add__review">
-                                                        <button className="btn" onClick={addFullWidthImg}><img src="assets/imgs/plus.svg" alt="" />Add Img</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="update__block">
-                                            <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>
