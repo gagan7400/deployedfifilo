@@ -1,17 +1,15 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 
-const ImageUpload = ({ imageUploaded, setImageUplaoded }) => {
-    const [file, setFile] = useState(null);
-    const [altText, setAltText] = useState("null");
+const ImageUpload = ({ setImageUplaoded }) => {
+    const [altText, setAltText] = useState("");
     const fileInputRef = useRef(null);
 
-    const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        if (selectedFile) {
-            setFile(selectedFile);
-            handleUpload(selectedFile);
-            e.target.value = ""; // Reset the file input value
+    const handleFileChange = async (e) => {
+        const files = e.target.files;
+        if (files.length > 0) {
+            await handleUpload(files);
+            e.target.value = ""; // Reset the file input
         }
     };
 
@@ -19,24 +17,25 @@ const ImageUpload = ({ imageUploaded, setImageUplaoded }) => {
         fileInputRef.current.click(); // Trigger file input click
     };
 
-    const handleUpload = async (im) => {
+    const handleUpload = async (files) => {
         const formData = new FormData();
-        formData.append("image", im);
+        for (let file of files) {
+            formData.append("images", file);
+        }
         formData.append("altText", altText);
-        console.log(im);
 
-        if (im) {
-            try {
-                const response = await axios.post("/api/media/upload", formData, {
+        try {
+            const response = await axios.post(
+                "/api/media/upload",
+                formData,
+                {
                     headers: { "Content-Type": "multipart/form-data" },
-                });
-                console.log(response);
-                setFile(null);
-                setImageUplaoded(response);
-                alert("Image uploaded successfully");
-            } catch (error) {
-                console.error("Error uploading image", error);
-            }
+                }
+            );
+            setImageUplaoded(response.data.images);
+            alert("Images uploaded successfully");
+        } catch (error) {
+            console.error("Error uploading images", error);
         }
     };
 
@@ -47,6 +46,7 @@ const ImageUpload = ({ imageUploaded, setImageUplaoded }) => {
                     <div className="upload__container" onClick={handleDivClick}>
                         <input
                             type="file"
+                            multiple
                             id="fileInput"
                             ref={fileInputRef}
                             accept=".svg,.png,.jpg,.jpeg,.gif"
@@ -68,3 +68,4 @@ const ImageUpload = ({ imageUploaded, setImageUplaoded }) => {
 };
 
 export default ImageUpload;
+

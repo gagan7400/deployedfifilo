@@ -51,7 +51,6 @@ const MediaSection = () => {
         setSelectedImage(null);
     };
     const baseUrl = `${window.location.protocol}//${window.location.host}`;
-    console.log(baseUrl);
     return (
         <>
             <Sidebar />

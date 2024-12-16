@@ -43,24 +43,25 @@ const storage = multer.diskStorage({
 
 
 const upload = multer({ storage: storage });
-router.post("/upload", upload.single("image"), async (req, res) => {
+router.post("/upload", upload.array("images", 10), async (req, res) => {
     try {
-        if (!req.file) {
-            return res.status(400).json({ success: false, error: "No file uploaded" });
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ success: false, error: "No files uploaded" });
         }
-        const newImage = new Image({
-            filePath: `/uploads/images/${req.file.filename}`,
-            filename: req.file.filename,
+
+        const imagesData = req.files.map(file => ({
+            filePath: `/uploads/images/${file.filename}`,
+            filename: file.filename,
             altText: req.body.altText || "",
-            size: Number(req.file.size) * 0.001, // File size in KB
-        });
-        await newImage.save();
+            size: Number(file.size) * 0.001, // File size in KB
+        }));
 
+        const uploadedImages = await Image.insertMany(imagesData);
 
-        res.json({ success: true, image: newImage });
+        res.json({ success: true, images: uploadedImages });
     } catch (error) {
-        console.error("Error uploading image:", error);
-        res.status(500).json({ success: false, error: "Failed to upload image" });
+        console.error("Error uploading images:", error);
+        res.status(500).json({ success: false, error: "Failed to upload images" });
     }
 });
 
@@ -93,11 +94,5 @@ router.delete("/:id", async (req, res) => {
         res.status(500).json({ error: "Failed to delete image", success: false });
     }
 });
-
-
-
-
-
-
 
 module.exports = router
