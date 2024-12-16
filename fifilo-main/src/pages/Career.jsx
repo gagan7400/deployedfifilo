@@ -346,6 +346,7 @@ export default function Career() {
       </Helmet>
 
       <div className="comn__bnr service__bnr">
+      {publishedcareerloading && <Loader/>}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
