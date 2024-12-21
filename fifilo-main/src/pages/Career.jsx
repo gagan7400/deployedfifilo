@@ -346,7 +346,7 @@ export default function Career() {
       </Helmet>
 
       <div className="comn__bnr service__bnr">
-      {publishedcareerloading && <Loader/>}
+        {publishedcareerloading && <Loader />}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
@@ -419,9 +419,11 @@ export default function Career() {
             </div>
 
             <div className="rows inner__gapTop grid" data-aos="fade-up" data-aos-duration="800">
-              {jobs && filteredJobs.map((job, index) => (
-                <Job job={job} key={index} />
-              ))}
+              {jobs && filteredJobs.map((job, index) => {
+                if (job.jobStatus == "Open") {
+                  return <Job job={job} key={index} />
+                }
+              })}
             </div>
           </div>
         </div>

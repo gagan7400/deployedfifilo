@@ -42,7 +42,6 @@ export default function Dashboard() {
         <>
             <Sidebar />
             <div className="main__content">
-                {/* {loading && <Loader />} */}
                 <div id="home" className="card__box" style={{ display: "block" }}>
                     <div className="page__editors">
                         <div className="page__title">
@@ -55,8 +54,8 @@ export default function Dashboard() {
                                 <tr>
                                     <th scope="col" style={{ width: "40%" }}>Page name</th>
                                     <th scope="col">Created on</th>
-                                    <th scope="col">Uploaded on</th>
-                                    <th scope="col" style={{ width: "100px" }}></th>
+                                    <th scope="col">Updated on</th>
+                                    <th scope="col" style={{ width: "100px" }}>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -90,8 +90,8 @@ export default function Jobpage() {
         setDescription("")
         setResponsibilities("")
         setJobStatus("");
-    } 
-      
+    }
+
     return (
         <div>
             <Sidebar titles="Job section" />
@@ -219,8 +219,8 @@ export default function Jobpage() {
                                         </div>
                                     </div>
                                     <div className="update__block" >
-                                        <button className="btn btn__update" type="button" onClick={submithandler}>{isUpdateJob.isupdate ? "Update" : "Submit"}</button>
                                         <button className="btn btn__update" type="button" onClick={cancelForm}>Cancel</button>
+                                        <button className="btn btn__update" type="button" onClick={submithandler}>{isUpdateJob.isupdate ? "Update" : "Submit"}</button>
                                     </div>
                                 </div>
                             </div>
@@ -235,9 +235,7 @@ export default function Jobpage() {
                                         <th scope="col" >Experience</th>
                                         <th scope="col" >Job Type </th>
                                         <th scope="col" >Job Status </th>
-                                        {/* <th scope="col" >Job Created</th>
-                                        <th scope="col" >Job Updated </th> */}
-                                        <th scope="col" colSpan={2} >Actions</th>
+                                        <th scope="col"  colSpan={2} style={{ textAlign: "center" }}>Actions</th>
 
                                     </tr>
                                 </thead>
@@ -250,10 +248,8 @@ export default function Jobpage() {
                                             <td>{v.yearsOfExperience}</td>
                                             <td>{v.jobType} </td>
                                             <td>{v.jobStatus}</td>
-                                            {/* <td>{v.createdAt.split("T")[0]}</td>
-                                            <td>{v.updatedAt.split("T")[0]}</td> */}
-                                            <td> <button className="btn" onClick={() => { deleted(v._id) }}><img src="/assets/imgs/delete.svg"></img></button> </td>
                                             <td><button className="btn" onClick={() => { updatejob({ id: v._id, data: v }) }}> <img src="/assets/imgs/edit.svg"></img></button></td>
+                                            <td> <button className="btn" onClick={() => { deleted(v._id) }}><img src="/assets/imgs/trash.svg"></img></button> </td>
                                         </tr>
 
                                     }).reverse()}

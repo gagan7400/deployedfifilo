@@ -108,7 +108,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                                             <input class="form-control" ref={inputRef} value={`/images/${selectedImage.filename}`} />
                                                         </div>
                                                         <div className="position-relative">
-                                                            <button class="btn btn__copy" onClick={handleCopy}>Clip to clipboard </button>
+                                                            <button class="btn btn__copy" onClick={handleCopy}>Copy to clipboard </button>
                                                             {message && <p className="position-absolute">Copied!</p>}
                                                         </div>
                                                     </div>

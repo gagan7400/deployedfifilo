@@ -3,6 +3,7 @@ import axios from 'axios';
 import Sidebar from './Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Loader from '../layout/Loader';
 
 
 export default function Casestudies() {
@@ -53,7 +54,7 @@ export default function Casestudies() {
                             <h5>Pages</h5>
                             <NavLink to="/casestudies/newcasestudy" className="btn btn__update">
                                 <img src="/assets/imgs/plusyellow.svg" alt="" />
-                                Create a New CaseStudy
+                                Create Case Study
                             </NavLink>
                         </div>
                     </div>
@@ -63,8 +64,8 @@ export default function Casestudies() {
                                 <tr>
                                     <th scope="col" style={{ width: "20%" }}>Page name</th>
                                     <th scope="col">Created on</th>
-                                    <th scope="col">Uploaded on</th>
-                                    <th scope="col" colSpan={2} style={{ width: "200px" }}></th>
+                                    <th scope="col">Updated on</th>
+                                    <th scope="col" colSpan={2} style={{ textAlign: "center" }}>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
