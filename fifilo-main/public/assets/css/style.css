@@ -2212,7 +2212,7 @@ ul li {
 }
 
 .caseStudies__bnr.twchallenge {
-  background: #ee9820; 
+  background: #ee9820;
 }
 
 .caseStudies__bnr.flipfolder {
@@ -2954,11 +2954,6 @@ ul li {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  transition: 0.3s all ease;
-}
-
-.open__roles .grid .grid-item .card__bx:hover {
-  transform: translateX(5px);
 }
 
 .open__roles .grid .grid-item .card__bx h5 {
@@ -2966,22 +2961,22 @@ ul li {
   margin-bottom: 12px;
 }
 
-.open__roles .grid .grid-item .card__bx h6 {
-  font: normal normal 400 20px var(--font);
-  color: #505050;
+.open__roles .grid .grid-item .card__bx .btm__box {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-.open__roles .grid .grid-item .card__bx h6 span {
+.open__roles .grid .grid-item .card__bx .btm__box p {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  gap: 6px;
+  border: 1px solid #505050;
+  border-radius: 40px;
+  padding: 4px 12px;
 }
 
-.open__roles .grid .grid-item .card__bx h6 span img {
-  width: 24px;
+.open__roles .grid .grid-item .card__bx p img {
+  width: 16px;
   height: auto;
 }
 
@@ -2989,6 +2984,56 @@ ul li {
   padding: 11px 24px;
   line-height: 122%;
 }
+
+.open__roles .grid .grid-item .card__bx .btn__view {
+  color: var(--color-yellow);
+  cursor: pointer;
+  padding: 0;
+}
+
+.open__roles .grid .grid-item .card__bx .job__details {
+  margin-top: 24px;
+}
+
+.open__roles .grid .grid-item .card__bx .job__details h5 {
+  margin: 16px 0 12px;
+}
+
+.open__roles .grid .grid-item .card__bx .job__details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.open__roles .grid .grid-item .card__bx .job__details ul li {
+  font: normal normal 400 16px var(--font);
+}
+
+.open__roles .grid .grid-item .card__bx .job__details {
+  overflow: hidden;
+  max-height: 0;
+  /* Start collapsed */
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 15px;
+}
+
+.open__roles .grid .grid-item .card__bx {
+  margin-bottom: 20px;
+  padding: 10px;
+
+}
+
+.open__roles .grid .grid-item .card__bx .btn__view {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+
 
 .contact__bnr {
   padding: 220px 0;

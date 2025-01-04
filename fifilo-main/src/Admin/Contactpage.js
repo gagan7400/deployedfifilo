@@ -147,6 +147,7 @@ const Contactpage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                              <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -212,6 +213,7 @@ const Contactpage = () => {
                                         </div>
                                     </div>
                                     <div className="update__block">
+                                         <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                         <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                     </div>
                                 </div>
@@ -264,6 +266,7 @@ const Contactpage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>

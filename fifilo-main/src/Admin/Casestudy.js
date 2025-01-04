@@ -302,7 +302,6 @@ const Casestudy = () => {
     return (
         <>
             <Sidebar titles="casestudy" />
-            {loading && <Loader />}
             <div className="main__content" >
                 <div className="page__editors">
                     <nav aria-label="breadcrumb">
@@ -468,6 +467,7 @@ const Casestudy = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
@@ -605,6 +605,7 @@ const Casestudy = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
+                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
@@ -677,6 +678,7 @@ const Casestudy = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -734,6 +736,7 @@ const Casestudy = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -861,6 +864,7 @@ const Casestudy = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -975,6 +979,7 @@ const Casestudy = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -1033,6 +1038,7 @@ const Casestudy = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -1062,6 +1068,7 @@ const Casestudy = () => {
                                                         <label htmlFor="description">Description</label>
                                                         <JoditEditor
                                                             ref={editor}
+
                                                             value={impactAndImprovement.description}
                                                             onChange={(newContent) => setImpactAndImprovement({ ...impactAndImprovement, description: newContent })} // Save content on every keystroke
                                                         />
@@ -1069,6 +1076,7 @@ const Casestudy = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
@@ -1107,6 +1115,7 @@ const Casestudy = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
@@ -1161,6 +1170,7 @@ const Casestudy = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>

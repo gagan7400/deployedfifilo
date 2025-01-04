@@ -27,7 +27,7 @@ const MediaLibrary = ({ onSelectImage, imageUploaded, showModal, setShowModal, s
       <ul>
         {images.map((image, index) => (
           <li key={index} className={` ${selectedImage && selectedImage._id === image._id ? 'selected' : ''}`}>
-            <div className={`thumbnail`}
+            <div className="thumbnail"
               onClick={() => handleImageClick(image)} >
               <img src={`/images/${image.filename}`} alt={image.filename} />
             </div>

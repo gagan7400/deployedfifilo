@@ -8,7 +8,6 @@ import { NavLink } from "react-router-dom";
 import useCursorPosition from "../layout/useCursorPosition";
 import { useDispatch, useSelector } from "react-redux";
 import { getPublishAboutPage } from "../redux/actions/aboutAction";
-import Loader from "../layout/Loader";
 function Point(x, y, z) {
   this.x = x;
   this.y = y;
@@ -312,7 +311,6 @@ export default function About() {
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="comn__bnr about__bnr">
-        {publishedLoading && <Loader/>}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createjob, getjobs, deleteJob, updatejobAction, } from '../redux/actions/careeraction';
 import Sidebar from './Sidebar';
+import JoditEditor from 'jodit-react';
 
 export default function Jobpage() {
     const [jobTitle, setJobtitle] = useState("")
@@ -11,11 +12,13 @@ export default function Jobpage() {
     const [jobType, setJobType] = useState("")
     const [description, setDescription] = useState("")
     const [responsibilities, setResponsibilities] = useState("")
+    const [qualifications, setQualifications] = useState("")
     const [jobStatus, setJobStatus] = useState("");
     const [section, setSection] = useState(false);
     const [isUpdateJob, setIsUpdateJob] = useState({ isupdate: false, data: null, id: null })
     let dispatch = useDispatch();
     let { jobs } = useSelector((state) => state.jobs);
+    const editor = useRef(null);
     useEffect(() => {
         dispatch(getjobs());
     }, [dispatch]);
@@ -26,12 +29,12 @@ export default function Jobpage() {
             alert("please fill all the field")
         } else {
             if (isUpdateJob.isupdate && isUpdateJob.id) {
-                dispatch(updatejobAction({ Jobdata: { jobTitle, category, yearsOfExperience, location, description, responsibilities, jobType, jobStatus }, id: isUpdateJob.id }));
+                dispatch(updatejobAction({ Jobdata: { jobTitle, category, yearsOfExperience, location, description, responsibilities, qualifications, jobType, jobStatus }, id: isUpdateJob.id }));
                 setIsUpdateJob({ isupdate: false, data: null, id: null });
                 alert("job updated successfully")
                 setSection(false);
             } else {
-                dispatch(createjob({ jobTitle, category, yearsOfExperience, location, description, responsibilities, jobType, jobStatus }));
+                dispatch(createjob({ jobTitle, category, yearsOfExperience, location, description, qualifications, responsibilities, jobType, jobStatus }));
                 alert("job created successfully")
                 setSection(false);
             }
@@ -42,6 +45,7 @@ export default function Jobpage() {
             setJobType("")
             setDescription("")
             setResponsibilities("")
+            setQualifications("")
             setJobStatus("")
         }
     }
@@ -61,6 +65,7 @@ export default function Jobpage() {
         setJobType(data.jobType)
         setDescription(data.description)
         setResponsibilities(data.responsibilities)
+        setQualifications(data.qualifications)
         setJobStatus(data.jobStatus)
     }
     let backBtn = () => {
@@ -76,6 +81,7 @@ export default function Jobpage() {
         setJobType("")
         setDescription("")
         setResponsibilities("")
+        setQualifications("")
         setJobStatus("");
         setSection(true)
     }
@@ -89,6 +95,7 @@ export default function Jobpage() {
         setJobType("")
         setDescription("")
         setResponsibilities("")
+        setQualifications("")
         setJobStatus("");
     }
 
@@ -130,12 +137,9 @@ export default function Jobpage() {
                                             <div className="input__inr">
                                                 <label htmlFor="Category">Category</label>
                                                 <select className="form-select form-select-sm mb-3" value={category} onChange={(e) => { setCategory(e.target.value) }} aria-label="Small select example" id="Category">
-                                                    <option defaultValue="Open this select menu">Open this select menu</option>
                                                     <option value="UI-UX">UI UX</option>
                                                     <option value="Development">Development</option>
                                                     <option value="Sales&Marketing">Sales & Marketing</option>
-                                                    {/* <option value="HR">HR</option>
-                                                    <option value="Other">Other</option> */}
                                                 </select>
                                             </div>
                                         </div>
@@ -183,13 +187,20 @@ export default function Jobpage() {
                                         <div className="col-lg-12">
                                             <div className="input__inr">
                                                 <label htmlFor="responsibilities">Responsibilities</label>
-                                                <textarea required type="text"
-                                                    name="responsibilities"
-                                                    id="responsibilities"
-                                                    className="form-control"
+                                                <JoditEditor
+                                                    ref={editor}
                                                     value={responsibilities}
-                                                    onChange={(e) => { setResponsibilities(e.target.value) }}
-                                                    placeholder="Enter responsibilities"
+                                                    onChange={(newContent) => setResponsibilities(newContent)} // Save content on every keystroke
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-12">
+                                            <div className="input__inr">
+                                                <label htmlFor="qualifications">Qualifications</label>
+                                                <JoditEditor
+                                                    ref={editor}
+                                                    value={qualifications}
+                                                    onChange={(newContent) => setQualifications(newContent)} // Save content on every keystroke
                                                 />
                                             </div>
                                         </div>
@@ -198,9 +209,8 @@ export default function Jobpage() {
                                             <div className="input__inr">
                                                 <label htmlFor="jobStatus">Job Status</label>
                                                 <select className="form-select form-select-sm mb-3" value={jobStatus} onChange={(e) => { setJobStatus(e.target.value) }} aria-label="Small select example" id="jobStatus">
-                                                    <option defaultValue="Open this select menu">Open this select menu</option>
-                                                    <option value="Open">Open</option>
-                                                    <option value="Closed">Closed</option>
+                                                    <option value="Active">Active</option>
+                                                    <option value="Inactive">Inactive</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -208,18 +218,16 @@ export default function Jobpage() {
                                             <div className="input__inr">
                                                 <label htmlFor="jobType">Job Type</label>
                                                 <select className="form-select form-select-sm mb-3" value={jobType} onChange={(e) => { setJobType(e.target.value) }} aria-label="Small select example" id="jobType">
-                                                    <option defaultValue="Open this select menu">Open this select menu</option>
-                                                    <option value="Remote">Remote</option>
                                                     <option value="Part-time">Part-time</option>
                                                     <option value="Full-time">Full-time</option>
-                                                    <option value="On-site">On-site</option>
-                                                    <option value="WFH">WFH</option>
+                                                    <option value="Full-time">Temporary</option>
+                                                    <option value="Full-time">Internship</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="update__block" >
-                                        <button className="btn btn__update" type="button" onClick={cancelForm}>Cancel</button>
+                                        <button className="btn btn__cancel" type="button" onClick={cancelForm}>Cancel</button>
                                         <button className="btn btn__update" type="button" onClick={submithandler}>{isUpdateJob.isupdate ? "Update" : "Submit"}</button>
                                     </div>
                                 </div>
@@ -235,8 +243,7 @@ export default function Jobpage() {
                                         <th scope="col" >Experience</th>
                                         <th scope="col" >Job Type </th>
                                         <th scope="col" >Job Status </th>
-                                        <th scope="col"  colSpan={2} style={{ textAlign: "center" }}>Actions</th>
-
+                                        <th scope="col" >Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -248,8 +255,11 @@ export default function Jobpage() {
                                             <td>{v.yearsOfExperience}</td>
                                             <td>{v.jobType} </td>
                                             <td>{v.jobStatus}</td>
-                                            <td><button className="btn" onClick={() => { updatejob({ id: v._id, data: v }) }}> <img src="/assets/imgs/edit.svg"></img></button></td>
-                                            <td> <button className="btn" onClick={() => { deleted(v._id) }}><img src="/assets/imgs/trash.svg"></img></button> </td>
+                                            <td style={{ display: "flex", gap: "16px" }}>
+                                                <button className="btn" onClick={() => { updatejob({ id: v._id, data: v }) }}> <img src="/assets/imgs/edit.svg"></img></button>
+
+                                                <button className="btn" onClick={() => { deleted(v._id) }}><img src="/assets/imgs/trash.svg"></img></button>
+                                            </td>
                                         </tr>
 
                                     }).reverse()}

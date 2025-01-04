@@ -1,45 +1,59 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import DOMPurify from 'dompurify';
-export default function Job({ job }) {
-    const [isExpanded, setIsExpanded] = useState(false);
-
-    // Toggle function to show/hide details
-    const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
-    };
+import $ from 'jquery'
+export default function Job({ job, isVisible, toggleDetails }) {
+    const detailsRef = useRef(null);
+    useEffect(() => {
+        if (detailsRef.current) {
+            detailsRef.current.style.maxHeight = isVisible
+                ? `${detailsRef.current.scrollHeight}px`
+                : "0px";
+        }
+    }, [isVisible]);
     return (
         <div className={`col-12 grid-item ${job.category}`}>
             <div className="card__bx">
                 <div className="left__bx">
                     <h5>{job.jobTitle}</h5>
-                    <h6>
-                        <span>
+                    <div className="btm__box">
+                        <p>
                             <img src="assets/img/marker-pin-01.svg" alt="location" />
                             {job.location}
-                        </span>{" "}
-                        | <span>{job.yearsOfExperience} Years</span>
-                    </h6>
-                    {isExpanded && (
-                        <div style={{ marginTop: "10px", transition: 'all 0.3s ease', display: "flex", flexDirection: "column", gap: "30px", justifyContent: "center" }}>
-                            <p><strong>Job Description:</strong> {job.description}</p>
-                            <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `<strong>Responsibility :</strong>  ${job.responsibilities} ` : "Where Talent Meets<br /> <span>Opportunity!</span>") }} />
+                        </p>
 
-                            <p><strong>JobType:</strong> {job.jobType}</p>
-                            <p><strong>jobStatus:</strong> {job.jobStatus}</p>
-                            {/* Add any other details you want to show here */}
-                        </div>
-                    )}
+                        <p>
+                            <img src="assets/img/time.svg" alt="location" />
+                            Full Time
+                        </p>
+                        <p>
+                            <img src="assets/img/experiance.svg" alt="location" />
+                            {job.yearsOfExperience} Years
+                        </p>
+
+                        <a className="btn btn__view" onClick={() => toggleDetails(job._id)}>View Detail</a>
+
+                    </div>
+                    <div ref={detailsRef} className={`job__details`}   >
+                        <p>{job.description}</p>
+                        <h5>Responsibilities:</h5>
+
+                        <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.responsibilities} ` : "") }} />
+
+                        {/* {job.responsibilites} */}
+
+                        <h5>Qualifications:</h5>
+                        <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.qualifications} ` : "") }} />
+
+                    </div>
                 </div>
+
                 <NavLink to={`/careerform/${job.jobTitle}`} className="btn btn__primary" data-bs-toggle="modal" data-bs-target="#careerModal" >
                     Apply
                     <img src="assets/img/arrow-up-right.svg" alt="apply" />
                 </NavLink>
 
             </div>
-            {/* <button onClick={toggleDetails} className="btn btn__secondary">
-                {isExpanded ? 'Show Less' : 'More Details'}
-            </button> */}
         </div>
     )
 }

@@ -109,8 +109,7 @@ const ServicesForm = () => {
     const handleCardListChange = (index, newContent) => {
         const newServicesCards = servicesCards.map((card) => ({
             ...card,
-            cardDescription: [...card.cardDescription],
-            cardList: card.cardList
+            cardList: card.cardList || ""
         }));
         newServicesCards[index].cardList = newContent;
         setServicesCards(newServicesCards);
@@ -309,6 +308,7 @@ const ServicesForm = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -412,6 +412,7 @@ const ServicesForm = () => {
                                         <button className="btn" onClick={addServiceCard}><img src="assets/imgs/plus.svg" alt="" />Add New Service</button>
                                     </div>
                                     <div className="update__block">
+                                         <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                         <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                     </div>
                                 </div>
@@ -445,6 +446,7 @@ const ServicesForm = () => {
                                             ))}
                                         </div>
                                         <div className="update__block">
+                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -498,6 +500,7 @@ const ServicesForm = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>

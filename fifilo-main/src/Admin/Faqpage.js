@@ -67,7 +67,8 @@ const Faqpage = () => {
                     <div className="page__title">
                         <h5>FAQ Page</h5>
                     </div>
-                     <div className="page__editContent">
+
+                    <div className="page__editContent">
                         <ul className="nav nav-pills" id="pills-tab" role="tablist">
                             <li className="nav-item" role="presentation">
                                 <button className="nav-link active" id="pills-heading-tab" data-bs-toggle="pill" data-bs-target="#pills-heading" type="button" role="tab" aria-controls="pills-heading"
@@ -110,6 +111,7 @@ const Faqpage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
+                                            <NavLink className="btn btn__cancel" to="/dashboard">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -156,9 +158,10 @@ const Faqpage = () => {
                                         </div>
                                     ))}
                                     <div className="add__review">
-                                        <button className="btn" onClick={handleAddCard}><img src="/assets/imgs/plus.svg" alt="" />Add New FAQ</button>
+                                        <button className="btn" onClick={handleAddCard}><img src="/assets/imgs/plus.svg" alt="" />Add New Question</button>
                                     </div>
                                     <div className="update__block">
+                                        <NavLink className="btn btn__cancel" to="/dashboard">Cancel</NavLink>
                                         <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                     </div>
                                 </div>

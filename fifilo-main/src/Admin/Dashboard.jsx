@@ -5,9 +5,9 @@ export default function Dashboard() {
         <>
             <Sidebar></Sidebar>
             <div className="main__content">
-                <div id="dashboard" className="card__box">
-                    <h2>Welcome to the Dashboard</h2>
-                    <p>This is a simple dashboard layout.  </p>
+                <div id="dashboard" className="dashboard__card">
+                    <h1>Welcome to Admin Dashboard</h1>
+                    <h5>Manage content, monitor performance,<br />and make updates easily.</h5>
                 </div>
             </div>
         </>
