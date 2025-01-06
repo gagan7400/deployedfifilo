@@ -52,7 +52,7 @@ export default function Casestudies() {
                 <div id="home" className="card__box" style={{ display: "block" }}>
                     <div className="page__editors">
                         <div className="page__title">
-                            <h5>Pages</h5>
+                            <h5>Casestudies</h5>
                             <NavLink to="/casestudies/newcasestudy" className="btn btn__update">
                                 <img src="/assets/imgs/plusyellow.svg" alt="" />
                                 Create Case Study

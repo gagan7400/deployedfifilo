@@ -129,7 +129,7 @@ export default function Jobpage() {
                                                     className="form-control"
                                                     value={jobTitle}
                                                     onChange={(e) => { setJobtitle(e.target.value) }}
-                                                    placeholder="Enter Jobtitle"
+                                                    placeholder="Enter Job Title"
                                                 />
                                             </div>
                                         </div>
