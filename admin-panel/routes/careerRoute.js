@@ -18,7 +18,7 @@ const multer = require('multer');
 const { isAdmin, authenticate } = require("../auth/Auth")
 //job routes 
 router.get("/jobs/search", auth.authenticate, searchJobs);
-router.route("/jobs", auth.authenticate, auth.isAdmin).post(createJob);
+router.post("/jobs", auth.authenticate, auth.isAdmin, createJob);
 router.get("/jobs", getJobs);
 router.get("/jobs/:id", auth.authenticate, getJob);
 router.put("/job/:id", auth.authenticate, auth.isAdmin, updateJob);

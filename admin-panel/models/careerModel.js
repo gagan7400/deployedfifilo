@@ -31,13 +31,15 @@ const jobSchema = new mongoose.Schema({
         required: true
     },
     responsibilities: {
-        type: [String],
-        required: true
+        type: String,
+    }
+    ,
+    qualifications: {
+        type: String,
     }
     , jobStatus: {
         type: String,
-        enum: ["Open", "Closed"],
-        default: "Open"
+        default: "Active"
     }
 }, { timestamps: true });
 
