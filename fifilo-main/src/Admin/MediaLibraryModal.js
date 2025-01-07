@@ -52,7 +52,8 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
         setTimeout(() => {
             setMessage(false)
         }, 3000)
-    }, [message])
+    }, [message]);
+    const baseUrl = `${window.location.protocol}//${window.location.host}`;
     if (!isOpen) return null;
     return (
         <>
@@ -105,7 +106,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                                             <button class="btn" onClick={() => handleDelete(selectedImage._id)}>Delete Permanently</button>
                                                         </div>
                                                         <div class="input__inr">
-                                                            <input class="form-control" ref={inputRef} value={`/images/${selectedImage.filename}`} />
+                                                            <input class="form-control" ref={inputRef} value={`${baseUrl}/images/${selectedImage.filename}`} />
                                                         </div>
                                                         <div className="position-relative">
                                                             <button class="btn btn__copy" onClick={handleCopy}>Copy to clipboard </button>
