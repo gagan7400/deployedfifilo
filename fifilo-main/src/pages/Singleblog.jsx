@@ -1,4 +1,4 @@
-import React, { act, useEffect, useRef, useState } from 'react'
+import React, {   useEffect,   useState } from 'react'
 import AOS from "aos";
 import DOMPurify from 'dompurify';
 import axios from 'axios';
@@ -172,7 +172,7 @@ export default function Singleblog() {
                                     <h5>Table of Contents</h5>
                                     <ul className='tableOfContent'>
                                         {!loading && blog && blog.tableOfContent.map((v, i) => {
-                                            return <li className={i == 0 ? "active" : ""} key={i}><a href={`/blogs/${blog.blogUrl}/#${v.id}`}>{i + 1}. {v.heading}</a></li>
+                                            return <li className={i ==  0 ? "active" : ""} key={i}><a href={`/blogs/${blog.blogUrl}/#${v.id}`}>{i + 1}. {v.heading}</a></li>
                                         })}
                                     </ul>
                                 </div>

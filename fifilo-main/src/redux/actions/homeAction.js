@@ -1,7 +1,6 @@
 
 import axios from 'axios';
-import { pageAction } from './pagedataAction';
-
+ 
 // Get Homepage Action
 export const getHomePage = () => async (dispatch) => {
     try {

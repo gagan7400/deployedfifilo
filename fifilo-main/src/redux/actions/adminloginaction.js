@@ -1,13 +1,10 @@
-import axios from "axios";
-// Login 
 export const loaduser = () => async (dispatch) => {
   dispatch({ type: "LOAD_USER" })
 }
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: "LOGIN_REQUEST" });
-    const config = { headers: { "Content-Type": "application/json" } };
-    await fetch("/admin/login", {
+      await fetch("/admin/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {

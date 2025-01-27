@@ -4172,3 +4172,45 @@ input:-webkit-autofill {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+
+/* update by gagan for social page  */
+.single__content .social__share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-top: 1px solid #D7DAE0;
+  border-bottom: 1px solid #D7DAE0;
+  margin-top: 48px;
+  position: relative;
+}
+
+.single__content .social__share h6 {
+  color: #36383A;
+  font-weight: 600;
+}
+
+.single__content .social__icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.single__content .social__icons .btn {
+  padding: 0;
+}
+
+.single__content .social__icons .btn img {
+  width: 32px;
+  height: auto;
+}
+
+.single__content .social__share .messageofcopy {
+  position: absolute;
+  bottom: -30px;
+  left: 10px;
+  
+}
+
+/* end of update by gagan for social page  */
