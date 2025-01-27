@@ -150,11 +150,11 @@ const BlogUpdate = () => {
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><NavLink to="/blogadmin">Blogs</NavLink></li>
                                 <li className="breadcrumb-item"><img src="assets/imgs/chevron-right.svg" alt="" /></li>
-                                <li className="breadcrumb-item active">New Blog</li>
+                                <li className="breadcrumb-item active">Blog</li>
                             </ol>
                         </nav>
                         <div className="page__title">
-                            <h5>New Blog</h5>
+                            <h5>{blog.blogTitle}</h5>
                         </div>
                         <div className="page__editContent">
                             <ul className="nav nav-pills" id="pills-tab" role="tablist">
@@ -261,9 +261,9 @@ const BlogUpdate = () => {
                                                             </select>
                                                         </div>
                                                     </div>
-                                                   
-                                                        <Blogimg setBannerImg={setBannerImg} bannerImg={bannerImg} />
-                                                     
+
+                                                    <Blogimg setBannerImg={setBannerImg} bannerImg={bannerImg} />
+
 
                                                 </div>
                                                 <div className="update__block">

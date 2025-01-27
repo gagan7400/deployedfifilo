@@ -163,7 +163,7 @@ export default function Work() {
         {loading && <Loader />}
         <div className="container">
           <div className="bnr__content">
-            <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
+            <div className="left__bx" data-aos="fade-up" data-aos-duration="400">
               <h2 dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heading : ``)
               }} />
@@ -172,7 +172,7 @@ export default function Work() {
                 __html: DOMPurify.sanitize(!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.subHeading : ``)
               }} />
             </div>
-            <div data-aos="fade-up" data-aos-duration="800">
+            <div data-aos="fade-up" data-aos-duration="400">
               <NavLink to={!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heroButtons.CTA1.url : ""} className="btn" >{!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
             </div>
             <div className="animation-wrapper">

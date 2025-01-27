@@ -213,29 +213,33 @@ export default function Home() {
             </h2>
           </div>
           <div className="inner__gapTop row">
-            {!loading && casestudies && casestudies.slice(0, 3).map((card, index) => (
-              <div className="col-12" key={index} data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} data-aos-duration="800">
-                <div className="card__caseStudies">
-                  <div className="top__keywords">
-                    {card.heroSection.workButtons.map((btn, i) => (
-                      <span key={i}>{btn.name}</span>
-                    ))}
+            {!loading && casestudies && casestudies.map((card, index) => {
+              let ca = ["TribeStays", "Cure Hub", "SPV Mortgages"];
+              console.log(ca.includes(card.heroSection.casestudyName))
+              if (ca.includes(card.heroSection.casestudyName)) {
+                return (<div className="col-12" key={index} data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} data-aos-duration="800">
+                  <div className="card__caseStudies">
+                    <div className="top__keywords">
+                      {card.heroSection.workButtons.map((btn, i) => (
+                        <span key={i}>{btn.name}</span>
+                      ))}
+                    </div>
+                    <h4>
+                      <NavLink to={`/${card.heroSection.pageName}/`}>
+                        {card.heroSection.casestudyName}{" "}
+                        <img src="assets/img/arrow-up-right.svg" alt="case-studies" />
+                      </NavLink>
+                    </h4>
+                    <p>{card.heroSection.description}</p>
+                    <div className="img__box"  >
+                      <NavLink to={`/${card.heroSection.pageName}/`} >
+                        <img src={(card.heroSection.homeImg && card.heroSection.homeImg.filename) && `/images/${card.heroSection.homeImg.filename}`} alt={card.heroSection.casestudyName} />
+                      </NavLink>
+                    </div>
                   </div>
-                  <h4>
-                    <NavLink to={`/${card.heroSection.pageName}/`}>
-                      {card.heroSection.casestudyName}{" "}
-                      <img src="assets/img/arrow-up-right.svg" alt="case-studies" />
-                    </NavLink>
-                  </h4>
-                  <p>{card.heroSection.description}</p>
-                  <div className="img__box"  >
-                    <NavLink to={`/${card.heroSection.pageName}/`} >
-                      <img src={(card.heroSection.homeImg && card.heroSection.homeImg.filename) && `/images/${card.heroSection.homeImg.filename}`} alt={card.heroSection.casestudyName} />
-                    </NavLink>
-                  </div>
-                </div>
-              </div>
-            ))}
+                </div>)
+              }
+            })}
 
           </div>
           <div className="inner__gapTop" data-aos="fade-up" data-aos-duration="800">

@@ -1,7 +1,8 @@
-import React, { act, useEffect, useState } from 'react'
+import React, { act, useEffect, useRef, useState } from 'react'
 import AOS from "aos";
 import DOMPurify from 'dompurify';
 import axios from 'axios';
+import { Copy } from 'lucide-react';
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
 export default function Singleblog() {
     let { name } = useParams();
@@ -9,7 +10,29 @@ export default function Singleblog() {
     let [blogs, setBlogs] = useState(null);
     let [loading, setLoading] = useState(true);
     let [blogsLoading, setBlogsLoading] = useState(true);
+    const [copied, setCopied] = useState(false);
+
     let nav = useNavigate();
+    const blogUrl = window.location.href;
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(blogUrl).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    };
+    const handleShare = () => {
+        if (navigator.share) {
+            navigator
+                .share({
+                    title: 'Check out this blog!',
+                    url: blogUrl,
+                })
+                .catch((error) => console.error('Error sharing:', error));
+        } else {
+            alert('Sharing is not supported on this browser.');
+        }
+    };
     let location = useLocation();
     useEffect(() => {
         getblog();
@@ -111,12 +134,41 @@ export default function Singleblog() {
             <div className="single__content rn__section__gapTop">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-9" dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(!loading && blog && blog.blogContent)
-                        }} />
+                        <div className='col-lg-9'>
+                            <div dangerouslySetInnerHTML={{
+                                __html: DOMPurify.sanitize(!loading && blog && blog.blogContent)
+                            }} />
+                            <div class="social__share" >
+                                <h6>Social Share</h6>
+                                <div class="social__icons">
+                                    <div className="social__icons">
+                                        <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="btn" >
+                                            <img src="assets/img/facebook-s.svg" alt="Facebook" />
+                                        </a>
+                                        <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=Check+out+this+blog!`} target="_blank" rel="noopener noreferrer" className="btn" >
+                                            <img src="assets/img/twitter-s.svg" alt="Twitter" />
+                                        </a>
+                                        <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="btn" >
+                                            <img src="assets/img/linkedIn-s.svg" alt="LinkedIn" />
+                                        </a>
+                                        <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="btn" >
+                                            <img src="assets/img/whatsapp-s.svg" alt="WhatsApp" />
+                                        </a>
+                                        <button onClick={handleShare} className="btn">
+                                            <img src="assets/img/share.svg" alt="Share" />
+                                        </button>
+                                        <button onClick={handleCopy} className="btn">
+                                            <Copy size={32} />
+                                        </button>
+                                    </div>
+                                    {copied && <span className="text-green-600 text-sm messageofcopy">URL copied to clipboard!</span>}
+                                </div>
+                            </div>
+                        </div>
+
                         <div className="col-lg-3">
                             <div className="right__block">
-                                <div className="table__card" >
+                                <div className="table__card"  >
                                     <h5>Table of Contents</h5>
                                     <ul className='tableOfContent'>
                                         {!loading && blog && blog.tableOfContent.map((v, i) => {
@@ -125,8 +177,9 @@ export default function Singleblog() {
                                     </ul>
                                 </div>
 
-                                <div className="releted__blog" >
+                                <div className="releted__blog"  >
                                     <h5>Related Blogs</h5>
+
                                     <div className="blogs__cards">
                                         {!blogsLoading && blogs && blogs.map((value, index) => {
                                             if (value._id != blog._id) {
