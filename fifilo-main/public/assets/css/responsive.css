@@ -1,4 +1,5 @@
 @media only screen and (min-width: 1440px) and (max-width: 1600px) {
+
   .container,
   .container-lg,
   .container-md,
@@ -152,9 +153,11 @@
   .our__work .card__caseStudies p {
     margin-bottom: 22px;
   }
+
   .our__work .card__caseStudies .img__box img {
     border-radius: 14px;
   }
+
   .our__services::before {
     width: 748px;
     height: 548px;
@@ -652,7 +655,7 @@
     font-size: 18px;
   }
 
-  .caseStudies__overview .font__body .font__data > div {
+  .caseStudies__overview .font__body .font__data>div {
     gap: 6px;
   }
 
@@ -711,47 +714,56 @@
   .bnr__policy h2 {
     font: normal normal 400 58px / 124% var(--font);
   }
+
   .bnr__policy {
     min-height: 380px;
     padding: 142px 0 80px;
   }
+
   .policy__content h4 {
     margin: 28px 0 12px;
   }
+
   .policy__content h5 {
     margin: 20px 0 12px;
   }
+
   .policy__content ul li {
     font: normal normal 400 14px var(--font);
   }
+
   .career__modal .modal-dialog iframe {
     height: 458px;
   }
+
   .loading-text span img {
     height: 70px;
   }
+
   .shapes {
     margin-top: 78px;
     width: 160px;
     height: 160px;
   }
+
   @keyframes sp1 {
     100% {
       transform: translate(-26px, -26px);
     }
   }
+
   .shapes-4 {
     color: var(--color-yellow);
     position: relative;
     background: radial-gradient(40px, currentColor 94%, #0000);
   }
+
   .shapes-4:before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(38px at bottom right, #0000 94%, currentColor)
-        top left,
+    background: radial-gradient(38px at bottom right, #0000 94%, currentColor) top left,
       radial-gradient(38px at bottom left, #0000 94%, currentColor) top right,
       radial-gradient(38px at top right, #0000 94%, currentColor) bottom left,
       radial-gradient(38px at top left, #0000 94%, currentColor) bottom right;
@@ -759,19 +771,46 @@
     background-repeat: no-repeat;
     animation: sp4 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
   }
+
   @keyframes sp4 {
     33% {
       inset: -26px;
       transform: rotate(0deg);
     }
+
     66% {
       inset: -26px;
       transform: rotate(90deg);
     }
+
     100% {
       inset: 0;
       transform: rotate(90deg);
     }
+  }
+  .blogs__bnr {
+    padding: 200px 0 120px;
+  }
+
+  .blogs__bnr h2 {
+    font: normal normal 400 58px / 124% var(--font);
+  }
+
+  .blog__single .single__thumbnails {
+    height: 560px;
+    margin-top: 64px;
+  }
+
+  .blog__single {
+    padding: 200px 0 80px;
+  }
+
+  .single__content .left__block .img__block {
+    height: 440px;
+  }
+
+  .single__content .right__block .card__blog .description {
+    font: normal normal 400 13px var(--font);
   }
 }
 
@@ -895,11 +934,9 @@
   }
 
   .dark__bnr::before {
-    background-image: radial-gradient(
-      320px at var(--cursor-x) var(--cursor-y),
-      rgba(253, 185, 19, 0.65),
-      transparent 40%
-    );
+    background-image: radial-gradient(320px at var(--cursor-x) var(--cursor-y),
+        rgba(253, 185, 19, 0.65),
+        transparent 40%);
   }
 
   .dark__bnr::after {
@@ -1511,7 +1548,7 @@
     gap: 28px;
   }
 
-  .caseStudies__overview .font__body .font__data > div {
+  .caseStudies__overview .font__body .font__data>div {
     gap: 6px;
   }
 
@@ -1565,51 +1602,61 @@
   .bnr__policy h2 {
     font: normal normal 400 58px / 124% var(--font);
   }
+
   .bnr__policy {
     min-height: 340px;
     padding: 112px 0 60px;
   }
+
   .policy__content h4 {
     margin: 20px 0 12px;
   }
+
   .policy__content h5 {
     margin: 16px 0 12px;
   }
+
   .policy__content ul {
     margin-bottom: 12px;
   }
+
   .policy__content ul li {
     font: normal normal 400 14px var(--font);
     margin-bottom: 12px;
   }
+
   .career__modal .modal-dialog iframe {
     height: 428px;
   }
+
   .loading-text span img {
     height: 65px;
   }
+
   .shapes {
     margin-top: 64px;
     width: 140px;
     height: 140px;
   }
+
   @keyframes sp1 {
     100% {
       transform: translate(-22px, -22px);
     }
   }
+
   .shapes-4 {
     color: var(--color-yellow);
     position: relative;
     background: radial-gradient(35px, currentColor 94%, #0000);
   }
+
   .shapes-4:before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(33px at bottom right, #0000 94%, currentColor)
-        top left,
+    background: radial-gradient(33px at bottom right, #0000 94%, currentColor) top left,
       radial-gradient(33px at bottom left, #0000 94%, currentColor) top right,
       radial-gradient(33px at top right, #0000 94%, currentColor) bottom left,
       radial-gradient(33px at top left, #0000 94%, currentColor) bottom right;
@@ -1617,20 +1664,162 @@
     background-repeat: no-repeat;
     animation: sp4 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
   }
+
   @keyframes sp4 {
     33% {
       inset: -22px;
       transform: rotate(0deg);
     }
+
     66% {
       inset: -22px;
       transform: rotate(90deg);
     }
+
     100% {
       inset: 0;
       transform: rotate(90deg);
     }
   }
+
+  .blogs__bnr {
+    padding: 160px 0 120px;
+  }
+
+  .blogs__bnr h2 {
+    font: normal normal 400 56px / 124% var(--font);
+  }
+
+  .blogs__list .row {
+    row-gap: 72px;
+  }
+
+  .blogs__list .card__blog .cntnt__bx {
+    bottom: 28px;
+    left: 28px;
+  }
+
+  .blogs__list .card__blog .thumb__img img {
+    height: 500px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .category {
+    font: normal normal 400 11px / 150% var(--font);
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title {
+    margin: 14px 0 6px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title img {
+    width: 28px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr,
+  .blog__single .bnr__inr .card__ftr {
+    margin-top: 14px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr span,
+  .blog__single .bnr__inr .card__ftr span {
+    font: normal normal 400 12px / 128.571% var(--font);
+  }
+
+  .blogs__list .row .row {
+    row-gap: 42px;
+  }
+
+  .blogs__list .arti__card {
+    gap: 28px;
+    padding-top: 42px;
+  }
+
+  .blogs__list .arti__card .img__box {
+    max-width: 310px;
+    min-width: 310px;
+    height: 180px;
+  }
+
+  .blog__single {
+    min-height: auto;
+  }
+
+  .blog__single .bnr__inr .category span {
+    font: normal normal 400 11px / 150% var(--font);
+  }
+
+  .blog__single h2 {
+    margin-top: 14px;
+  }
+
+  .blog__single .single__thumbnails {
+    height: 500px;
+    margin-top: 56px;
+  }
+
+  .blog__single .single__thumbnails img,
+  .single__content .left__block .img__block img {
+    border-radius: 14px;
+  }
+
+  .single__content .left__block .img__block {
+    margin: 20px 0;
+    height: 400px;
+  }
+
+  .single__content .left__block h6:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  .single__content .left__block h3:not(:first-child) {
+    margin-top: 36px;
+  }
+
+  .single__content .left__block ul {
+    margin: 20px 0 0;
+  }
+
+  .single__content .left__block .social__share {
+    padding: 14px 0;
+    margin-top: 42px;
+  }
+
+  .single__content .left__block .social__icons {
+    gap: 14px;
+  }
+
+  .single__content .left__block .social__icons .btn img {
+    width: 28px;
+  }
+
+  .single__content .right__block {
+    gap: 42px;
+  }
+
+  .single__content .right__block .table__card ul {
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .single__content .right__block .releted__blog .blogs__cards {
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .single__content .right__block .card__blog .title span {
+    min-width: 18px;
+    max-width: 18px;
+  }
+
+  .single__content .right__block .card__blog .description {
+    font: normal normal 400 12px var(--font);
+  }
+
+  .single__content .right__block .card__blog:not(:last-child) {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  }
+
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
@@ -1759,11 +1948,9 @@
   }
 
   .dark__bnr::before {
-    background-image: radial-gradient(
-      280px at var(--cursor-x) var(--cursor-y),
-      rgba(253, 185, 19, 0.65),
-      transparent 40%
-    );
+    background-image: radial-gradient(280px at var(--cursor-x) var(--cursor-y),
+        rgba(253, 185, 19, 0.65),
+        transparent 40%);
   }
 
   .dark__bnr::after {
@@ -2372,7 +2559,7 @@
     gap: 24px;
   }
 
-  .caseStudies__overview .font__body .font__data > div {
+  .caseStudies__overview .font__body .font__data>div {
     gap: 6px;
   }
 
@@ -2431,54 +2618,65 @@
   .bnr__policy h2 {
     font: normal normal 400 46px / 124% var(--font);
   }
+
   .bnr__policy {
     min-height: 320px;
     padding: 112px 0 44px;
   }
+
   .policy__content p {
     margin-bottom: 10px;
   }
+
   .policy__content h4 {
     margin: 18px 0 10px;
   }
+
   .policy__content h5 {
     margin: 14px 0 10px;
   }
+
   .policy__content ul {
     margin-bottom: 10px;
   }
+
   .policy__content ul li {
     font: normal normal 400 12px var(--font);
     margin-bottom: 10px;
   }
+
   .career__modal .modal-dialog iframe {
     height: 373px;
   }
+
   .loading-text span img {
     height: 60px;
   }
+
   .shapes {
     margin-top: 56px;
     width: 120px;
     height: 120px;
   }
+
   @keyframes sp1 {
     100% {
       transform: translate(-18px, -18px);
     }
   }
+
   .shapes-4 {
     color: var(--color-yellow);
     position: relative;
     background: radial-gradient(30px, currentColor 94%, #0000);
   }
+
   .shapes-4:before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(28px at bottom right, #0000 94%, currentColor)
-        top left,
+    background: radial-gradient(28px at bottom right, #0000 94%, currentColor) top left,
       radial-gradient(28px at bottom left, #0000 94%, currentColor) top right,
       radial-gradient(28px at top right, #0000 94%, currentColor) bottom left,
       radial-gradient(28px at top left, #0000 94%, currentColor) bottom right;
@@ -2486,19 +2684,174 @@
     background-repeat: no-repeat;
     animation: sp4 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
   }
+
   @keyframes sp4 {
     33% {
       inset: -18px;
       transform: rotate(0deg);
     }
+
     66% {
       inset: -18px;
       transform: rotate(90deg);
     }
+
     100% {
       inset: 0;
       transform: rotate(90deg);
     }
+  }
+
+  .blogs__bnr {
+    padding: 100px 0 60px;
+  }
+
+  .blogs__bnr h2 {
+    font: normal normal 400 32px / 124% var(--font);
+  }
+
+  .blogs__list .row {
+    row-gap: 48px;
+  }
+
+  .blogs__list .card__blog .cntnt__bx {
+    bottom: 16px;
+    left: 16px;
+    width: 75%;
+    padding: 12px;
+  }
+
+  .blogs__list .card__blog .thumb__img img {
+    height: 400px;
+    border-radius: 14px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .category {
+    font: normal normal 400 10px / 150% var(--font);
+    padding: 4px 8px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title {
+    gap: 8px;
+    margin: 10px 0 6px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title img {
+    width: 24px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx h6 {
+    max-width: 94%;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr,
+  .blog__single .bnr__inr .card__ftr {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr span,
+  .blog__single .bnr__inr .card__ftr span {
+    font: normal normal 400 12px / 128.571% var(--font);
+  }
+
+  .blogs__list .row .row {
+    row-gap: 24px;
+  }
+
+  .blogs__list .arti__card {
+    gap: 16px;
+    padding-top: 24px;
+  }
+
+  .blogs__list .arti__card .img__box {
+    max-width: 250px;
+    min-width: 250px;
+    height: 150px;
+  }
+
+  .blog__single {
+    min-height: auto;
+  }
+
+  .blog__single .bnr__inr .category span {
+    font: normal normal 400 10px / 150% var(--font);
+    padding: 4px 8px;
+  }
+
+  .blog__single h2 {
+    margin-top: 8px;
+  }
+
+  .blog__single .single__thumbnails {
+    height: 376px;
+    margin-top: 32px;
+  }
+
+  .blog__single .single__thumbnails img,
+  .single__content .left__block .img__block img {
+    border-radius: 12px;
+  }
+
+  .single__content .left__block .img__block {
+    margin: 16px 0;
+    height: 300px;
+  }
+
+  .single__content .left__block h6:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  .single__content .left__block h3:not(:first-child) {
+    margin-top: 24px;
+  }
+
+  .single__content .left__block ul {
+    margin: 16px 0 0;
+  }
+
+  .single__content .left__block .social__share {
+    padding: 10px 0;
+    margin-top: 32px;
+  }
+
+  .single__content .left__block .social__icons {
+    gap: 12px;
+  }
+
+  .single__content .left__block .social__icons .btn img {
+    width: 24px;
+  }
+
+  .single__content .right__block {
+    gap: 32px;
+    position: unset;
+    margin-top: 32px;
+  }
+
+  .single__content .right__block .releted__blog,
+  .single__content .right__block .table__card {
+    gap: 10px;
+  }
+
+  .single__content .right__block .table__card ul {
+    border-radius: 12px;
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .single__content .right__block .releted__blog .blogs__cards {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .single__content .right__block .card__blog .description {
+    font: normal normal 400 12px var(--font);
+  }
+
+  .single__content .right__block .card__blog:not(:last-child) {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
   }
 }
 
@@ -2635,11 +2988,9 @@
   }
 
   .dark__bnr::before {
-    background-image: radial-gradient(
-      275px at var(--cursor-x) var(--cursor-y),
-      rgba(253, 185, 19, 0.65),
-      transparent 40%
-    );
+    background-image: radial-gradient(275px at var(--cursor-x) var(--cursor-y),
+        rgba(253, 185, 19, 0.65),
+        transparent 40%);
   }
 
   .hero__bnr .bnr__content h6 {
@@ -2691,9 +3042,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
   .our__work .card__caseStudies .img__box img {
     border-radius: 12px;
   }
+
   .our__services::before {
     width: 405px;
     height: 300px;
@@ -2752,6 +3105,7 @@
     gap: 16px;
     margin-top: 16px;
   }
+
   .our__testimonials .img__bx {
     width: 100px;
     height: 100px;
@@ -2815,9 +3169,11 @@
     margin: 112px 0 62px;
     gap: 16px;
   }
+
   .footer .center__bx .ftr__menu li a {
     font: normal normal 400 14px / 150% var(--font);
   }
+
   .footer .center__bx .center__inr .ftr__logo img {
     width: 72px;
   }
@@ -3257,7 +3613,7 @@
     gap: 20px;
   }
 
-  .caseStudies__overview .font__body .font__data > div {
+  .caseStudies__overview .font__body .font__data>div {
     gap: 5px;
   }
 
@@ -3298,9 +3654,11 @@
   .explore__more .card__caseStudies .img__box img {
     height: 282px;
   }
+
   .explore__more .card__caseStudies .img__box img {
     border-radius: 10px;
   }
+
   .thankYou__box p {
     margin: 8px 0 14px;
   }
@@ -3308,55 +3666,66 @@
   .bnr__policy h2 {
     font: normal normal 400 32px / 124% var(--font);
   }
+
   .bnr__policy {
     min-height: 300px;
     padding: 100px 0 32px;
   }
+
   .policy__content p {
     margin-bottom: 10px;
   }
+
   .policy__content h4 {
     margin: 18px 0 10px;
   }
+
   .policy__content h5 {
     margin: 14px 0 10px;
   }
+
   .policy__content ul {
     margin-bottom: 10px;
     padding-left: 1.4rem;
   }
+
   .policy__content ul li {
     font: normal normal 400 13px var(--font);
     margin-bottom: 10px;
   }
+
   .career__modal .modal-dialog iframe {
     height: 347px;
   }
+
   .loading-text span img {
     height: 50px;
   }
+
   .shapes {
     margin-top: 52px;
     width: 100px;
     height: 100px;
   }
+
   @keyframes sp1 {
     100% {
       transform: translate(-15px, -15px);
     }
   }
+
   .shapes-4 {
     color: var(--color-yellow);
     position: relative;
     background: radial-gradient(25px, currentColor 94%, #0000);
   }
+
   .shapes-4:before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: radial-gradient(23px at bottom right, #0000 94%, currentColor)
-        top left,
+    background: radial-gradient(23px at bottom right, #0000 94%, currentColor) top left,
       radial-gradient(23px at bottom left, #0000 94%, currentColor) top right,
       radial-gradient(23px at top right, #0000 94%, currentColor) bottom left,
       radial-gradient(23px at top left, #0000 94%, currentColor) bottom right;
@@ -3364,19 +3733,174 @@
     background-repeat: no-repeat;
     animation: sp4 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
   }
+
   @keyframes sp4 {
     33% {
       inset: -15px;
       transform: rotate(0deg);
     }
+
     66% {
       inset: -15px;
       transform: rotate(90deg);
     }
+
     100% {
       inset: 0;
       transform: rotate(90deg);
     }
+  }
+
+  .blogs__bnr {
+    padding: 100px 0 60px;
+  }
+
+  .blogs__bnr h2 {
+    font: normal normal 400 32px / 124% var(--font);
+  }
+
+  .blogs__list .row {
+    row-gap: 48px;
+  }
+
+  .blogs__list .card__blog .cntnt__bx {
+    bottom: 16px;
+    left: 16px;
+    width: 75%;
+    padding: 12px;
+  }
+
+  .blogs__list .card__blog .thumb__img img {
+    height: 400px;
+    border-radius: 14px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .category {
+    font: normal normal 400 10px / 150% var(--font);
+    padding: 4px 8px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title {
+    gap: 8px;
+    margin: 10px 0 6px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title img {
+    width: 24px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx h6 {
+    max-width: 94%;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr,
+  .blog__single .bnr__inr .card__ftr {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr span,
+  .blog__single .bnr__inr .card__ftr span {
+    font: normal normal 400 12px / 128.571% var(--font);
+  }
+
+  .blogs__list .row .row {
+    row-gap: 24px;
+  }
+
+  .blogs__list .arti__card {
+    gap: 16px;
+    padding-top: 24px;
+  }
+
+  .blogs__list .arti__card .img__box {
+    max-width: 250px;
+    min-width: 250px;
+    height: 150px;
+  }
+
+  .blog__single {
+    min-height: auto;
+  }
+
+  .blog__single .bnr__inr .category span {
+    font: normal normal 400 10px / 150% var(--font);
+    padding: 4px 8px;
+  }
+
+  .blog__single h2 {
+    margin-top: 8px;
+  }
+
+  .blog__single .single__thumbnails {
+    height: 376px;
+    margin-top: 32px;
+  }
+
+  .blog__single .single__thumbnails img,
+  .single__content .left__block .img__block img {
+    border-radius: 12px;
+  }
+
+  .single__content .left__block .img__block {
+    margin: 16px 0;
+    height: 300px;
+  }
+
+  .single__content .left__block h6:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  .single__content .left__block h3:not(:first-child) {
+    margin-top: 24px;
+  }
+
+  .single__content .left__block ul {
+    margin: 16px 0 0;
+  }
+
+  .single__content .left__block .social__share {
+    padding: 10px 0;
+    margin-top: 32px;
+  }
+
+  .single__content .left__block .social__icons {
+    gap: 12px;
+  }
+
+  .single__content .left__block .social__icons .btn img {
+    width: 24px;
+  }
+
+  .single__content .right__block {
+    gap: 32px;
+    position: unset;
+    margin-top: 32px;
+  }
+
+  .single__content .right__block .releted__blog,
+  .single__content .right__block .table__card {
+    gap: 10px;
+  }
+
+  .single__content .right__block .table__card ul {
+    border-radius: 12px;
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .single__content .right__block .releted__blog .blogs__cards {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .single__content .right__block .card__blog .description {
+    font: normal normal 400 12px var(--font);
+  }
+
+  .single__content .right__block .card__blog:not(:last-child) {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
   }
 }
 
@@ -3445,11 +3969,9 @@
   }
 
   .dark__bnr::before {
-    background-image: radial-gradient(
-      200px at var(--cursor-x) var(--cursor-y),
-      rgba(253, 185, 19, 0.65),
-      transparent 40%
-    );
+    background-image: radial-gradient(200px at var(--cursor-x) var(--cursor-y),
+        rgba(253, 185, 19, 0.65),
+        transparent 40%);
   }
 
   .hero__bnr .bnr__content h6 {
@@ -3519,12 +4041,15 @@
   .our__work .card__caseStudies p {
     margin-bottom: 12px;
   }
+
   .our__work .card__caseStudies .img__box img {
     border-radius: 10px;
   }
+
   .our__services .services__card {
     padding: 12px 0;
   }
+
   .our__services .services__card .service__inr {
     margin: 0;
   }
@@ -3627,9 +4152,11 @@
   .our__clients .col-lg-2:nth-last-child(-n + 2) .card__logo {
     border-bottom: 1px solid #edeef1;
   }
+
   .explore__more .card__caseStudies .img__box {
     border-radius: 10px;
   }
+
   .faq__section .row {
     row-gap: 24px;
   }
@@ -3879,6 +4406,7 @@
   .comn__serviceBox h2 {
     font: normal normal 600 32px var(--font);
   }
+
   .comn__serviceBox .left__bx {
     margin-bottom: 8px;
   }
@@ -4092,7 +4620,7 @@
     gap: 12px;
   }
 
-  .caseStudies__overview .card__bx > div {
+  .caseStudies__overview .card__bx>div {
     width: 48%;
   }
 
@@ -4188,7 +4716,7 @@
     font: normal normal 500 13px var(--font);
   }
 
-  .caseStudies__overview .font__body .font__data > div {
+  .caseStudies__overview .font__body .font__data>div {
     gap: 4px;
   }
 
@@ -4233,43 +4761,221 @@
   .bnr__policy h2 {
     font: normal normal 400 28px / 124% var(--font);
   }
+
   .bnr__policy {
     min-height: 200px;
     padding: 80px 0 24px;
   }
+
   .policy__content p {
     margin-bottom: 8px;
   }
+
   .policy__content h4 {
     margin: 16px 0 8px;
   }
+
   .policy__content h5 {
     margin: 12px 0 8px;
   }
+
   .policy__content ul {
     margin-bottom: 8px;
     padding-left: 1.4rem;
   }
+
   .policy__content ul li {
     font: normal normal 400 12px var(--font);
     margin-bottom: 8px;
   }
+
   .loading-text span img {
     height: 40px;
   }
+
   .shapes {
     display: none !important;
   }
+
+  .blogs__bnr {
+    padding: 80px 0 40px;
+  }
+
+  .blogs__bnr h2 {
+    font: normal normal 400 28px / 124% var(--font);
+  }
+
+  .blogs__list .row {
+    row-gap: 24px;
+  }
+
+  .blogs__list .card__blog .cntnt__bx {
+    bottom: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    padding: 10px;
+  }
+
+  .blogs__list .card__blog .thumb__img img {
+    height: 350px;
+    border-radius: 12px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .category {
+    font: normal normal 400 10px / 150% var(--font);
+    padding: 4px 8px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title {
+    gap: 8px;
+    margin: 8px 0 4px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .title img {
+    width: 20px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx h6 {
+    max-width: 94%;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr,
+  .blog__single .bnr__inr .card__ftr {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .blogs__list .comn__blog .cntnt__bx .card__ftr span,
+  .blog__single .bnr__inr .card__ftr span {
+    font: normal normal 400 12px / 128.571% var(--font);
+  }
+
+  .blogs__list .row .row {
+    row-gap: 16px;
+  }
+
+  .blogs__list .arti__card {
+    gap: 12px;
+    padding-top: 16px;
+    flex-direction: column;
+  }
+
+  .blogs__list .arti__card .img__box {
+    max-width: 100%;
+    min-width: 100%;
+    height: 200px;
+  }
+
+  .blog__single .bnr__inr .category span {
+    font: normal normal 400 10px / 150% var(--font);
+    padding: 4px 8px;
+  }
+
+  .blog__single {
+    min-height: auto;
+  }
+
+  .blog__single h2 {
+    margin-top: 8px;
+  }
+
+  .blog__single .single__thumbnails {
+    height: 220px;
+    margin-top: 24px;
+  }
+
+  .blog__single .single__thumbnails img {
+    border-radius: 12px;
+  }
+
+  .single__content .left__block .img__block {
+    margin: 16px 0;
+    height: 220px;
+  }
+
+  .single__content .left__block .img__block img {
+    border-radius: 10px;
+  }
+
+  .single__content .left__block h6:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  .single__content .left__block h3:not(:first-child) {
+    margin-top: 24px;
+  }
+
+  .single__content .left__block ul {
+    margin: 16px 0 0;
+  }
+
+  .single__content .left__block .social__share {
+    padding: 10px 0;
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .single__content .left__block .social__icons {
+    gap: 8px;
+  }
+
+  .single__content .left__block .social__icons .btn img {
+    width: 24px;
+  }
+
+  .single__content .right__block {
+    gap: 24px;
+    position: unset;
+    margin-top: 24px;
+  }
+
+  .single__content .right__block .releted__blog,
+  .single__content .right__block .table__card {
+    gap: 8px;
+  }
+
+  .single__content .right__block .table__card ul {
+    border-radius: 12px;
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .single__content .right__block .releted__blog .blogs__cards {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .single__content .right__block .card__blog:not(:last-child) {
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+  }
+
+  .single__content .right__block .card__blog .description {
+    font: normal normal 400 12px var(--font);
+  }
+
+  .single__content .right__block .card__blog .title span {
+    min-width: 16px;
+    max-width: 16px;
+  }
+
+
 }
+
 @media only screen and (max-width: 375px) {
   .our__team .row {
     row-gap: 8px;
     --bs-gutter-x: 8px;
   }
+
   .our__team .team__card .img__team img {
     height: 200px;
   }
+
   .career__modal .modal-dialog iframe {
     height: 309px;
   }
+
 }

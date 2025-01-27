@@ -74,14 +74,14 @@ const MediaSection = () => {
                 {showModal && selectedImage && (
                     <div className="modal modalLibrary mediaLibrary" style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.6)", display: "flex", justifyContent: "center", alignItems: "center", }}>
                         <div className="modal-dialog ">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Attachment  Details</h5>
-                                    <button type="button" class="btn-close" onClick={() => { setShowModal(false) }}></button>
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title">Attachment  Details</h5>
+                                    <button type="button" className="btn-close" onClick={() => { setShowModal(false) }}></button>
                                 </div>
-                                <div class="modal-body">
+                                <div className="modal-body">
                                     <div className="row">
-                                        <div className="col-lg-8 col-md-8"><div class="upload__img ">
+                                        <div className="col-lg-8 col-md-8"><div className="upload__img ">
                                             <img src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                         </div>
                                         </div>
@@ -98,7 +98,7 @@ const MediaSection = () => {
                                                         <input ref={inputRef} className="form-control" value={`${baseUrl}/images/${selectedImage.filename}`} />
                                                     </div>
                                                     <div className="position-relative">
-                                                        <button class="btn btn__copy" onClick={handleCopy}>Copy to clipboard </button>
+                                                        <button className="btn btn__copy" onClick={handleCopy}>Copy to clipboard </button>
                                                         {message && <p className="position-absolute">Copied!</p>}
                                                     </div>
                                                 </div>

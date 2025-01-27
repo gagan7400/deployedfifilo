@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MediaLibraryModal from "./MediaLibraryModal";
 
-export default function SeoImg({ seoSection, setSeoSection, updateContact, index, name, data }) {
+export default function Blogimg({ bannerImg, setBannerImg, }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -13,26 +13,19 @@ export default function SeoImg({ seoSection, setSeoSection, updateContact, index
 
     // Handle image selection
     const handleImageSelect = (image) => {
-        console.log(image)
         setSelectedImage(image); // Set the selected image data
-        if (setSeoSection && !name) {
-            setSeoSection({ ...seoSection, seoImg: { filename: image.filename, path: image.filePath } })
-        } else {
-            updateContact(index, name, { filename: image.filename, path: image.filePath })
-        }
+        setBannerImg({ filename: image.filename, path: image.filePath })
         setIsModalOpen(false); // Close the modal
     };
     let deleteImg = () => {
-        setSeoSection({ ...seoSection, seoImg: { filename: "", path: '' } })
+        setBannerImg({ filename: "", path: '' })
     }
     return (
-        <div className="col-lg-6">
+        <div className="col-lg-12">
             <div className="uploaded__images">
                 <div className="image__block">
                     <div className="single__img">
-                        {(seoSection && !name) ? <img src={seoSection.seoImg?.filename ? `/images/${seoSection.seoImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
-                            : <img src={data && data.filename ? `/images/${data.filename}` : "assets/imgs/avatar.svg"} alt="" />
-                        }
+                        <img src={bannerImg?.filename ? `/images/${bannerImg.filename}` : "assets/img/img_fullsize.png"} alt="" />
                     </div>
                     <div className="btn__grp">
                         <button className="btn" type="button" onClick={() => { openMediaLibrary() }}><img src="assets/imgs/edit-05.svg"

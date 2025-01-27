@@ -15,6 +15,9 @@ const faqRoute = require("./routes/faqRoute.js");
 const pagesRoute = require("./routes/pagesRoute.js");
 const mediaRoute = require("./routes/mediaRoute.js");
 const caseStudyRoute = require("./routes/caseStudyRoute.js");
+const blogsRoute = require("./routes/blogsRoute.js");
+
+
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "admin-panel/.env" });
@@ -31,7 +34,6 @@ process.on("uncaughtException", (err) => {
   console.log(`Shutting down the server due to Uncaught Exception`);
   process.exit(1);
 });
-
 
 
 db(process.env.MONGO_URL)
@@ -53,7 +55,7 @@ app.use('/admin/faq', faqRoute);
 app.use('/admin/pages', pagesRoute);
 app.use('/api/media', mediaRoute);
 app.use('/admin/casestudy/', caseStudyRoute);
-
+app.use('/admin/blogs/', blogsRoute);
 app.use(express.static(path.join(__dirname, "../fifilo-main/build")));
 
 app.get("*", (req, res) => {

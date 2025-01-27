@@ -96,20 +96,20 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                                 <div className="attachment__detailsInr">
                                                     <div className="attachment__details">
                                                         <h6>Attachment  Details</h6>
-                                                        <div class="upload__img">
+                                                        <div className="upload__img">
                                                             <img src={`/images/${selectedImage.filename}`} alt={selectedImage.filename} />
                                                         </div>
-                                                        <div class="file__details">
+                                                        <div className="file__details">
                                                             <p><span>{selectedImage.filename}</span></p>
                                                             <p>{selectedImage.size ? selectedImage.size : 100} KB</p>
                                                             <p>{new Date(selectedImage.createdAt).toDateString()}</p>
-                                                            <button class="btn" onClick={() => handleDelete(selectedImage._id)}>Delete Permanently</button>
+                                                            <button className="btn" onClick={() => handleDelete(selectedImage._id)}>Delete Permanently</button>
                                                         </div>
-                                                        <div class="input__inr">
-                                                            <input class="form-control" ref={inputRef} value={`${baseUrl}/images/${selectedImage.filename}`} />
+                                                        <div className="input__inr">
+                                                            <input className="form-control" ref={inputRef} value={`${baseUrl}/images/${selectedImage.filename}`} />
                                                         </div>
                                                         <div className="position-relative">
-                                                            <button class="btn btn__copy" onClick={handleCopy}>Copy to clipboard </button>
+                                                            <button className="btn btn__copy" onClick={handleCopy}>Copy to clipboard </button>
                                                             {message && <p className="position-absolute">Copied!</p>}
                                                         </div>
                                                     </div>
