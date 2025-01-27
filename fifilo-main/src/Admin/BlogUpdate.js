@@ -78,7 +78,7 @@ const BlogUpdate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let { data } = await axios.put('/admin/blogs/updateblog/' + blog._id, { tableOfContent,heading, uploadedBy, approxTime, bannerImg, blogTitle, seoSection, blogContent, blogCategory, blogUrl }, {
+            let { data } = await axios.put('/admin/blogs/updateblog/' + blog._id, { tableOfContent, heading, uploadedBy, approxTime, bannerImg, blogTitle, seoSection, blogContent, blogCategory, blogUrl }, {
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -188,7 +188,11 @@ const BlogUpdate = () => {
                                                                 id="blogTitle"
                                                                 className="form-control"
                                                                 value={blogTitle}
-                                                                onChange={(e) => setBlogTitle(e.target.value)}
+                                                                onChange={(e) => {
+                                                                    const title = e.target.value;
+                                                                    setBlogTitle(title);
+                                                                    setBlogUrl(title.toLowerCase().replace(/\s+/g, "-"));
+                                                                }}
                                                                 placeholder="Enter Blog Title"
                                                             />
                                                         </div>
@@ -257,7 +261,9 @@ const BlogUpdate = () => {
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <Blogimg setBannerImg={setBannerImg} bannerImg={bannerImg} />
+                                                    <div className="col-lg-12 col-md-12">
+                                                        <Blogimg setBannerImg={setBannerImg} bannerImg={bannerImg} />
+                                                    </div>
 
                                                 </div>
                                                 <div className="update__block">

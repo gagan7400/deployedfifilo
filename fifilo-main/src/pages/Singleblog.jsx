@@ -116,7 +116,7 @@ export default function Singleblog() {
                         }} />
                         <div className="col-lg-3">
                             <div className="right__block">
-                                <div className="table__card" data-aos="fade-up" data-aos-duration="800">
+                                <div className="table__card" >
                                     <h5>Table of Contents</h5>
                                     <ul className='tableOfContent'>
                                         {!loading && blog && blog.tableOfContent.map((v, i) => {
@@ -125,9 +125,8 @@ export default function Singleblog() {
                                     </ul>
                                 </div>
 
-                                <div className="releted__blog" data-aos="fade-up" data-aos-duration="800">
+                                <div className="releted__blog" >
                                     <h5>Related Blogs</h5>
-
                                     <div className="blogs__cards">
                                         {!blogsLoading && blogs && blogs.map((value, index) => {
                                             if (value._id != blog._id) {

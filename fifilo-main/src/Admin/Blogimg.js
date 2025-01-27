@@ -21,7 +21,7 @@ export default function Blogimg({ bannerImg, setBannerImg, }) {
         setBannerImg({ filename: "", path: '' })
     }
     return (
-        <div className="col-lg-12">
+        <div className="seo__card">
             <div className="uploaded__images">
                 <div className="image__block">
                     <div className="single__img">

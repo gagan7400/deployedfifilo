@@ -105,7 +105,11 @@ const NewBlog = () => {
                                                             id="blogTitle"
                                                             className="form-control"
                                                             value={blogTitle}
-                                                            onChange={(e) => setBlogTitle(e.target.value)}
+                                                            onChange={(e) => {
+                                                                const title = e.target.value;
+                                                                setBlogTitle(title);
+                                                                setBlogUrl(title.toLowerCase().replace(/\s+/g, "-"));
+                                                            }}
                                                             placeholder="Enter Blog Title"
                                                         />
                                                     </div>
