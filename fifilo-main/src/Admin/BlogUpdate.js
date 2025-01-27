@@ -261,9 +261,9 @@ const BlogUpdate = () => {
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div className="col-lg-12 col-md-12">
+                                                   
                                                         <Blogimg setBannerImg={setBannerImg} bannerImg={bannerImg} />
-                                                    </div>
+                                                     
 
                                                 </div>
                                                 <div className="update__block">
