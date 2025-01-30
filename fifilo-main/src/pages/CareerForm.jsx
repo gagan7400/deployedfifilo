@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import $ from 'jquery';
 import { useNavigate, useParams } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux'
 // import { contactus } from '../redux/actions/contactAction';
@@ -15,7 +16,7 @@ export default function Careerform({ closemodel }) {
     const [Number, setNumber] = useState("")
     const [Message, setMessage] = useState("")
     // const [jobrole, setjobrole] = useState(jobtype)
-    // const [resume, setresume] = useState("")
+    const [resume, setResume] = useState("")
     const [errors, setErrors] = useState({});
     const [showErrors, setShowErrors] = useState(false);
     const [loading, setLoading] = useState(false)
@@ -46,9 +47,6 @@ export default function Careerform({ closemodel }) {
         } else if (Message.length < 3) {
             newErrors.message = 'Message must be at least 3 letters';
         }
-        // if (!jobrole) {
-        //     newErrors.message = 'jobrole is required';
-        // }
         return newErrors;
     };
 
@@ -60,14 +58,12 @@ export default function Careerform({ closemodel }) {
         return () => { }
 
     }, [Email, Name]);
-    // let addresume = (event) => {
-    //     event.preventDefault()
-    //     let file = event.target.files[0];
-
-    //     setresume(file);
-    // }
+    let addResume = (event) => {
+        event.preventDefault()
+        let file = event.target.files[0];
+        setResume(file);
+    }
     const submithandler = async (e) => {
-
         e.preventDefault();
         setLoading(true)
         const validationErrors = validate();
@@ -91,7 +87,7 @@ export default function Careerform({ closemodel }) {
             //     method: "POST",
             //     body: formdata,
             // })
-            // formdata.append("resume", resume)
+            formdata.append("resume", resume)
             // dispatch(contactus({ name: Name, email: Email, phonenumber: Number, message: Message, servicerequired, resume: resume[1] }))
             try {
                 let data = await fetch("/admin/contactus/jobapplicant", {
@@ -107,6 +103,7 @@ export default function Careerform({ closemodel }) {
                     setNumber("");
                     setName("")
                     setEmail("");
+                    setResume("")
                     closemodel()
                     nav("/thank-you");
 
@@ -116,7 +113,10 @@ export default function Careerform({ closemodel }) {
             }
         }
     }
-
+    $(".upload__file input[type=file]").change(function (e) {
+        var fileName = e.target.files[0].name; // File ka naam
+        $(this).parents(".upload__file").find(".filename").text(fileName).css({ color: "#0e0e0e", });
+    });
 
     return (
         <>
@@ -174,31 +174,32 @@ export default function Careerform({ closemodel }) {
                             />
                             {errors.message && <div className="error text-danger position-absolute" style={{ color: "#f0f1f1" }} >{errors.message}</div>}
                         </div>
+                        <div className="inr__input"  >
+                            <p> <label>Please attach your update CV* (PDF, Upto 10MB)</label></p>
+                            <div class="upload__file">
+                                <p className='upload__inr'>
+                                    <span class="icon"><img src="https://www.fifilo.com/contact/wp-content/uploads/2025/01/upload-01.svg" alt="" /></span>
+                                    <span class="filename">Add file</span>
+                                    <span className='input__span'><input size="40" className=" form-control"
+                                        accept="application/pdf" onChange={addResume} type="file" name="file-upload" />
+                                    </span>
+                                </p>
+
+                            </div>
+                        </div>
                         {/* <div className="inr__input"  >
-                             <span className='icon'><img src="assets/img/message.svg" alt="contact__form" /></span> 
-                            <input
-                                type="text"
-                                name="jobrole"
-                                value={jobrole}
-                                onChange={(e) => { setjobrole(e.target.value) }}
-                                className="form-control"
-                                placeholder="Your jobrole"
-                                autoComplete='off'
-                            />
-                            {errors.jobrole && <div className="error text-danger position-absolute" style={{ color: "#f0f1f1" }} >{errors.message}</div>}
-                        </div> */}
-                        {/* <div className="inr__input"  >
-                              <span className='icon'><img src="assets/img/message.svg" alt="contact__form" /></span>  
+                            <span className='icon'><img src="assets/img/message.svg" alt="contact__form" /></span>
                             <input
                                 type="file"
                                 name="resume"
                                 accept="application/pdf"
-                                onChange={addresume}
+                                onChange={addResume}
                                 className="form-control"
                                 placeholder="Your resume"
                                 autoComplete='off'
                             />
                             {errors.resume && <div className="error text-danger position-absolute" style={{ color: "#f0f1f1" }} >{errors.message}</div>}
+
                         </div> */}
                         <div>
                             <button className="btn btn__primary" type="submit">Submit

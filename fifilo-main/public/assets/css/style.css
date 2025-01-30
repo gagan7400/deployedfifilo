@@ -2910,7 +2910,6 @@ ul li {
   color: #505050;
   display: block;
 }
-
 .open__roles .main__heading p {
   margin: 12px 0 0;
 }
@@ -2980,6 +2979,17 @@ ul li {
   height: auto;
 }
 
+.open__roles .grid .grid-item .card__bx .job__details {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 15px;
+}
+
+.open__roles .grid .grid-item .card__bx .job__details .inr__job {
+  margin-top: 24px;
+}
+
 .open__roles .grid .grid-item .card__bx .btn__primary {
   padding: 11px 24px;
   line-height: 122%;
@@ -2989,10 +2999,11 @@ ul li {
   color: var(--color-yellow);
   cursor: pointer;
   padding: 0;
+  font: normal normal 400 16px/125% var(--font);
 }
 
-.open__roles .grid .grid-item .card__bx .job__details {
-  margin-top: 24px;
+.open__roles .grid .grid-item .card__bx .job__details h5 {
+  color: var(--color-dark);
 }
 
 .open__roles .grid .grid-item .card__bx .job__details h5 {
@@ -3011,28 +3022,6 @@ ul li {
 .open__roles .grid .grid-item .card__bx .job__details ul li {
   font: normal normal 400 16px var(--font);
 }
-
-.open__roles .grid .grid-item .card__bx .job__details {
-  overflow: hidden;
-  max-height: 0;
-  /* Start collapsed */
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 15px;
-}
-
-/* .open__roles .grid .grid-item .card__bx {
-  margin-bottom: 20px;
-  padding: 10px;
-
-} */
-
-.open__roles .grid .grid-item .card__bx .btn__view {
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
 
 
 .contact__bnr {
@@ -3140,6 +3129,8 @@ ul li {
   background-repeat: no-repeat;
   z-index: -1;
 }
+
+
 
 .contact_formModal .contact__form,
 .contact__bnr .contact__form {
@@ -4173,7 +4164,63 @@ input:-webkit-autofill {
   -webkit-box-orient: vertical;
 }
 
+.contact_formModal .contact__form .inr__input label {
+  margin-bottom: 8px;
+  color: rgba(148, 150, 156, 1);
+}
 
+.contact_formModal .contact__form .inr__input .upload__file {
+  display: flex;
+}
+
+.contact_formModal .contact__form .inr__input .upload__file .icon {
+  position: unset;
+  display: inline-block;
+}
+
+.contact_formModal .contact__form .inr__input .upload__file .filename {
+  max-width: 156px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.contact_formModal .contact__form .inr__input .upload__file .upload__inr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(148, 150, 156, 1);
+  border: 1px solid #94969c;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.contact_formModal .contact__form input:autofill {
+  -webkit-text-fill-color: #0e0e0e !important;
+}
+
+.contact_formModal .upload__file .input__span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact_formModal .contact__form .inr__input .upload__file [type=file] {
+  opacity: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.career__modal .btn-close {
+  padding: 0;
+  margin: 0;
+  background-size: 16px;
+  opacity: 1;
+}
 /* update by gagan for social page  */
 .single__content .social__share {
   display: flex;
@@ -4210,7 +4257,7 @@ input:-webkit-autofill {
   position: absolute;
   bottom: -30px;
   left: 10px;
-  
+
 }
 
 /* end of update by gagan for social page  */

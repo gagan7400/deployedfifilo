@@ -36,6 +36,9 @@ const jobSchema = new mongoose.Schema({
     ,
     qualifications: {
         type: String,
+    },
+    resume: {
+        type: String
     }
     , jobStatus: {
         type: String,
