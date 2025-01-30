@@ -14,10 +14,12 @@ const jobapplicantSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Please Enter Your number"],
     },
-     
     date: {
         type: String,
         default: Date.now()
+    },
+    resume: {
+        type: String
     }
 });
 

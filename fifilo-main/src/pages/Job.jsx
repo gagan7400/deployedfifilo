@@ -35,7 +35,7 @@ export default function Job({ job, isVisible, toggleDetails }) {
                         </p>
                         <p>
                             <img src="assets/img/experiance.svg" alt="location" />
-                            {job.yearsOfExperience} Years
+                            {job.experience} Years
                         </p>
 
                         <a className="btn btn__view" onClick={() => toggleDetails(job._id)}>View Detail</a>

@@ -11,11 +11,10 @@ const jobSchema = new mongoose.Schema({
         enum: ["UI-UX", "Development", "Sales", "Marketing", "HR", "Finance", "Other"],
         required: true
     },
-    yearsOfExperience: {
+    experience: {
         type: String,
         required: true,
         default: 1
-
     },
     location: {
         type: String,
@@ -26,21 +25,27 @@ const jobSchema = new mongoose.Schema({
         enum: ["Remote", "On-site", "WFH", "Freelance", "Contract", "Full-time", "Part-time"],
         required: true
     },
+    aboutUs: {
+        type: String
+    },
+    aboutRole: {
+        type: String
+    },
     description: {
         type: String,
         required: true
     },
     responsibilities: {
         type: String,
-    }
-    ,
+        required: true
+    },
     qualifications: {
         type: String,
     },
-    resume: {
+    requirements: {
         type: String
-    }
-    , jobStatus: {
+    },
+    jobStatus: {
         type: String,
         default: "Active"
     }

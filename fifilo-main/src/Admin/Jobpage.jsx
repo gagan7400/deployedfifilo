@@ -7,7 +7,7 @@ import JoditEditor from 'jodit-react';
 export default function Jobpage() {
     const [jobTitle, setJobtitle] = useState("")
     const [category, setCategory] = useState("")
-    const [yearsOfExperience, setYearsOfExperience] = useState("")
+    const [experience, setExperience] = useState("")
     const [location, setLocation] = useState("")
     const [jobType, setJobType] = useState("")
     const [description, setDescription] = useState("")
@@ -25,22 +25,22 @@ export default function Jobpage() {
 
     let submithandler = (e) => {
         e.preventDefault();
-        if (!jobTitle || !category || !yearsOfExperience || !location || !description || !responsibilities || !jobType || !jobStatus) {
+        if (!jobTitle || !category || !experience || !location || !description || !responsibilities || !jobType || !jobStatus) {
             alert("please fill all the field")
         } else {
             if (isUpdateJob.isupdate && isUpdateJob.id) {
-                dispatch(updatejobAction({ Jobdata: { jobTitle, category, yearsOfExperience, location, description, responsibilities, qualifications, jobType, jobStatus }, id: isUpdateJob.id }));
+                dispatch(updatejobAction({ Jobdata: { jobTitle, category, experience, location, description, responsibilities, qualifications, jobType, jobStatus }, id: isUpdateJob.id }));
                 setIsUpdateJob({ isupdate: false, data: null, id: null });
                 alert("job updated successfully")
                 setSection(false);
             } else {
-                dispatch(createjob({ jobTitle, category, yearsOfExperience, location, description, qualifications, responsibilities, jobType, jobStatus }));
+                dispatch(createjob({ jobTitle, category, experience, location, description, qualifications, responsibilities, jobType, jobStatus }));
                 alert("job created successfully")
                 setSection(false);
             }
             setJobtitle("");
             setCategory("");
-            setYearsOfExperience("");
+            setExperience("");
             setLocation("")
             setJobType("")
             setDescription("")
@@ -60,7 +60,7 @@ export default function Jobpage() {
         setSection(true);
         setJobtitle(data.jobTitle);
         setCategory(data.category);
-        setYearsOfExperience(data.yearsOfExperience);
+        setExperience(data.experience);
         setLocation(data.location)
         setJobType(data.jobType)
         setDescription(data.description)
@@ -76,7 +76,7 @@ export default function Jobpage() {
         setIsUpdateJob({ isupdate: false, data: null, id: null })
         setJobtitle("");
         setCategory("");
-        setYearsOfExperience("");
+        setExperience("");
         setLocation("")
         setJobType("")
         setDescription("")
@@ -90,7 +90,7 @@ export default function Jobpage() {
         setIsUpdateJob({ isupdate: false, data: null, id: null });
         setJobtitle("");
         setCategory("");
-        setYearsOfExperience("");
+        setExperience("");
         setLocation("")
         setJobType("")
         setDescription("")
@@ -146,13 +146,13 @@ export default function Jobpage() {
 
                                         <div className="col-lg-6 col-md-6">
                                             <div className="input__inr">
-                                                <label htmlFor="yearsOfExperience">Experience</label>
+                                                <label htmlFor="experience">Experience</label>
                                                 <input required type="text"
-                                                    name="yearsOfExperience"
-                                                    id="yearsOfExperience"
+                                                    name="experience"
+                                                    id="experience"
                                                     className="form-control"
-                                                    value={yearsOfExperience}
-                                                    onChange={(e) => { setYearsOfExperience(e.target.value) }}
+                                                    value={experience}
+                                                    onChange={(e) => { setExperience(e.target.value) }}
                                                     placeholder="Enter Experience"
                                                 />
                                             </div>
@@ -252,7 +252,7 @@ export default function Jobpage() {
                                             <td>{jobs.length - i}</td>
                                             <td>{v.jobTitle}</td>
                                             <td>{v.category} </td>
-                                            <td>{v.yearsOfExperience}</td>
+                                            <td>{v.experience}</td>
                                             <td>{v.jobType} </td>
                                             <td>{v.jobStatus}</td>
                                             <td style={{ display: "flex", gap: "16px" }}>
