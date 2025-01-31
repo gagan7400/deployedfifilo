@@ -174,7 +174,7 @@ export default function Home() {
         {(!homeloading && publishedhomepage) && publishedhomepage.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!homeloading && publishedhomepage) && publishedhomepage.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet> 
-      {loading && <Loader/>}
+     
       <div className="hero__bnr dark__bnr">
         {homeloading && <Loader />}
         <div className="container">

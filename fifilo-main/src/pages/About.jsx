@@ -311,8 +311,8 @@ export default function About() {
         {(!publishedLoading && publishedData) && publishedData.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedLoading && publishedData) && publishedData.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
-      { publishedLoading && <Loader/>}
-      <div className="comn__bnr about__bnr">
+    
+      <div className="comn__bnr about__bnr">  { publishedLoading && <Loader/>}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">

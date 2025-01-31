@@ -349,9 +349,9 @@ export default function Career() {
         {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
-      { publishedcareerloading && <Loader/>}
+      
 
-      <div className="comn__bnr service__bnr">
+      <div className="comn__bnr service__bnr">{ publishedcareerloading && <Loader/>}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
