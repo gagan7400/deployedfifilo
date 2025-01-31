@@ -4,6 +4,7 @@ import AOS from "aos";
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBlogs } from '../redux/actions/blogAction';
+import Loader from '../layout/Loader';
 export default function Blog() {
     let dispatch = useDispatch();
     let { blogdata, blogloading, error } = useSelector(state => state.blog)
@@ -27,7 +28,7 @@ export default function Blog() {
     }, [])
     console.log(blogdata)
     return (
-        <>
+        <> { blogloading && <Loader/>}
             <div className="blogs__bnr">
                 <div className="container" data-aos="fade-up" data-aos-duration="800">
                     <h2>Insights & Ideas<br /><span>Your Gateway to Digital Excellence</span></h2>

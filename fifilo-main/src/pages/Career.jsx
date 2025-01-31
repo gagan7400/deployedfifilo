@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getjobs, getpublishCareerPage } from '../redux/actions/careeraction';
 import Job from "./Job";
 import Careerform from "./CareerForm";
+import Loader from "../layout/Loader";
 
 export default function Career() {
   let dispatch = useDispatch();
@@ -348,6 +349,7 @@ export default function Career() {
         {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
+      { publishedcareerloading && <Loader/>}
 
       <div className="comn__bnr service__bnr">
         <div className="container">
