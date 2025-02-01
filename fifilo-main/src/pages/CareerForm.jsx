@@ -16,7 +16,7 @@ export default function Careerform({ closemodel }) {
     const [Number, setNumber] = useState("")
     const [Message, setMessage] = useState("")
     // const [jobrole, setjobrole] = useState(jobtype)
-    const [resume, setResume] = useState("")
+    const [resume, setResume] = useState(null)
     const [errors, setErrors] = useState({});
     const [showErrors, setShowErrors] = useState(false);
     const [loading, setLoading] = useState(false)
@@ -81,7 +81,6 @@ export default function Careerform({ closemodel }) {
             formdata.append('email', Email);
             formdata.append('phonenumber', Number);
             formdata.append('message', Message);
-            // formdata.append('jobrole', jobrole);
             formdata.append('date', date.toLocaleDateString());
             // fetch("https://script.google.com/macros/s/AKfycbx47sHgIKLw2QEnhmrZ2EyxiUF7tvTCyx31T0dPESi-Z1YCIxRCOyPD8MAO_wKc_hrG4Q/exec", {
             //     method: "POST",
@@ -103,7 +102,7 @@ export default function Careerform({ closemodel }) {
                     setNumber("");
                     setName("")
                     setEmail("");
-                    setResume("")
+                    setResume(null)
                     closemodel()
                     nav("/thank-you");
 
@@ -224,3 +223,7 @@ export default function Careerform({ closemodel }) {
         </>
     )
 }
+ 
+
+ 
+
