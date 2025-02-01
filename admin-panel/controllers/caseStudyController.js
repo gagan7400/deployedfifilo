@@ -5,7 +5,7 @@ const { caseStudyModel, caseStudyPageModel } = require("../models/caseStudyModel
 const createCaseStudy = async (req, res) => {
     try {
         const { heroSection, seoSection, overviewSection, designProcessSection, sketches, styleGuideSection, typographyData, impactAndImprovement, howFifiloDesignsDrives, updatedLook, fullWidthImg } = req.body;
-        const caseStudy = new caseStudyModel({ heroSection,seoSection, overviewSection, designProcessSection, sketches, styleGuideSection, impactAndImprovement, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg });
+        const caseStudy = new caseStudyModel({ heroSection, seoSection, overviewSection, designProcessSection, sketches, styleGuideSection, impactAndImprovement, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg });
         await caseStudy.save();
         res.status(201).json({ success: true, data: caseStudy });
     } catch (err) {
@@ -33,7 +33,6 @@ const getCaseStudyByName = async (req, res) => {
 };
 
 const deleteCaseStudy = async (req, res) => {
-
     try {
         const casestudypage = await caseStudyModel.findById(req.params.id);
 

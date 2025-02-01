@@ -176,10 +176,10 @@ export default function Careerform({ closemodel }) {
                         </div>
                         <div className="inr__input"  >
                             <p> <label>Please attach your update CV* (PDF, Upto 10MB)</label></p>
-                            <div class="upload__file">
+                            <div className="upload__file">
                                 <p className='upload__inr'>
-                                    <span class="icon"><img src="https://www.fifilo.com/contact/wp-content/uploads/2025/01/upload-01.svg" alt="" /></span>
-                                    <span class="filename">Add file</span>
+                                    <span className="icon"><img src="https://www.fifilo.com/contact/wp-content/uploads/2025/01/upload-01.svg" alt="" /></span>
+                                    <span className="filename">Add file</span>
                                     <span className='input__span'><input size="40" className=" form-control"
                                         accept="application/pdf" onChange={addResume} type="file" name="file-upload" />
                                     </span>

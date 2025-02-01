@@ -31,11 +31,11 @@ export default function Job({ job, isVisible, toggleDetails }) {
 
                         <p>
                             <img src="assets/img/time.svg" alt="location" />
-                            Full Time
+                            {job.jobType}
                         </p>
                         <p>
                             <img src="assets/img/experiance.svg" alt="location" />
-                            {job.experience} Years
+                            {job.experience}
                         </p>
 
                         <a className="btn btn__view" onClick={() => toggleDetails(job._id)}>View Detail</a>
@@ -43,16 +43,34 @@ export default function Job({ job, isVisible, toggleDetails }) {
                     </div>
                     <div ref={detailsRef} className={`job__details`}   >
                         <div className="inr__job">
-                            <p>{job.description}</p>
+                            {job.aboutUs.length && <>
+                                <h5>AboutUs:</h5>
+
+                                <p>{job.aboutUs && job.aboutUs}</p></>}
+
+                            <h5>About The Role:</h5>
+
+                            <p>{job.aboutRole && job.aboutRole}</p>
+
                             <h5>Responsibilities:</h5>
 
                             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.responsibilities} ` : "") }} />
-                            <h5>Qualifications:</h5>
+
+                            <h5>Qualifications & Skills:</h5>
+
                             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.qualifications} ` : "") }} />
 
+                            {job.requirements && <>
+                                <h5>Requirements:</h5>
+                                <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.requirements && job.requirements} ` : "") }} />
+                            </>
+                            }
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
         </div>
     )

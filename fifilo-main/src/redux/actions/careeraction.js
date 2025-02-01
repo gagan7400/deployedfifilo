@@ -41,7 +41,7 @@ export const deleteJob = (id) => async (dispatch) => {
     }
 };
 
-export const createjob = (Jobdata) => async (dispatch) => {
+export const createjob = ({ Jobdata }) => async (dispatch) => {
     try {
         dispatch({ type: "CREATE_JOB_REQUEST" });
         const config = {

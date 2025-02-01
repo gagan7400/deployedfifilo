@@ -9,7 +9,6 @@ import Footer from '../layout/Footer';
 import { useSelector, useDispatch } from 'react-redux'
 import { contactus, getPublishContactPage } from '../redux/actions/contactAction';
 import { useNavigate } from 'react-router-dom';
-import Loader from '../layout/Loader';
 export default function ContactUs() {
   let nav = useNavigate()
   let dispatch = useDispatch();
@@ -128,8 +127,8 @@ export default function ContactUs() {
         {(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
-    
-      <div className="contact__bnr bg__dark">  {publishedcontactloading && <Loader/>}
+      <div className="contact__bnr bg__dark">
+        
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-10">

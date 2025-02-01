@@ -508,7 +508,7 @@ let { jobApplicant } = require("../models/jobapplicantModel");
 const { sendEmail } = require("../utils/sendEmail");
 
 const contactusController = async (req, res) => {
-    const { name, email, phonenumber, message, servicerequired } = req.body;
+    const { name, email, phonenumber, message, } = req.body;
     const contactus = new Contactus(req.body);
     try {
         let date = new Date().toLocaleDateString();

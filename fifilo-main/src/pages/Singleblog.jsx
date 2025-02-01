@@ -1,9 +1,10 @@
-import React, {   useEffect,   useState } from 'react'
+import React, { act, useEffect, useRef, useState } from 'react'
 import AOS from "aos";
 import DOMPurify from 'dompurify';
 import axios from 'axios';
 import { Copy } from 'lucide-react';
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
+import Loader from '../layout/Loader';
 export default function Singleblog() {
     let { name } = useParams();
     let [blog, setBlog] = useState(null);
@@ -108,6 +109,7 @@ export default function Singleblog() {
     return (
         <>
             <div className="blogs__bnr blog__single">
+                {loading && <Loader/>}
                 <div className="container">
                     <div className="bnr__inr">
                         <div className="category" data-aos="fade-up" data-aos-duration="800">
@@ -138,9 +140,9 @@ export default function Singleblog() {
                             <div dangerouslySetInnerHTML={{
                                 __html: DOMPurify.sanitize(!loading && blog && blog.blogContent)
                             }} />
-                            <div class="social__share" >
+                            <div className="social__share" >
                                 <h6>Social Share</h6>
-                                <div class="social__icons">
+                                <div className="social__icons">
                                     <div className="social__icons">
                                         <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="btn" >
                                             <img src="assets/img/facebook-s.svg" alt="Facebook" />
@@ -172,7 +174,7 @@ export default function Singleblog() {
                                     <h5>Table of Contents</h5>
                                     <ul className='tableOfContent'>
                                         {!loading && blog && blog.tableOfContent.map((v, i) => {
-                                            return <li className={i ==  0 ? "active" : ""} key={i}><a href={`/blogs/${blog.blogUrl}/#${v.id}`}>{i + 1}. {v.heading}</a></li>
+                                            return <li className={i == 0 ? "active" : ""} key={i}><a href={`/blogs/${blog.blogUrl}/#${v.id}`}>{i + 1}. {v.heading}</a></li>
                                         })}
                                     </ul>
                                 </div>

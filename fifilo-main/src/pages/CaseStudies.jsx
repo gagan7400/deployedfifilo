@@ -159,11 +159,11 @@ export default function Work() {
         {(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
-      
-      <div className="comn__bnr work__bnr">  {casestudyloading && <Loader />}
+      <div className="comn__bnr work__bnr">
+        {loading && <Loader />}
         <div className="container">
           <div className="bnr__content">
-            <div className="left__bx" data-aos="fade-up" data-aos-duration="400">
+            <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
               <h2 dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heading : ``)
               }} />
@@ -172,7 +172,7 @@ export default function Work() {
                 __html: DOMPurify.sanitize(!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.subHeading : ``)
               }} />
             </div>
-            <div data-aos="fade-up" data-aos-duration="400">
+            <div data-aos="fade-up" data-aos-duration="800">
               <NavLink to={!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heroButtons.CTA1.url : ""} className="btn" >{!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
             </div>
             <div className="animation-wrapper">

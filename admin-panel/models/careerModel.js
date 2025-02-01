@@ -8,7 +8,7 @@ const jobSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        enum: ["UI-UX", "Development", "Sales", "Marketing", "HR", "Finance", "Other"],
+        enum: ["UI-UX", "Development", "Sales", "Marketing", "Hr", "Finance", "Other"],
         required: true
     },
     experience: {

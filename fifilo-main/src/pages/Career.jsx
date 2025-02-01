@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getjobs, getpublishCareerPage } from '../redux/actions/careeraction';
 import Job from "./Job";
 import Careerform from "./CareerForm";
-import Loader from "../layout/Loader";
 
 export default function Career() {
   let dispatch = useDispatch();
@@ -349,9 +348,8 @@ export default function Career() {
         {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
-      
 
-      <div className="comn__bnr service__bnr">{ publishedcareerloading && <Loader/>}
+      <div className="comn__bnr service__bnr">
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
@@ -413,6 +411,9 @@ export default function Career() {
                 </li>
                 <li className={filter === "Sales&Marketing" ? "is-checked" : ""} onClick={() => setFilter("Sales&Marketing")}>
                   Sales & Marketing
+                </li>
+                <li className={filter === "Hr" ? "is-checked" : ""} onClick={() => setFilter("Hr")}>
+                  Hr
                 </li>
               </ul>
             </div>

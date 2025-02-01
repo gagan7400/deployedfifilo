@@ -1396,6 +1396,7 @@
 
   .open__roles .grid .grid-item .card__bx .job__details h5 {
     margin: 14px 0 10px;
+    font: normal normal 400 16px var(--font); 
 }
   .open__roles .grid .grid-item .card__bx .job__details ul li {
     font: normal normal 400 14px / 125% var(--font);
