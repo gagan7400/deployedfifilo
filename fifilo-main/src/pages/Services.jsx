@@ -7,8 +7,6 @@ import useCursorPosition from "../layout/useCursorPosition";
 import { useSelector, useDispatch } from 'react-redux'
 import { getpublishServicePage } from '../redux/actions/servicesAction';
 import DOMPurify from 'dompurify';
-import Loader from "../layout/Loader";
-
 export default function Services() {
   useCursorPosition('dark__bnr');
   let dispatch = useDispatch();
@@ -67,7 +65,6 @@ export default function Services() {
       </Helmet>
 
       <div className="comn__bnr service__bnr">
-        {publishedServiceLoading && <Loader/>}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">

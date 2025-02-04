@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import DOMPurify from 'dompurify';
-import Loader from "../layout/Loader";
 export default function Casestudy() {
     let { name } = useParams();
     let [casestudy, setCasestudy] = useState(null);
@@ -89,9 +88,7 @@ export default function Casestudy() {
                 <meta property="og:image:alt" content="Description of the feature image" />
             </Helmet>
             <div className={`caseStudies__bnr ${!loading && casestudy ? casestudy.heroSection.casestudyName.split(" ").join("").split("-").join("").toLowerCase() : ``} `}>
-                {(loading && !casestudy) && <Loader />}
                 <div className="container">
-
                     <div className="top__bx" data-aos="fade-up" data-aos-duration="800">
                         <h1 dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(!loading && casestudy ? casestudy.heroSection.casestudyName : ``)

@@ -5,7 +5,7 @@ import $ from "jquery";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
-import Loader from "../layout/Loader";
+
 import useCursorPosition from "../layout/useCursorPosition";
 import { getpublishHomePage } from "../redux/actions/homeAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -157,14 +157,7 @@ export default function Home() {
     };
   }, [publishedhomepage]);
 
-  useEffect(() => {
-    const loadData = async () => {
-      setLoading(false);
-    };
-    loadData();
-    return () => {
-    };
-  }, []);
+
   return (
     <>
       <Helmet>
@@ -175,7 +168,6 @@ export default function Home() {
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="hero__bnr dark__bnr">
-        {homeloading && <Loader />}
         <div className="container">
           <div className="bnr__content">
             <h1 data-aos="fade-up" data-aos-duration="800" dangerouslySetInnerHTML={{

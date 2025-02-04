@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getjobs, getpublishCareerPage } from '../redux/actions/careeraction';
 import Job from "./Job";
 import Careerform from "./CareerForm";
-
 export default function Career() {
   let dispatch = useDispatch();
   let { jobs, jobloading } = useSelector((state) => state.jobs);

@@ -160,7 +160,6 @@ export default function Work() {
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
       <div className="comn__bnr work__bnr">
-        {loading && <Loader />}
         <div className="container">
           <div className="bnr__content">
             <div className="left__bx" data-aos="fade-up" data-aos-duration="800">

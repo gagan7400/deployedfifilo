@@ -37,7 +37,7 @@ export default function Sidebar() {
             </li>
             <li className="nav-item">
               <NavLink to="/blogadmin" className="nav-link"  >
-                <img src="assets/imgs/case-studies.svg" alt="pages Icon" />Blogs
+                <img src="assets/img/blogs.svg" alt="pages Icon" />Blogs
               </NavLink>
             </li>
             <li className="nav-item">
