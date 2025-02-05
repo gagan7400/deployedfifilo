@@ -206,7 +206,7 @@ const Contactpage = () => {
                                                         </div>
                                                     ))}
                                                     <div className="add__review">
-                                                        <button className="btn" onClick={addContact}><img src="assets/imgs/plus.svg" alt="" />Add New Review</button>
+                                                        <button className="btn" onClick={addContact}><img src="assets/imgs/plus.svg" alt="" />Add New Contact</button>
                                                     </div>
                                                 </div>
                                             </div>

@@ -240,7 +240,7 @@ const Careerpage = () => {
                                         </div>
                                     ))}
                                     <div className="add__review">
-                                        <button className="btn" onClick={handleAddCard}><img src="/assets/imgs/plus.svg" alt="" />Add New Section</button>
+                                        <button className="btn" onClick={handleAddCard}><img src="/assets/imgs/plus.svg" alt="" />Add New Card</button>
                                     </div>
                                     <div className="update__block">
                                          <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
