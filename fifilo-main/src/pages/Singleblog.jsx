@@ -160,7 +160,7 @@ export default function Singleblog() {
                                             <img src="assets/img/share.svg" alt="Share" />
                                         </button>
                                         <button onClick={handleCopy} className="btn">
-                                            <Copy size={32} />
+                                            <img src="assets/img/copy.svg" alt="Copybutton" />
                                         </button>
                                     </div>
                                     {copied && <span className="text-green-600 text-sm messageofcopy">URL copied to clipboard!</span>}

@@ -151,7 +151,7 @@ export default function Jobpage() {
                                                     <option defaultValue="UI-UX">UI-UX</option>
                                                     <option value="Development">Development</option>
                                                     <option value="Sales&Marketing">Sales & Marketing</option>
-                                                    <option value="Hr">Hr</option>
+                                                    <option value="HR">HR</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -254,7 +254,7 @@ export default function Jobpage() {
                                                 <label htmlFor="jobType">Job Type</label>
                                                 <select className="form-select form-select-sm mb-3" value={jobType} onChange={(e) => { setJobType(e.target.value) }} aria-label="Small select example" id="jobType">
                                                     <option defaultValue="Full-time">Full-time</option>
-                                                    <option value="Full-time , On-Site">Full-time , On-Site</option>
+                                                    <option value="Full-time, On-Site">Full-time, On-Site</option>
                                                     <option value="Contract Basis">Contract Basis</option>
                                                     <option value="Part-time">Part-time</option>
                                                     <option value="Temporary">Temporary</option>
