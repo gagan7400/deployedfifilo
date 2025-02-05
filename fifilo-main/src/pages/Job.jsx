@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import DOMPurify from 'dompurify';
-import $ from 'jquery'
+
 export default function Job({ job, isVisible, toggleDetails }) {
     const detailsRef = useRef(null);
     useEffect(() => {
@@ -61,7 +61,7 @@ export default function Job({ job, isVisible, toggleDetails }) {
                             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.qualifications} ` : "") }} />
 
                             {job.requirements && <>
-                                <h5>Requirements:</h5>
+                                <h5>What We Offer:</h5>
                                 <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.requirements && job.requirements} ` : "") }} />
                             </>
                             }

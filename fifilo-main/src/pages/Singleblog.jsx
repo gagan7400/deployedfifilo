@@ -109,7 +109,7 @@ export default function Singleblog() {
     return (
         <>
             <div className="blogs__bnr blog__single">
-                {loading && <Loader/>}
+                {loading && <Loader />}
                 <div className="container">
                     <div className="bnr__inr">
                         <div className="category" data-aos="fade-up" data-aos-duration="800">
@@ -137,7 +137,7 @@ export default function Singleblog() {
                 <div className="container">
                     <div className="row">
                         <div className='col-lg-9'>
-                            <div dangerouslySetInnerHTML={{
+                            <div className="left__block" dangerouslySetInnerHTML={{
                                 __html: DOMPurify.sanitize(!loading && blog && blog.blogContent)
                             }} />
                             <div className="social__share" >

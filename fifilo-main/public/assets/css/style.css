@@ -4005,6 +4005,11 @@ input:-webkit-autofill {
   font-weight: 600;
 }
 
+.single__content .left__block h5 {
+  color: var(--color-dark);
+  margin-top: 24px;
+}
+
 .single__content .left__block h3:not(:first-child) {
   margin-top: 48px;
 }

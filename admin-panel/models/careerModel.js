@@ -4,26 +4,19 @@ const mongoose = require("mongoose");
 const jobSchema = new mongoose.Schema({
     jobTitle: {
         type: String,
-        required: true
     },
     category: {
         type: String,
-        enum: ["UI-UX", "Development", "Sales", "Marketing", "Hr", "Finance", "Other"],
-        required: true
     },
     experience: {
         type: String,
-        required: true,
         default: 1
     },
     location: {
         type: String,
-        required: true
     },
     jobType: {
         type: String,
-        enum: ["Remote", "On-site", "WFH", "Freelance", "Contract", "Full-time", "Part-time"],
-        required: true
     },
     aboutUs: {
         type: String
@@ -31,13 +24,8 @@ const jobSchema = new mongoose.Schema({
     aboutRole: {
         type: String
     },
-    description: {
-        type: String,
-        required: true
-    },
     responsibilities: {
         type: String,
-        required: true
     },
     qualifications: {
         type: String,

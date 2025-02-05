@@ -10,12 +10,11 @@ export default function Jobpage() {
     const [experience, setExperience] = useState("")
     const [location, setLocation] = useState("")
     const [jobType, setJobType] = useState("Full-time")
-    const [description, setDescription] = useState("")
-    const [responsibilities, setResponsibilities] = useState("")
-    const [qualifications, setQualifications] = useState("")
     const [jobStatus, setJobStatus] = useState("Active");
     const [aboutUs, setAboutUs] = useState("");
     const [aboutRole, setAboutRole] = useState("");
+    const [responsibilities, setResponsibilities] = useState("")
+    const [qualifications, setQualifications] = useState("")
     const [requirements, setRequirements] = useState("");
     const [section, setSection] = useState(false);
     const [isUpdateJob, setIsUpdateJob] = useState({ isupdate: false, data: null, id: null })
@@ -28,17 +27,17 @@ export default function Jobpage() {
 
     let submithandler = (e) => {
         e.preventDefault();
-        if (!jobTitle || !category || !aboutUs || !aboutRole || !qualifications || !experience || !location || !description || !responsibilities || !jobType || !jobStatus) {
-            console.log(jobTitle, category, aboutUs, aboutRole, qualifications, experience, location, description, responsibilities, jobType, jobStatus)
+        if (!jobTitle || !category || !aboutUs || !aboutRole || !qualifications || !experience || !location || !responsibilities || !jobType || !jobStatus) {
+            console.log(jobTitle, category, aboutUs, aboutRole, qualifications, experience, location, responsibilities, jobType, jobStatus)
             alert("please fill all the field")
         } else {
             if (isUpdateJob.isupdate && isUpdateJob.id) {
-                dispatch(updatejobAction({ Jobdata: { jobTitle, aboutRole, aboutUs, qualifications, category, experience, location, description, responsibilities, qualifications, jobType, jobStatus }, id: isUpdateJob.id }));
+                dispatch(updatejobAction({ Jobdata: { requirements, jobTitle, aboutRole, aboutUs, qualifications, category, experience, location, responsibilities, qualifications, jobType, jobStatus }, id: isUpdateJob.id }));
                 setIsUpdateJob({ isupdate: false, data: null, id: null });
                 alert("job updated successfully")
                 setSection(false);
             } else {
-                dispatch(createjob({ Jobdata: { jobTitle, aboutRole, aboutUs, qualifications, category, experience, location, description, responsibilities, qualifications, jobType, jobStatus } }));
+                dispatch(createjob({ Jobdata: { requirements, jobTitle, aboutRole, aboutUs, qualifications, category, experience, location, responsibilities, qualifications, jobType, jobStatus } }));
                 alert("job created successfully")
                 setSection(false);
             }
@@ -50,9 +49,8 @@ export default function Jobpage() {
             setAboutUs("")
             setAboutRole("")
             setQualifications("")
-            setDescription("")
             setResponsibilities("")
-            setQualifications("")
+            setRequirements("")
             setJobStatus("Active")
         }
     }
@@ -73,9 +71,8 @@ export default function Jobpage() {
         setAboutUs(data.aboutUs)
         setAboutRole(data.aboutRole)
         setQualifications(data.qualifications)
-        setDescription(data.description)
+        setRequirements(data.requirements)
         setResponsibilities(data.responsibilities)
-        setQualifications(data.qualifications)
         setJobStatus(data.jobStatus)
     }
     let backBtn = () => {
@@ -92,9 +89,8 @@ export default function Jobpage() {
         setAboutUs("")
         setAboutRole("")
         setQualifications("")
-        setDescription("")
         setResponsibilities("")
-        setQualifications("")
+        setRequirements("")
         setJobStatus("Active")
         setSection(true)
     }
@@ -109,9 +105,8 @@ export default function Jobpage() {
         setAboutUs("")
         setAboutRole("")
         setQualifications("")
-        setDescription("")
         setResponsibilities("")
-        setQualifications("")
+        setRequirements("")
         setJobStatus("Active")
     }
 
@@ -190,19 +185,6 @@ export default function Jobpage() {
 
                                         <div className="col-lg-12">
                                             <div className="input__inr">
-                                                <label htmlFor="Description">Description</label>
-                                                <textarea required type="text"
-                                                    name="Description"
-                                                    id="Description"
-                                                    className="form-control"
-                                                    value={description}
-                                                    onChange={(e) => { setDescription(e.target.value) }}
-                                                    placeholder="Enter Description"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-12">
-                                            <div className="input__inr">
                                                 <label htmlFor="aboutUs">AboutUs</label>
                                                 <textarea required type="text"
                                                     name="aboutUs"
@@ -237,16 +219,7 @@ export default function Jobpage() {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="col-lg-12">
-                                            <div className="input__inr">
-                                                <label htmlFor="requirements">Requirements</label>
-                                                <JoditEditor
-                                                    ref={editor}
-                                                    value={requirements}
-                                                    onChange={(newContent) => setRequirements(newContent)} // Save content on every keystroke
-                                                />
-                                            </div>
-                                        </div>
+
                                         <div className="col-lg-12">
                                             <div className="input__inr">
                                                 <label htmlFor="qualifications">Qualifications</label>
@@ -257,7 +230,16 @@ export default function Jobpage() {
                                                 />
                                             </div>
                                         </div>
-
+                                        <div className="col-lg-12">
+                                            <div className="input__inr">
+                                                <label htmlFor="requirements">What We Offer</label>
+                                                <JoditEditor
+                                                    ref={editor}
+                                                    value={requirements}
+                                                    onChange={(newContent) => setRequirements(newContent)} // Save content on every keystroke
+                                                />
+                                            </div>
+                                        </div>
                                         <div className="col-lg-6 col-md-6">
                                             <div className="input__inr">
                                                 <label htmlFor="jobStatus">Job Status</label>
@@ -272,6 +254,7 @@ export default function Jobpage() {
                                                 <label htmlFor="jobType">Job Type</label>
                                                 <select className="form-select form-select-sm mb-3" value={jobType} onChange={(e) => { setJobType(e.target.value) }} aria-label="Small select example" id="jobType">
                                                     <option defaultValue="Full-time">Full-time</option>
+                                                    <option value="Full-time On-Site">Full-time On-Site</option>
                                                     <option value="Part-time">Part-time</option>
                                                     <option value="Temporary">Temporary</option>
                                                     <option value="Internship">Internship</option>
