@@ -9,6 +9,8 @@ const MediaSection = () => {
     const [imageUploaded, setImageUplaoded] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+
+    const [searchImage, setSearchImage] = useState("")
     const inputRef = useRef(null);
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure You Want to Delete This?")) {
@@ -50,6 +52,9 @@ const MediaSection = () => {
         setShowModal(false);
         setSelectedImage(null);
     };
+    let searchImageHandler = (event) => {
+        setSearchImage(event.target.value);
+    }
     const baseUrl = `${window.location.protocol}//${window.location.host}`;
     return (
         <>
@@ -60,15 +65,20 @@ const MediaSection = () => {
                         <h5>Media Library</h5>
                         <button className="btn btn__update" onClick={() => { setSection(!section) }}>{section ? <> <img src="assets/imgs/arrow-back.svg" />Back</> : "Add New Media File"}</button>
                     </div>
-
                     {section ? <ImageUpload imageUploaded={imageUploaded} setImageUplaoded={setImageUplaoded} /> : ""}
+                    <div>
+                        <input type="text" onChange={searchImageHandler} />
+                    </div>
                     <div className="media__grids">
                         <MediaLibrary
                             imageUploaded={imageUploaded}
                             showModal={showModal}
                             setShowModal={setShowModal}
                             selectedImage={selectedImage}
-                            setSelectedImage={setSelectedImage} />
+                            setSelectedImage={setSelectedImage}
+                            setSearchImage={setSearchImage}
+                            searchImage={searchImage}
+                        />
                     </div>
                 </div>
                 {showModal && selectedImage && (
