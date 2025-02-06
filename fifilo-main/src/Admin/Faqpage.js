@@ -59,7 +59,7 @@ const Faqpage = () => {
             <div className="main__content"  >
                 <div className="page__editors">
                     <div className="page__title">
-                        <h5>FAQ Page</h5>
+                        <h5>FAQ's Page</h5>
                     </div>
 
                     <div className="page__editContent">

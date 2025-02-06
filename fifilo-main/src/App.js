@@ -88,7 +88,7 @@ function App() {
         <Route path="/blogadmin/newblog" element={<ProtectedRoute Component={<NewBlog />} />} />
         <Route path="/blogadmin/:name" element={<ProtectedRoute Component={<BlogUpdate />} />} />
         <Route path="/casestudies/" element={<ProtectedRoute Component={<CasestudyPages />} />} />
-        <Route path="/pages/casestudy/" element={<ProtectedRoute Component={<Casestudypage />} />} />
+        <Route path="/pages/casestudies/" element={<ProtectedRoute Component={<Casestudypage />} />} />
         <Route path="/casestudies/:name/" element={<ProtectedRoute Component={<Casestudyadmin />} />} />
         <Route path="/casestudies/newcasestudy/" element={<ProtectedRoute Component={<Newcasestudy />} />} />
         <Route path="/pages/career/" element={<ProtectedRoute Component={<Careerpage />} />} />

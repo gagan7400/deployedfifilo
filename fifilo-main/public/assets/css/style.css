@@ -4216,7 +4216,15 @@ input:-webkit-autofill {
 .contact_formModal .contact__form input:autofill {
   -webkit-text-fill-color: #0e0e0e !important;
 }
-
+.contact__bnr .contact__form input:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+}
+.contact__bnr .contact__form input:-webkit-autofill,
+.contact__bnr .contact__form input:-webkit-autofill:hover,
+.contact__bnr .contact__form input:-webkit-autofill:focus,
+.contact__bnr .contact__form input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1e1e1d inset !important;
+}
 .contact_formModal .upload__file .input__span {
   position: absolute;
   left: 0;

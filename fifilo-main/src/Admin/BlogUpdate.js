@@ -250,14 +250,14 @@ const BlogUpdate = () => {
                                                                         </div>
                                                                         <div className="col-lg-6 col-md-6">
                                                                             <div className="input__inr">
-                                                                                <label htmlFor="id">Table Content Id  </label>
+                                                                                <label htmlFor="id">Table Content ID  </label>
                                                                                 <input required type="text"
                                                                                     name="id"
                                                                                     id="id"
                                                                                     className="form-control"
                                                                                     value={v.id}
                                                                                     onChange={(e) => handleTableContent(index, e)}
-                                                                                    placeholder="Enter id"
+                                                                                    placeholder="Enter Content ID"
                                                                                 />
                                                                             </div>
                                                                         </div>
@@ -266,7 +266,7 @@ const BlogUpdate = () => {
                                                             </div>
                                                         ))}
                                                         <div className="add__review">
-                                                            <button className="btn" type="button" onClick={addTableContent}><img src="assets/imgs/plus.svg" alt="" />Add More Content</button>
+                                                            <button className="btn" type="button" onClick={addTableContent}><img src="assets/imgs/plus.svg" alt="" />Add More Table Content</button>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -64,7 +64,7 @@ export default function Dashboard() {
                                         <td>{v.pageName.split("p").join(" P")}</td>
                                         <td>{v.createdAt && dateformat(v.createdAt)}</td>
                                         <td>{v.updatedAt && dateformat(v.updatedAt)}</td>
-                                        <td> <NavLink to={`/pages/${v.pageName.split("p")[0]}`} onClick={() => { dispatch(pageAction({ ...v })) }} className="btn"> <img src="/assets/imgs/edit.svg" alt="Edit icon" /></NavLink> </td>
+                                        <td> <NavLink to={`/pages/${v.pageName.split(" ").join("").split("p")[0].toLowerCase()}`} onClick={() => { dispatch(pageAction({ ...v })) }} className="btn"> <img src="/assets/imgs/edit.svg" alt="Edit icon" /></NavLink> </td>
                                     </tr>
                                 })}
                             </tbody>
