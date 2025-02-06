@@ -140,7 +140,7 @@ export default function Jobpage() {
                                                     className="form-control"
                                                     value={jobTitle}
                                                     onChange={(e) => { setJobtitle(e.target.value) }}
-                                                    placeholder="Enter Jobtitle"
+                                                    placeholder="Enter Job Title"
                                                 />
                                             </div>
                                         </div>
@@ -150,7 +150,7 @@ export default function Jobpage() {
                                                 <select className="form-select form-select-sm mb-3" value={category} onChange={(e) => { setCategory(e.target.value) }} aria-label="Small select example" id="Category">
                                                     <option defaultValue="UI-UX">UI-UX</option>
                                                     <option value="Development">Development</option>
-                                                    <option value="Sales&Marketing">Sales & Marketing</option>
+                                                    <option value="Sales&Marketing">Sales&Marketing</option>
                                                     <option value="HR">HR</option>
                                                 </select>
                                             </div>
@@ -185,20 +185,20 @@ export default function Jobpage() {
 
                                         <div className="col-lg-12">
                                             <div className="input__inr">
-                                                <label htmlFor="aboutUs">AboutUs</label>
+                                                <label htmlFor="aboutUs">About Us</label>
                                                 <textarea required type="text"
                                                     name="aboutUs"
                                                     id="aboutUs"
                                                     className="form-control"
                                                     value={aboutUs}
                                                     onChange={(e) => { setAboutUs(e.target.value) }}
-                                                    placeholder="Enter AboutUs"
+                                                    placeholder="Enter About Us"
                                                 />
                                             </div>
                                         </div>
                                         <div className="col-lg-12">
                                             <div className="input__inr">
-                                                <label htmlFor="aboutRole">AboutRole</label>
+                                                <label htmlFor="aboutRole">About Role</label>
                                                 <textarea required type="text"
                                                     name="aboutRole"
                                                     id="aboutRole"

@@ -47,7 +47,7 @@ export default function Sidebar() {
             </li>
             <li className="nav-item">
               <NavLink to="/section/faq" className="nav-link"  >
-                <img src="assets/imgs/faq.svg" alt="faq Icon" />Faq
+                <img src="assets/imgs/faq.svg" alt="faq Icon" />FAQ's
               </NavLink>
             </li>
             <li className="nav-item">

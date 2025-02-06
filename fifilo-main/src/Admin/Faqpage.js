@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { getPublishFaqPage, updateFaqAction } from '../redux/actions/faqAction';
-
-import { NavLink, useNavigate } from 'react-router-dom';
-import Loader from '../layout/Loader';
+import { NavLink } from 'react-router-dom';
 
 const Faqpage = () => {
     const dispatch = useDispatch();
     const { publishedfaqdata, publishedfaqloading } = useSelector((state) => state.faq);
-
     const [heroSection, setHeroSection] = useState({
         heading: "",
         subHeading: ""
     });
-
     const [faqSection, setFaqSection] = useState([{ question: "", answer: "" }]);
-
     useEffect(() => {
         dispatch(getPublishFaqPage());
     }, [dispatch]);
