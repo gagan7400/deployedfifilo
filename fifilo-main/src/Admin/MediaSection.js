@@ -66,8 +66,9 @@ const MediaSection = () => {
                         <button className="btn btn__update" onClick={() => { setSection(!section) }}>{section ? <> <img src="assets/imgs/arrow-back.svg" />Back</> : "Add New Media File"}</button>
                     </div>
                     {section ? <ImageUpload imageUploaded={imageUploaded} setImageUplaoded={setImageUplaoded} /> : ""}
-                    <div>
-                        <input type="text" onChange={searchImageHandler} />
+                    <div className="search__container">
+                        <label>Search Media</label>
+                        <input type="text" className="form-control" onChange={searchImageHandler} />
                     </div>
                     <div className="media__grids">
                         <MediaLibrary

@@ -4287,3 +4287,29 @@ input:-webkit-autofill {
 }
 
 /* end of update by gagan for social page  */
+
+/* search media filter css*/
+.search__container {
+  background-color: var(--color-white);
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 16px;
+}
+.search__container lebel {
+  font: normal normal 400 14px / 142.857% var(--font);
+  color: #363a44;
+}
+.search__container .form-control {
+  max-width: 250px;
+  background-color: #fff;
+  border: 1px solid #d7dae0;
+  border-radius: 6px;
+  color: #363a44;
+  font: normal normal 400 14px / 150% var(--font);
+  padding: 8px 12px;
+}

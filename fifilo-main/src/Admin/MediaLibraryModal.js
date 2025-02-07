@@ -9,6 +9,7 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
     const [showModal, setShowModal] = useState(false);
     const [message, setMessage] = useState(false)
     const [selectedImage, setSelectedImage] = useState(null);
+    const [searchImage, setSearchImage] = useState("")
     const inputRef = useRef(null);
     const handleDelete = async (imageId) => {
         if (window.confirm("Are You Sure You Want to Delete This?")) {
@@ -48,6 +49,9 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                 });
         }
     };
+    let searchImageHandler = (event) => {
+        setSearchImage(event.target.value);
+    }
     useEffect(() => {
         setTimeout(() => {
             setMessage(false)
@@ -83,11 +87,17 @@ const MediaLibraryModal = ({ isOpen, onClose, onSelectImage }) => {
                                     <div className="row gx-0">
                                         <div className="col-lg-9 col-md-9">
                                             <div className="attachments-wrapper">
+                                                <div className="search__container">
+                                                    <label>Search Media</label>
+                                                    <input type="text" className="form-control" onChange={searchImageHandler} />
+                                                </div>
                                                 <MediaLibrary onSelectImage={onSelectImage} imageUploaded={imageUploaded}
                                                     showModal={showModal}
                                                     setShowModal={setShowModal}
                                                     selectedImage={selectedImage}
                                                     setSelectedImage={setSelectedImage}
+                                                    setSearchImage={setSearchImage}
+                                                    searchImage={searchImage}
                                                 />
                                             </div>
                                         </div>
