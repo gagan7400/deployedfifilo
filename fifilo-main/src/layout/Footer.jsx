@@ -30,7 +30,7 @@ export default function Footer() {
                 <NavLink to="/career/">Career</NavLink>
               </li>
               <li>
-                <NavLink to="https://fifilo.com/blogs/">Blogs</NavLink>
+                <NavLink to="/blogs/">Blogs</NavLink>
               </li>
               <li>
                 <NavLink to="/contact-us/">Contact</NavLink>
