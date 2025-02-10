@@ -183,7 +183,7 @@ const NewBlog = () => {
                                             </div>
                                             <div className="update__block">
                                                 <NavLink className="btn btn__cancel" to="/blogadmin">Cancel</NavLink>
-                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +254,7 @@ const NewBlog = () => {
                                             </div>
                                             <div className="update__block">
                                                 <NavLink className="btn btn__cancel" to="/blogadmin">Cancel</NavLink>
-                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -309,7 +309,7 @@ const NewBlog = () => {
                                         </div>
                                         <div className="update__block">
                                             <NavLink className="btn btn__cancel" to="/blogadmin">Cancel</NavLink>
-                                            <button className="btn btn__update" onClick={handleSubmit}>Update</button>
+                                            <button className="btn btn__update" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>
                                 </div>
