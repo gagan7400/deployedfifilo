@@ -435,7 +435,7 @@ const Casestudy = () => {
                                                                     <div className='row'>
                                                                         <div className="col-lg-12">
                                                                             <div className="input__inr">
-                                                                                <label htmlFor="workButtonsName">WorkButton Name</label>
+                                                                                <label htmlFor="workButtonsName">Work Button Name</label>
                                                                                 <input required type="text"
                                                                                     id="workButtons"
                                                                                     name="name"
