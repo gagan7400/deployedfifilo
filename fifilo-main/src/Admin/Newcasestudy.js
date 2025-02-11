@@ -263,7 +263,7 @@ const CasestudyPage = () => {
             alert("Please Fill All The Feilds")
         }
     };
-    
+
     return (
         <>
             <Sidebar />
@@ -436,7 +436,7 @@ const CasestudyPage = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                             </div>
                                         </div>
@@ -567,15 +567,15 @@ const CasestudyPage = () => {
                                                         <label htmlFor="Strategy Description">Strategy Description</label>
                                                         <JoditEditor
                                                             ref={editor}
-                                                             value={overviewSection.Strategy.description}
+                                                            value={overviewSection.Strategy.description}
                                                             onChange={(newContent) => handleOverviewSectionChange("Strategy", "description", newContent)} // Save content on every keystroke
                                                         />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
-                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                                <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -647,7 +647,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>
@@ -705,7 +705,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>
@@ -833,7 +833,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>
@@ -948,7 +948,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>
@@ -1007,7 +1007,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>
@@ -1037,14 +1037,14 @@ const CasestudyPage = () => {
                                                         <label htmlFor="description">Description</label>
                                                         <JoditEditor
                                                             ref={editor}
-                                                             value={impactAndImprovement.description}
+                                                            value={impactAndImprovement.description}
                                                             onChange={(newContent) => setImpactAndImprovement({ ...impactAndImprovement, description: newContent })} // Save content on every keystroke
                                                         />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                             </div>
                                         </div>
@@ -1083,7 +1083,7 @@ const CasestudyPage = () => {
                                                 </div>
                                             </div>
                                             <div className="update__block">
-                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Submit</button>
                                             </div>
                                         </div>
@@ -1138,7 +1138,7 @@ const CasestudyPage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Submit</button>
                                         </div>
                                     </div>

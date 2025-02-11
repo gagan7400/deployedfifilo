@@ -38,9 +38,6 @@ export default function Footer() {
               <li>
                 <NavLink to="/privacy-policy/">Privacy Policy</NavLink>
               </li>
-              {/* <li>
-                <NavLink to="/terms-conditions/">Terms & Conditions</NavLink>
-              </li> */}
             </ul>
             <div className="center__inr">
               <div className="ftr__logo">
@@ -69,22 +66,12 @@ export default function Footer() {
                     <img src="assets/img/linkedin.svg" alt="linkedin" />
                   </NavLink>
                 </li>
-                {/* <li>
-                  <NavLink to="/">
-                    <img src="assets/img/dribble.svg" alt="dribble" />
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">
-                    <img src="assets/img/youtube.svg" alt="youtube" />
-                  </NavLink>
-                </li> */}
               </ul>
             </div>
           </div>
 
           <div className="bottom__bx">
-            <p>2024 FIFILO Designs. All rights reserved.</p>
+            <p>2025 FIFILO Designs. All rights reserved.</p>
           </div>
         </div>
       </div>
