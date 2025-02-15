@@ -184,7 +184,7 @@ export default function Singleblog() {
 
                                     <div className="blogs__cards">
                                         {!blogsLoading && blogs && blogs.map((value, index) => {
-                                            if (value._id != blog._id) {
+                                            if (blog && value._id != blog._id) {
                                                 return (<div className="card__blog" key={index}>
                                                     <NavLink to={`/blogs/${value.blogUrl}/`}>
                                                         <div className="title">

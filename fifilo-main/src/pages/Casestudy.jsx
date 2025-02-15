@@ -161,7 +161,7 @@ export default function Casestudy() {
                         </div>
                         {
                             (!loading && casestudy && casestudy.overviewSection.StrategyImages) &&
-                            <div className="col-lg-10" dangerouslySetInnerHTML={{
+                            <div className="col-lg-12" dangerouslySetInnerHTML={{
                                 __html: DOMPurify.sanitize(!loading && casestudy ? casestudy.overviewSection.StrategyImages : ``)
                             }} />
                         }
