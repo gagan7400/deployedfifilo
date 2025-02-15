@@ -1,10 +1,8 @@
-import React, { act, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import AOS from "aos";
 import DOMPurify from 'dompurify';
 import axios from 'axios';
-import { Copy } from 'lucide-react';
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Loader from '../layout/Loader';
 export default function Singleblog() {
     let { name } = useParams();
     let [blog, setBlog] = useState(null);
@@ -35,12 +33,13 @@ export default function Singleblog() {
         }
     };
     let location = useLocation();
+
     useEffect(() => {
         getblog();
     }, [location]);
     let getblog = async () => {
         try {
-            let { data } = await axios.get('/admin/blogs/getblog/' + name);
+            let { data } = await axios.get('http://localhost:5000/admin/blogs/getblog/' + name);
             if (data.success) {
                 setBlog(data.data);
                 setLoading(false)
@@ -50,13 +49,12 @@ export default function Singleblog() {
             }
         } catch (error) {
             setBlog(null)
-
             nav("/not-found")
         }
     }
     let alldata = async () => {
         try {
-            let { data } = await axios.get('/admin/blogs/getblogs');
+            let { data } = await axios.get('http://localhost:5000/admin/blogs/getblogs');
             if (data.success) {
                 setBlogs(data.data);
                 setBlogsLoading(false)
@@ -109,7 +107,6 @@ export default function Singleblog() {
     return (
         <>
             <div className="blogs__bnr blog__single">
-                {loading && <Loader />}
                 <div className="container">
                     <div className="bnr__inr">
                         <div className="category" data-aos="fade-up" data-aos-duration="800">
@@ -128,7 +125,7 @@ export default function Singleblog() {
                             <span>{!loading && blog && blog.approxTime} Read</span>
                         </div>
                         <div className="single__thumbnails" data-aos="fade-up" data-aos-duration="800">
-                            <img src={`/images/${!loading && blog && blog.bannerImg.filename}`} alt="" />
+                            <img src={`http://localhost:5000/images/${!loading && blog && blog.bannerImg.filename}`} alt="" />
                         </div>
                     </div>
                 </div>
@@ -160,7 +157,7 @@ export default function Singleblog() {
                                             <img src="assets/img/share.svg" alt="Share" />
                                         </button>
                                         <button onClick={handleCopy} className="btn">
-                                            <img src="assets/img/copy.svg" alt="Copybutton" />
+                                            <img src="assets/img/copy.svg" alt="Share" />
                                         </button>
                                     </div>
                                     {copied && <span className="text-green-600 text-sm messageofcopy">URL copied to clipboard!</span>}
@@ -181,7 +178,6 @@ export default function Singleblog() {
 
                                 <div className="releted__blog"  >
                                     <h5>Related Blogs</h5>
-
                                     <div className="blogs__cards">
                                         {!blogsLoading && blogs && blogs.map((value, index) => {
                                             if (blog && value._id != blog._id) {

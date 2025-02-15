@@ -207,7 +207,6 @@ export default function Home() {
           <div className="inner__gapTop row">
             {!loading && casestudies && casestudies.map((card, index) => {
               let ca = ["TribeStays", "Cure Hub", "SPV Mortgages"];
-              console.log(ca.includes(card.heroSection.casestudyName))
               if (ca.includes(card.heroSection.casestudyName)) {
                 return (<div className="col-12" key={index} data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} data-aos-duration="800">
                   <div className="card__caseStudies">

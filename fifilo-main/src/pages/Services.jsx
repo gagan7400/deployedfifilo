@@ -7,6 +7,7 @@ import useCursorPosition from "../layout/useCursorPosition";
 import { useSelector, useDispatch } from 'react-redux'
 import { getpublishServicePage } from '../redux/actions/servicesAction';
 import DOMPurify from 'dompurify';
+
 export default function Services() {
   useCursorPosition('dark__bnr');
   let dispatch = useDispatch();
@@ -23,7 +24,6 @@ export default function Services() {
   useEffect(() => {
     if (location.hash) {
       const sectionId = location.hash.replace('#', '').toLowerCase(); // Convert to lowercase for case-insensitive matching
-
       const observer = new MutationObserver(() => {
         // Use querySelector with [id] to match section id case-insensitively
         const sectionElement = document.querySelector(`[id="${sectionId}"], [id="${location.hash.replace('#', '')}"]`);
@@ -60,7 +60,7 @@ export default function Services() {
         <title>{(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.title}</title>
         <meta name="keywords" content={(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.keywords} />
         <meta name="description" content={(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.description} />
-        {(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename}`} />}
+        {(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
 
@@ -74,7 +74,7 @@ export default function Services() {
             <div data-aos="fade-up" data-aos-duration="800">
               <NavLink to={!publishedServiceLoading && publishedServicePage ? publishedServicePage.heroSection.heroButtons.CTA1.url : ""} className="btn">{!publishedServiceLoading && publishedServicePage ? publishedServicePage.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
             </div>
-            <div className="animation-wrapper">
+            {/* <div className="animation-wrapper">
               <div className="main-wrapper">
                 <div className="sphere-wrapper">
                   <div className="plane plane-1">
@@ -1399,6 +1399,46 @@ export default function Services() {
                   </div>
                 </div>
               </div>
+            </div> */}
+            <div className="animation-wrapper">
+              <div className='animationsphare'>
+                <div className='ring1'></div>
+                <div className='ring2'></div>
+                <div className='ring3'></div>
+                <div className='ring4'></div>
+                <div className='ring5'></div>
+                <div className='ring6'></div>
+                <div className='ring7'></div>
+                <div className='ring8'></div>
+                <div className='ring9'></div>
+                <div className='ring10'></div>
+                <div className='ring11'></div>
+                <div className='ring12'></div>
+                <div className='ring13'></div>
+                <div className='ring14'></div>
+                <div className='ring15'></div>
+                <div className='ring16'></div>
+                <div className='ring17'></div>
+                <div className='ring18'></div>
+                <div className='ring19'></div>
+                <div className='ring20'></div>
+                <div className='ring21'></div>
+                <div className='ring22'></div>
+                <div className='ring23'></div>
+                <div className='ring24'></div>
+                <div className='ring25'></div>
+                <div className='ring26'></div>
+                <div className='ring27'></div>
+                <div className='ring28'></div>
+                <div className='ring29'></div>
+                <div className='ring30'></div>
+                <div className='ring31'></div>
+                <div className='ring32'></div>
+                <div className='ring33'></div>
+                <div className='ring34'></div>
+                <div className='ring35'></div>
+                <div className='ring36'></div>
+              </div>
             </div>
           </div>
         </div>
@@ -1439,8 +1479,6 @@ export default function Services() {
             </div>
           </div>
         </div>
-
-
       }) : ""
       }
 
@@ -1454,7 +1492,7 @@ export default function Services() {
             {!publishedServiceLoading && publishedServicePage ? publishedServicePage.toolSection.toolsLogo.map((img, index) => {
               return <div className="col-lg-3 col-md-4 col-6" key={index}>
                 <div className="card__bx">
-                  <img src={img && img.filename ? `/images/${img.filename}` : ''} data-aos="zoom-in" alt="card__bx" />
+                  <img src={img && img.filename ? `http://localhost:5000/images/${img.filename}` : ''} data-aos="zoom-in" alt="card__bx" />
                 </div>
               </div>
             }) : ""}

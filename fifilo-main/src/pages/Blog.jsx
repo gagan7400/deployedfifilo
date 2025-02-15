@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import $ from 'jquery';
 import AOS from "aos";
+import DOMPurify from 'dompurify';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBlogs } from '../redux/actions/blogAction';
+import { getBlogs, getPublishBlogPage } from '../redux/actions/blogAction';
+import { Helmet } from 'react-helmet';
 export default function Blog() {
     let dispatch = useDispatch();
-    let { blogdata, blogloading, error } = useSelector(state => state.blog)
+    let { blogdata, blogloading, error, publishedblogdata } = useSelector(state => state.blog)
     useEffect(() => {
         $(function () {
             $(".blogs__list .col-12").slice(0, 3).show();
@@ -21,16 +23,26 @@ export default function Blog() {
     }, []);
     useEffect(() => {
         AOS.init();
-    }, [blogdata]);
+    }, [blogdata, publishedblogdata]);
     useEffect(() => {
         dispatch(getBlogs())
+        dispatch(getPublishBlogPage())
     }, [])
-    console.log(blogdata)
+
     return (
         <>
+            <Helmet>
+                <title>{(!blogloading && publishedblogdata) && publishedblogdata.seoSection.title}</title>
+                <meta name="keywords" content={(!blogloading && publishedblogdata) && publishedblogdata.seoSection.keywords} />
+                <meta name="description" content={(!blogloading && publishedblogdata) && publishedblogdata.seoSection.description} />
+                {(!blogloading && publishedblogdata) && publishedblogdata.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!blogloading && publishedblogdata) && publishedblogdata.seoSection.seoImg.filename}`} />}
+                <meta property="og:image:alt" content="Description of the feature image" />
+            </Helmet>
             <div className="blogs__bnr">
                 <div className="container" data-aos="fade-up" data-aos-duration="800">
-                    <h2>Insights & Ideas<br /><span>Your Gateway to Digital Excellence</span></h2>
+                    <h2 dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(!blogloading && publishedblogdata ? publishedblogdata.heroSection.heading : ``)
+                    }} />
                 </div>
             </div>
 
@@ -44,7 +56,7 @@ export default function Blog() {
                                         <div className="card__blog comn__blog" data-aos="fade-up" data-aos-duration="800">
                                             <div className="thumb__img">
                                                 <NavLink to={`/blogs/${value.blogUrl}/`}>
-                                                    <img src={`/images/${value.bannerImg.filename}`} alt="" />
+                                                    <img src={`http://localhost:5000/images/${value.bannerImg.filename}`} alt="" />
                                                 </NavLink>
                                             </div>
                                             <div className="cntnt__bx">
@@ -86,7 +98,7 @@ export default function Blog() {
                                                 <div className="arti__card comn__blog" data-aos="fade-up" data-aos-duration="800">
                                                     <div className="img__box">
                                                         <NavLink to={`/blogs/${value.blogUrl}/`}>
-                                                            <img src={`/images/${value.bannerImg.filename}`} alt="" />
+                                                            <img src={`http://localhost:5000/images/${value.bannerImg.filename}`} alt="" />
                                                         </NavLink>
                                                     </div>
                                                     <div className="cntnt__bx">
@@ -117,7 +129,7 @@ export default function Blog() {
                                                 <div className="arti__card comn__blog" data-aos="fade-up" data-aos-duration="800">
                                                     <div className="img__box">
                                                         <NavLink to={`/blogs/${value.blogUrl}/`}>
-                                                            <img src={`/images/${value.bannerImg.filename}`} alt="" />
+                                                            <img src={`http://localhost:5000/images/${value.bannerImg.filename}`} alt="" />
                                                         </NavLink>
                                                     </div>
                                                     <div className="cntnt__bx">

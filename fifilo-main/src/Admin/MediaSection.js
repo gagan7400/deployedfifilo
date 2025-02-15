@@ -17,8 +17,7 @@ const MediaSection = () => {
             try {
                 const { data } = await axios.delete(`/api/media/${imageId}`);
                 if (data.success) {
-                    console.log(data);
-                    setImageUplaoded((prev) => prev === "deleted" ? "deleted-again" : "deleted");
+                     setImageUplaoded((prev) => prev === "deleted" ? "deleted-again" : "deleted");
                     setSelectedImage(null); // Clear the selected image
                 } else {
                     console.error("Failed to delete image:", data);

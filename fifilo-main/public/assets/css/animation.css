@@ -1,0 +1,179 @@
+.animationsphare {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: spinSphere 10s infinite linear;
+    animation: spinSphere 10s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.animationsphare [class^=ring] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fdb913;
+    border-radius: 50%;
+}
+
+.animationsphare .ring1 {
+    transform: rotateY(10deg);
+}
+
+.animationsphare .ring2 {
+    transform: rotateY(20deg);
+}
+
+.animationsphare .ring3 {
+    transform: rotateY(30deg);
+}
+
+.animationsphare .ring4 {
+    transform: rotateY(40deg);
+}
+
+.animationsphare .ring5 {
+    transform: rotateY(50deg);
+}
+
+.animationsphare .ring6 {
+    transform: rotateY(60deg);
+}
+
+.animationsphare .ring7 {
+    transform: rotateY(70deg);
+}
+
+.animationsphare .ring8 {
+    transform: rotateY(80deg);
+}
+
+.animationsphare .ring9 {
+    transform: rotateY(90deg);
+}
+
+.animationsphare .ring10 {
+    transform: rotateY(100deg);
+}
+
+.animationsphare .ring11 {
+    transform: rotateY(110deg);
+}
+
+.animationsphare .ring12 {
+    transform: rotateY(120deg);
+}
+
+.animationsphare .ring13 {
+    transform: rotateY(130deg);
+}
+
+.animationsphare .ring14 {
+    transform: rotateY(140deg);
+}
+
+.animationsphare .ring15 {
+    transform: rotateY(150deg);
+}
+
+.animationsphare .ring16 {
+    transform: rotateY(160deg);
+}
+
+.animationsphare .ring17 {
+    transform: rotateY(170deg);
+}
+
+.animationsphare .ring18 {
+    transform: rotateX(180deg);
+}
+
+.animationsphare .ring19 {
+    transform: rotateX(190deg);
+}
+
+.animationsphare .ring20 {
+    transform: rotateX(200deg);
+}
+
+.animationsphare .ring21 {
+    transform: rotateX(210deg);
+}
+
+.animationsphare .ring22 {
+    transform: rotateX(220deg);
+}
+
+.animationsphare .ring23 {
+    transform: rotateX(230deg);
+}
+
+.animationsphare .ring24 {
+    transform: rotateX(240deg);
+}
+
+.animationsphare .ring25 {
+    transform: rotateX(250deg);
+}
+
+.animationsphare .ring26 {
+    transform: rotateX(260deg);
+}
+
+.animationsphare .ring27 {
+    transform: rotateX(270deg);
+}
+
+.animationsphare .ring28 {
+    transform: rotateX(280deg);
+}
+
+.animationsphare .ring29 {
+    transform: rotateX(290deg);
+}
+
+.animationsphare .ring30 {
+    transform: rotateX(300deg);
+}
+
+.animationsphare .ring31 {
+    transform: rotateX(310deg);
+}
+
+.animationsphare .ring32 {
+    transform: rotateX(320deg);
+}
+
+.animationsphare .ring33 {
+    transform: rotateX(330deg);
+}
+
+.animationsphare .ring34 {
+    transform: rotateX(340deg);
+}
+
+.animationsphare .ring35 {
+    transform: rotateX(350deg);
+}
+
+.animationsphare .ring36 {
+    transform: rotateX(360deg);
+}
+
+@-webkit-keyframes spinSphere {
+    from {
+        transform: rotateZ(60deg) rotateX(0);
+    }
+
+    to {
+        transform: rotateZ(60deg) rotateX(360deg);
+    }
+}
+
+@keyframes spinSphere {
+    from {
+        transform: rotateZ(60deg) rotateX(0);
+    }
+
+    to {
+        transform: rotateZ(60deg) rotateX(360deg);
+    }
+}

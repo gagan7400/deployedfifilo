@@ -41,6 +41,7 @@ import Blog from "./pages/Blog.jsx";
 import Singleblog from "./pages/Singleblog.jsx";
 import NewBlog from "./Admin/NewBlog.js";
 import BlogUpdate from "./Admin/BlogUpdate.js";
+import BlogPage from "./Admin/BlogPage.js";
 function App() {
   let dispatch = useDispatch();
 
@@ -87,6 +88,7 @@ function App() {
         <Route path="/blogadmin/" element={<ProtectedRoute Component={<BlogAdmin />} />} />
         <Route path="/blogadmin/newblog" element={<ProtectedRoute Component={<NewBlog />} />} />
         <Route path="/blogadmin/:name" element={<ProtectedRoute Component={<BlogUpdate />} />} />
+        <Route path="/pages/blog/" element={<ProtectedRoute Component={<BlogPage />} />} />
         <Route path="/casestudies/" element={<ProtectedRoute Component={<CasestudyPages />} />} />
         <Route path="/pages/casestudies/" element={<ProtectedRoute Component={<Casestudypage />} />} />
         <Route path="/casestudies/:name/" element={<ProtectedRoute Component={<Casestudyadmin />} />} />

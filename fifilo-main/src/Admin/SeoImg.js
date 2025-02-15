@@ -13,7 +13,6 @@ export default function SeoImg({ seoSection, setSeoSection, updateContact, index
 
     // Handle image selection
     const handleImageSelect = (image) => {
-        console.log(image)
         setSelectedImage(image); // Set the selected image data
         if (setSeoSection && !name) {
             setSeoSection({ ...seoSection, seoImg: { filename: image.filename, path: image.filePath } })

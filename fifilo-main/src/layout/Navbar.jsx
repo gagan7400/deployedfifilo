@@ -103,9 +103,7 @@ export default function Navbar() {
 
   const location = useLocation();
   const path = location.pathname.replace(/\//g, '') || 'home';
-  if (path.includes("casestudy")) {
-    console.log(path)
-  }
+  
   return (
     <>
       <header className={`${headerFixed ? "fixed" : ""} header ${path}`}>

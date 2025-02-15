@@ -28,8 +28,7 @@ export default function Jobpage() {
     let submithandler = (e) => {
         e.preventDefault();
         if (!jobTitle || !category || !aboutUs || !aboutRole || !qualifications || !experience || !location || !responsibilities || !jobType || !jobStatus) {
-            console.log(jobTitle, category, aboutUs, aboutRole, qualifications, experience, location, responsibilities, jobType, jobStatus)
-            alert("please fill all the field")
+             alert("please fill all the field")
         } else {
             if (isUpdateJob.isupdate && isUpdateJob.id) {
                 dispatch(updatejobAction({ Jobdata: { requirements, jobTitle, aboutRole, aboutUs, qualifications, category, experience, location, responsibilities, qualifications, jobType, jobStatus }, id: isUpdateJob.id }));

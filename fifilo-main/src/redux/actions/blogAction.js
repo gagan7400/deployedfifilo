@@ -13,7 +13,7 @@ const handleError = (error, dispatch, failType) => {
 export const createBlog = ({ heroSection, seoSection }) => async (dispatch) => {
     try {
         dispatch({ type: "CREATE_BLOG_REQUEST" });
-        await fetch("/admin/blogs/createblog", {
+        await fetch("http://localhost:5000/admin/blogs/createblog", {
             method: 'POST',
             body: JSON.stringify({ heroSection, seoSection }),
             headers: {
@@ -45,7 +45,7 @@ export const createBlog = ({ heroSection, seoSection }) => async (dispatch) => {
 export const getBlogs = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_BLOG_REQUEST" });
-        const { data } = await axios.get('/admin/blogs/getblogs');
+        const { data } = await axios.get('http://localhost:5000/admin/blogs/getblogs');
         dispatch({ type: "ALL_BLOG_SUCCESS", payload: data });
     } catch (error) {
         handleError(error, dispatch, "ALL_BLOG_FAIL");
@@ -56,7 +56,7 @@ export const getBlogs = () => async (dispatch) => {
 export const deleteBlog = (id) => async (dispatch) => {
     try {
         dispatch({ type: "DELETE_BLOG_REQUEST" });
-        await axios.delete(`/admin/blogs/deleteblog/${id}`, config);
+        await axios.delete(`http://localhost:5000/admin/blogs/deleteblog/${id}`, config);
         dispatch({ type: "DELETE_BLOG_SUCCESS" });
         dispatch(getBlogs());
     } catch (error) {
@@ -69,10 +69,22 @@ export const updateBlogAction = ({ casestudydata, id }) => async (dispatch) => {
     try {
         dispatch({ type: "UPDATE_BLOG_REQUEST" });
         const multipartConfig = { ...config };
-        await axios.put(`/admin/blogs/updateblog/${id}`, casestudydata, multipartConfig);
+        await axios.put(`http://localhost:5000/admin/blogs/updateblog/${id}`, casestudydata, multipartConfig);
         dispatch({ type: "UPDATE_BLOG_SUCCESS" });
         dispatch(getBlogs());
     } catch (error) {
         handleError(error, dispatch, "UPDATE_BLOG_FAIL");
     }
 };
+
+// Fetch Published casestudy Page Data
+export const getPublishBlogPage = () => async (dispatch) => {
+    try {
+        dispatch({ type: "ALL_GETPUBLISHBLOGPAGE_REQUEST" });
+        const { data } = await axios.get('http://localhost:5000/admin/blogs/getpublishedblogpage');
+        dispatch({ type: "ALL_GETPUBLISHBLOGPAGE_SUCCESS", payload: data.data });
+    } catch (error) {
+        handleError(error, dispatch, "ALL_GETPUBLISHBLOGPAGE_FAIL");
+    }
+};
+

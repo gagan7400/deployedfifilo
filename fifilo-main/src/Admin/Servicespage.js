@@ -50,8 +50,7 @@ const ServicesForm = () => {
     });
 
     useEffect(() => {
-        console.log(publishedServicePage)
-        if (publishedServicePage) {
+         if (publishedServicePage) {
             setHeroSection({
                 heading: publishedServicePage.heroSection.heading,
                 subHeading: publishedServicePage.heroSection.subHeading,

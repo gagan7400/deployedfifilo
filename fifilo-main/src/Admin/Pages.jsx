@@ -5,14 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getHomePage, openHomePage } from '../redux/actions/homeAction';
 import { NavLink } from 'react-router-dom';
 import { pageAction } from '../redux/actions/pagedataAction';
-import Loader from '../layout/Loader';
 
 export default function Dashboard() {
     const [allData, setAllData] = useState([]);
     const [loading, setLoading] = useState(true);
     let alldata = async () => {
         try {
-            let { data } = await axios.get('/admin/pages/getallpages');
+            let { data } = await axios.get('http://localhost:5000/admin/pages/getallpages');
             setAllData(data.data);
             setLoading(false)
         } catch (error) {
@@ -64,7 +63,7 @@ export default function Dashboard() {
                                         <td>{v.pageName.split("p").join(" P")}</td>
                                         <td>{v.createdAt && dateformat(v.createdAt)}</td>
                                         <td>{v.updatedAt && dateformat(v.updatedAt)}</td>
-                                        <td> <NavLink to={`/pages/${v.pageName.split(" ").join("").split("p")[0].toLowerCase()}`} onClick={() => { dispatch(pageAction({ ...v })) }} className="btn"> <img src="/assets/imgs/edit.svg" alt="Edit icon" /></NavLink> </td>
+                                        <td> <NavLink to={`/pages/${v.pageName.split(" ").join("").split("page")[0].toLowerCase()}`} onClick={() => { dispatch(pageAction({ ...v })) }} className="btn"> <img src="/assets/imgs/edit.svg" alt="Edit icon" /></NavLink> </td>
                                     </tr>
                                 })}
                             </tbody>
