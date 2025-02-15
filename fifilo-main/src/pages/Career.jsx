@@ -346,7 +346,7 @@ export default function Career() {
         <title>{(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.keywords} />
         <meta name="description" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.description} />
-        {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
+        {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
 
@@ -377,7 +377,7 @@ export default function Career() {
               publishedcareerdata.cardsSection.map((v, i) => {
                 return <div className="col-lg-4 col-md-4" data-aos="flip-left" data-aos-duration="800" key={i}>
                   <div className="card__bx">
-                    <img src={v.cardImg ? "http://localhost:5000/images/" + v.cardImg.filename : "assets/img/icon-01.svg"} alt="career__section" />
+                    <img src={v.cardImg ? "/images/" + v.cardImg.filename : "assets/img/icon-01.svg"} alt="career__section" />
                     <h5>{v.cardHeading ? v.cardHeading : ""}</h5>
                     <span>{v.cardDescription ? v.cardDescription : ``}</span>
                   </div>

@@ -244,7 +244,7 @@ const CasestudyPage = () => {
         if (heroSection || overviewSection || designProcessSection ||
             sketches || styleGuideSection || typographyData || howFifiloDesignsDrives || updatedLook || fullWidthImg) {
             try {
-                let { data } = await axios.post('http://localhost:5000/admin/casestudy/createcasestudy/', {
+                let { data } = await axios.post('/admin/casestudy/createcasestudy/', {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg, seoSection
                 }, {
