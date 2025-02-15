@@ -1154,7 +1154,6 @@ ul li {
 
 .our__clients .card__logo img {
   width: 100%;
-  max-width: 115px;
   height: auto;
   display: block;
   margin: auto;
@@ -2262,6 +2261,12 @@ ul li {
 
 .caseStudies__overview .row {
   row-gap: 88px;
+}
+
+.caseStudies__overview .casestudies__info {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
 }
 
 .caseStudies__overview .row .row {
@@ -4005,11 +4010,6 @@ input:-webkit-autofill {
   font-weight: 600;
 }
 
-.single__content .left__block h5 {
-  color: var(--color-dark);
-  margin-top: 24px;
-}
-
 .single__content .left__block h3:not(:first-child) {
   margin-top: 48px;
 }
@@ -4033,6 +4033,11 @@ input:-webkit-autofill {
   line-height: normal;
 }
 
+.single__content .left__block h5 {
+  color: var(--color-dark);
+  margin-top: 24px;
+}
+
 .single__content .left__block h6:not(:first-child) {
   margin-top: 24px;
 }
@@ -4050,12 +4055,15 @@ input:-webkit-autofill {
 }
 
 .single__content .left__block ul li,
-.single__content .left__block ul li a{
+.single__content .left__block ul li a {
   color: #505050;
 }
-.single__content .left__block b, .single__content .left__block strong {
+
+.single__content .left__block b,
+.single__content .left__block strong {
   font-weight: 600;
 }
+
 
 .single__content .left__block .social__share {
   display: flex;
@@ -4216,15 +4224,18 @@ input:-webkit-autofill {
 .contact_formModal .contact__form input:autofill {
   -webkit-text-fill-color: #0e0e0e !important;
 }
+
 .contact__bnr .contact__form input:-webkit-autofill {
   -webkit-text-fill-color: #fff !important;
 }
+
 .contact__bnr .contact__form input:-webkit-autofill,
 .contact__bnr .contact__form input:-webkit-autofill:hover,
 .contact__bnr .contact__form input:-webkit-autofill:focus,
 .contact__bnr .contact__form input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #1e1e1d inset !important;
 }
+
 .contact_formModal .upload__file .input__span {
   position: absolute;
   left: 0;
@@ -4288,6 +4299,7 @@ input:-webkit-autofill {
 
 /* end of update by gagan for social page  */
 
+
 /* search media filter css*/
 .search__container {
   background-color: var(--color-white);
@@ -4300,10 +4312,12 @@ input:-webkit-autofill {
   justify-content: right;
   gap: 16px;
 }
+
 .search__container lebel {
   font: normal normal 400 14px / 142.857% var(--font);
   color: #363a44;
 }
+
 .search__container .form-control {
   max-width: 250px;
   background-color: #fff;

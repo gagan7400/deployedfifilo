@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,8 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getjobs, getpublishCareerPage } from '../redux/actions/careeraction';
 import Job from "./Job";
 import Careerform from "./CareerForm";
+
 export default function Career() {
-  let dispatch = useDispatch();
+  let dispatch = useDispatch(); 
+  let [jobApply,setJobApply] = useState("")
   let { jobs, jobloading } = useSelector((state) => state.jobs);
   let { publishedcareerdata, publishedcareerloading } = useSelector((state) => state.careerpage);
   useEffect(() => {
@@ -20,7 +23,7 @@ export default function Career() {
     dispatch(getjobs());
     dispatch(getpublishCareerPage());
   }, [])
-
+ 
   useEffect(() => {
     const $modal = $("#careerModal");
 
@@ -343,7 +346,7 @@ export default function Career() {
         <title>{(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.keywords} />
         <meta name="description" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.description} />
-        {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
+        {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
 
@@ -374,7 +377,7 @@ export default function Career() {
               publishedcareerdata.cardsSection.map((v, i) => {
                 return <div className="col-lg-4 col-md-4" data-aos="flip-left" data-aos-duration="800" key={i}>
                   <div className="card__bx">
-                    <img src={v.cardImg ? "/images/" + v.cardImg.filename : "assets/img/icon-01.svg"} alt="career__section" />
+                    <img src={v.cardImg ? "http://localhost:5000/images/" + v.cardImg.filename : "assets/img/icon-01.svg"} alt="career__section" />
                     <h5>{v.cardHeading ? v.cardHeading : ""}</h5>
                     <span>{v.cardDescription ? v.cardDescription : ``}</span>
                   </div>
@@ -410,7 +413,7 @@ export default function Career() {
                 <li className={filter === "Sales&Marketing" ? "is-checked" : ""} onClick={() => setFilter("Sales&Marketing")}>
                   Sales & Marketing
                 </li>
-                <li className={filter === "HR" ? "is-checked" : ""} onClick={() => setFilter("HR")}>
+                <li className={filter === "Hr" ? "is-checked" : ""} onClick={() => setFilter("Hr")}>
                   HR
                 </li>
               </ul>
@@ -419,7 +422,7 @@ export default function Career() {
             <div className="rows inner__gapTop grid" data-aos="fade-up" data-aos-duration="800">
               {jobs && filteredJobs.map((job, index) => {
                 if (job.jobStatus == "Active") {
-                  return <Job job={job} key={index} isVisible={visibleDetails === job._id} toggleDetails={toggleDetails} />
+                  return <Job job={job} setJobApply={setJobApply} key={index} isVisible={visibleDetails === job._id} toggleDetails={toggleDetails} />
                 }
               })}
             </div>
@@ -431,12 +434,12 @@ export default function Career() {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h5>Let's Talk</h5>
+              <h5>Excited to Join Us? Let's Talk!</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
             </div>
             <div className="modal-body">
               <div className="contact_formModal">
-                <Careerform closemodel={closemodel} />
+                <Careerform closemodel={closemodel} jobApply={jobApply} />
               </div>
             </div>
           </div>

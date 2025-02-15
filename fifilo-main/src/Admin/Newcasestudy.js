@@ -27,6 +27,7 @@ const CasestudyPage = () => {
         },
         coreIssue: { heading: "", description: "" },
         Strategy: { heading: "", description: "" },
+        StrategyImages: String
     });
 
 
@@ -69,6 +70,7 @@ const CasestudyPage = () => {
     const [updatedLook, setUpdatedLook] = useState({
         heading: "",
         description: "",
+        updatedLookImages:"" ,
         imgs: [{ filename: "", path: "" }],
     });
     const [seoSection, setSeoSection] = useState({
@@ -242,7 +244,7 @@ const CasestudyPage = () => {
         if (heroSection || overviewSection || designProcessSection ||
             sketches || styleGuideSection || typographyData || howFifiloDesignsDrives || updatedLook || fullWidthImg) {
             try {
-                let { data } = await axios.post('/admin/casestudy/createcasestudy/', {
+                let { data } = await axios.post('http://localhost:5000/admin/casestudy/createcasestudy/', {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg, seoSection
                 }, {
@@ -389,7 +391,7 @@ const CasestudyPage = () => {
                                                             className="form-control"
                                                             value={heroSection.buttonsContent}
                                                             onChange={(e) => setHeroSection({ ...heroSection, buttonsContent: e.target.value })}
-                                                            placeholder="Enter Soluton Text"></input>
+                                                            placeholder="Enter Solution Text"></input>
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-12">
@@ -572,6 +574,16 @@ const CasestudyPage = () => {
                                                         />
                                                     </div>
                                                 </div>
+                                                <div className="col-lg-12">
+                                                    <div className="input__inr">
+                                                        <label htmlFor="StrategyImages">Strategy Images (If Required) </label>
+                                                        <JoditEditor
+                                                            ref={editor}
+                                                            value={overviewSection.StrategyImages}
+                                                            onChange={(newContent) => setOverviewSection({ ...overviewSection, StrategyImages: newContent })} // Save content on every keystroke
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div className="update__block">
                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
@@ -750,7 +762,7 @@ const CasestudyPage = () => {
                                                         className="form-control"
                                                         value={styleGuideSection.sectionName}
                                                         onChange={(e) => setStyleGuideSection({ ...styleGuideSection, sectionName: e.target.value })}
-                                                        placeholder="Enter Title (e.g. Colors)"
+                                                        placeholder="Enter Title (e.g. Color)"
                                                     />
                                                 </div>
                                             </div>
@@ -983,6 +995,17 @@ const CasestudyPage = () => {
                                                         onChange={(e) => setUpdatedLook({ ...updatedLook, description: e.target.value })}
                                                         placeholder="Enter Description"
                                                     />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12">
+                                                <div className="input__inr">
+                                                    <label htmlFor="updatedLookImages" className="form-label">Updated Look Images (If Required!)</label>
+                                                    <JoditEditor
+                                                        ref={editor}
+                                                        value={updatedLook.updatedLookImages}
+                                                        onChange={(newContent) => setUpdatedLook({ ...updatedLook, updatedLookImages: newContent })} // Save content on every keystroke
+                                                    />
+
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">

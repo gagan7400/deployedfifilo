@@ -236,9 +236,7 @@
     padding: 14px 22px;
   }
 
-  .our__clients .card__logo img {
-    max-width: 96px;
-  }
+
 
   .faq__section .accordion-button {
     font: normal normal 500 20px var(--font);
@@ -492,15 +490,15 @@
 
   .open__roles .grid .grid-item .card__bx h6 span img {
     width: 20px;
-  } 
- 
+  }
+
   .open__roles .grid .grid-item .card__bx .job__details h5 {
     margin: 16px 0 12px;
-} 
+  }
 
   .open__roles .grid .grid-item .card__bx .job__details ul li {
     font: normal normal 400 16px / 125% var(--font);
-}
+  }
 
   .open__roles .grid .grid-item .card__bx .btn__primary {
     padding: 10px 22px;
@@ -565,7 +563,8 @@
   .contact_formModal .contact__form .form-control {
     padding: 0 0 12px 28px;
     font: normal normal 400 14px / 145% var(--font);
-  } 
+  }
+
   .career__modal .modal-content {
     padding: 36px;
     border-radius: 22px;
@@ -635,6 +634,10 @@
 
   .caseStudies__overview .row {
     row-gap: 72px;
+  }
+
+  .caseStudies__overview .casestudies__info {
+    gap: 72px;
   }
 
   .caseStudies__overview .img__box {
@@ -1106,9 +1109,6 @@
     padding: 12px 20px;
   }
 
-  .our__clients .card__logo img {
-    max-width: 84px;
-  }
 
   .faq__section .accordion-button {
     font: normal normal 500 18px var(--font);
@@ -1392,19 +1392,20 @@
 
   .open__roles .grid .grid-item .card__bx h6 span img {
     width: 18px;
-  }   
+  }
 
   .open__roles .grid .grid-item .card__bx .job__details h5 {
     margin: 14px 0 10px;
-    font: normal normal 400 16px var(--font); 
-}
+    font: normal normal 400 16px var(--font);
+  }
+
   .open__roles .grid .grid-item .card__bx .job__details ul li {
     font: normal normal 400 14px / 125% var(--font);
-} 
+  }
 
   .open__roles .grid .grid-item .card__bx .btm__box {
     gap: 14px;
-}
+  }
 
   .open__roles .grid .grid-item .card__bx .btn__primary {
     padding: 9px 22px;
@@ -1461,7 +1462,7 @@
   .contact__bnr .contact__form,
   .contact_formModal .contact__form {
     gap: 32px;
-  }  
+  }
 
   .career__modal .modal-content {
     padding: 32px;
@@ -1525,6 +1526,11 @@
 
   .caseStudies__overview .row {
     row-gap: 64px;
+  }
+
+  .caseStudies__overview .casestudies__info {
+
+    gap: 64px;
   }
 
   .caseStudies__overview .row .row {
@@ -2147,9 +2153,7 @@
     padding: 10px 18px;
   }
 
-  .our__clients .card__logo img {
-    max-width: 74px;
-  }
+
 
   .faq__section .accordion-button {
     font: normal normal 500 16px var(--font);
@@ -2433,20 +2437,24 @@
 
   .open__roles .grid .grid-item .card__bx h6 span img {
     width: 16px;
-  }   
+  }
+
   .open__roles .grid .grid-item .card__bx .job__details h5 {
     margin: 12px 0 8px;
-} 
+  }
+
   .open__roles .grid .grid-item .card__bx .job__details ul li {
     font: normal normal 400 12px / 125% var(--font);
-}
+  }
 
   .open__roles .grid .grid-item .card__bx .btm__box {
     gap: 12px;
-} 
+  }
+
   .open__roles .grid .grid-item .card__bx .btn__view {
     font: normal normal 400 14px / 125% var(--font);
-} 
+  }
+
   .open__roles .grid .grid-item .card__bx .btn__primary {
     padding: 8px 20px;
   }
@@ -2514,6 +2522,7 @@
   .career__modal .btn-close {
     background-size: 12px;
   }
+
   .contact__bnr::before {
     width: 500px;
     height: 500px;
@@ -2563,6 +2572,11 @@
 
   .caseStudies__overview .row {
     row-gap: 42px;
+  }
+
+  .caseStudies__overview .casestudies__info {
+
+    gap: 42px;
   }
 
   .caseStudies__overview .row .row {
@@ -3210,9 +3224,7 @@
     padding: 10px 16px;
   }
 
-  .our__clients .card__logo img {
-    max-width: 64px;
-  }
+
 
   .faq__section .accordion-button {
     font: normal normal 500 16px var(--font);
@@ -3520,32 +3532,34 @@
   .open__roles .grid .grid-item .card__bx h6 span img {
     width: 16px;
   }
+
   .open__roles .grid .grid-item .card__bx .job__details h5 {
     margin: 12px 0 8px;
-}
+  }
+
   .open__roles .grid .grid-item .card__bx .btn__primary {
     padding: 8px 20px;
-  } 
+  }
 
   .open__roles .grid .grid-item .card__bx .job__details ul li {
     font: normal normal 400 13px / 125% var(--font);
-}
+  }
 
   .open__roles .grid .grid-item:not(:last-child) {
     margin-bottom: 12px;
   }
- 
+
   .open__roles .grid .grid-item .card__bx .btn__view {
     font: normal normal 400 12px / 125% var(--font);
-}  
+  }
 
-.open__roles .grid .grid-item .card__bx .btm__box {
-  gap: 8px;
-}
+  .open__roles .grid .grid-item .card__bx .btm__box {
+    gap: 8px;
+  }
 
   .open__roles .grid .grid-item .card__bx .btn__view {
     font: normal normal 400 13px / 125% var(--font);
-} 
+  }
 
   .contact__bnr .left__bx .card__bx {
     border-radius: 16px;
@@ -3651,6 +3665,11 @@
 
   .caseStudies__overview .row {
     row-gap: 32px;
+  }
+
+  .caseStudies__overview .casestudies__info {
+
+    gap: 32px;
   }
 
   .caseStudies__overview .row .row {
@@ -4249,9 +4268,7 @@
     padding: 12px 16px;
   }
 
-  .our__clients .card__logo img {
-    max-width: 80px;
-  }
+
 
   .our__clients .col-lg-2:nth-child(odd) {
     border-left: 1px solid #edeef1;
@@ -4799,6 +4816,10 @@
 
   .caseStudies__overview .row {
     row-gap: 24px;
+  }
+
+  .caseStudies__overview .casestudies__info {
+    gap: 24px;
   }
 
   .caseStudies__overview .row .row {

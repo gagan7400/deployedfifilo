@@ -17,7 +17,8 @@ const caseStudySchema = new mongoose.Schema({
             overviewBox: [{ name: String, value: String, _id: false }]
         },
         coreIssue: { heading: String, description: String },
-        Strategy: { heading: String, description: String }
+        Strategy: { heading: String, description: String },
+        StrategyImages: String
     },
     designProcessSection: {
         heading: String,
@@ -44,6 +45,7 @@ const caseStudySchema = new mongoose.Schema({
     updatedLook: {
         heading: String,
         description: String,
+        updatedLookImages: String,
         imgs: [{ filename: String, path: String, _id: false }]
     },
 

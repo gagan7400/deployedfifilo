@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom';
 import DOMPurify from 'dompurify';
-
-export default function Job({ job, isVisible, toggleDetails }) {
+import $ from 'jquery'
+export default function Job({ job, isVisible, toggleDetails, setJobApply }) {
     const detailsRef = useRef(null);
     useEffect(() => {
         if (detailsRef.current) {
@@ -17,7 +17,7 @@ export default function Job({ job, isVisible, toggleDetails }) {
                 <div className="left__bx w-100">
                     <div className='d-flex justify-content-between align-items-start '>
                         <h5>{job.jobTitle}</h5>
-                        <NavLink to={`/careerform/${job.jobTitle}`} className="btn btn__primary" data-bs-toggle="modal" data-bs-target="#careerModal" >
+                        <NavLink to={`/careerform/${job.jobTitle}`} onClick={() => { setJobApply(job.jobTitle) }} className="btn btn__primary" data-bs-toggle="modal" data-bs-target="#careerModal" >
                             Apply
                             <img src="assets/img/arrow-up-right.svg" alt="apply" />
                         </NavLink>
@@ -61,16 +61,13 @@ export default function Job({ job, isVisible, toggleDetails }) {
                             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.qualifications} ` : "") }} />
 
                             {job.requirements && <>
-                                <h5>What We Offer:</h5>
+                                <h5>Requirements:</h5>
                                 <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(job ? `${job.requirements && job.requirements} ` : "") }} />
                             </>
                             }
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     )

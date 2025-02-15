@@ -32,6 +32,7 @@ const Casestudy = () => {
         },
         coreIssue: { heading: "", description: "" },
         Strategy: { heading: "", description: "" },
+        StrategyImages: ""
     });
 
     const [designProcessSection, setDesignProcessSection] = useState({
@@ -54,7 +55,7 @@ const Casestudy = () => {
     });
 
     const [typographyData, setTypographyData] = useState({
-        heading: "Typography",
+        heading: "",
         fontFamily: "",
         fontFamilyName: "",
         fontTable: [{ name: "", fontSize: "", lineHeight: "" }],
@@ -73,6 +74,7 @@ const Casestudy = () => {
     const [updatedLook, setUpdatedLook] = useState({
         heading: "",
         description: "",
+        updatedLookImages: "",
         imgs: [{ filename: "", path: "" }],
     });
     const [seoSection, setSeoSection] = useState({
@@ -88,7 +90,7 @@ const Casestudy = () => {
     useEffect(() => {
         const getCasestudy = async () => {
             try {
-                let { data } = await axios.get(`/admin/casestudy/getcasestudy/${name}`);
+                let { data } = await axios.get(`http://localhost:5000/admin/casestudy/getcasestudy/${name}`);
                 if (data.success) {
                     setCasestudy(data.data);
                     setHeroSection({ ...data.data.heroSection });
@@ -275,7 +277,7 @@ const Casestudy = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let { data } = await axios.put('/admin/casestudy/updatecasestudy/' + casestudy._id,
+            let { data } = await axios.put('http://localhost:5000/admin/casestudy/updatecasestudy/' + casestudy._id,
                 {
                     heroSection, overviewSection, designProcessSection, impactAndImprovement,
                     sketches, styleGuideSection, typographyData, howFifiloDesignsDrives, updatedLook, fullWidthImg,
@@ -603,9 +605,19 @@ const Casestudy = () => {
                                                         />
                                                     </div>
                                                 </div>
+                                                <div className="col-lg-12">
+                                                    <div className="input__inr">
+                                                        <label htmlFor="StrategyImages">Strategy Images (If Required!)</label>
+                                                        <JoditEditor
+                                                            ref={editor}
+                                                            value={overviewSection.StrategyImages}
+                                                            onChange={(newContent) => setOverviewSection({ ...overviewSection, StrategyImages: newContent })} // Save content on every keystroke
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div className="update__block">
-                                                 <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
+                                                <NavLink className="btn btn__cancel" to="/casestudies">Cancel</NavLink>
                                                 <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                             </div>
                                         </div>
@@ -883,7 +895,7 @@ const Casestudy = () => {
                                                         className="form-control"
                                                         value={typographyData.heading}
                                                         onChange={(e) => setTypographyData({ ...typographyData, heading: e.target.value })}
-                                                        placeholder="Enter Title (e.g. Typography)"
+                                                        placeholder="Enter Heading (e.g. Typography)"
                                                     />
                                                 </div>
                                             </div>
@@ -1014,6 +1026,18 @@ const Casestudy = () => {
                                                         onChange={(e) => setUpdatedLook({ ...updatedLook, description: e.target.value })}
                                                         placeholder="Enter Description"
                                                     />
+
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12">
+                                                <div className="input__inr">
+                                                    <label htmlFor="updatedLookImages" className="form-label">Updated Look Images (If Required!)</label>
+                                                    <JoditEditor
+                                                        ref={editor}
+                                                        value={updatedLook.updatedLookImages}
+                                                        onChange={(newContent) => setUpdatedLook({ ...updatedLook, updatedLookImages: newContent })} // Save content on every keystroke
+                                                    />
+
                                                 </div>
                                             </div>
                                             <div className="col-lg-12">

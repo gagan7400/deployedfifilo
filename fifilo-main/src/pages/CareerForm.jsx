@@ -6,17 +6,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux'
 // import { contactus } from '../redux/actions/contactAction';
 import Spinner from 'react-bootstrap/Spinner';
-export default function Careerform({ closemodel }) {
-    // let dispatch = useDispatch();
-    let { jobtype } = useParams();
+export default function Careerform({ closemodel, jobApply }) {
+
     let nav = useNavigate()
     // const { success, loading } = useSelector((state) => state.contact);
     const [Name, setName] = useState("")
     const [Email, setEmail] = useState("")
     const [Number, setNumber] = useState("")
     const [Message, setMessage] = useState("")
-    // const [jobrole, setjobrole] = useState(jobtype)
-    const [resume, setResume] = useState(null)
+    const [resume, setResume] = useState("")
     const [errors, setErrors] = useState({});
     const [showErrors, setShowErrors] = useState(false);
     const [loading, setLoading] = useState(false)
@@ -42,10 +40,13 @@ export default function Careerform({ closemodel }) {
         } else if (!/^\d{10}$/.test(Number)) {
             newErrors.number = 'Phone number is invalid';
         }
-        if (!Message) {
-            newErrors.message = 'Message is required';
-        } else if (Message.length < 3) {
-            newErrors.message = 'Message must be at least 3 letters';
+        // if (!Message) {
+        //     newErrors.message = 'Message is required';
+        // } else if (Message.length < 3) {
+        //     newErrors.message = 'Message must be at least 3 letters';
+        // }
+        if (!resume) {
+            newErrors.resume = 'Resume is required';
         }
         return newErrors;
     };
@@ -63,15 +64,27 @@ export default function Careerform({ closemodel }) {
         let file = event.target.files[0];
         setResume(file);
     }
+    let PhoneNumberHandler = (e) => {
+        function validatePhoneNumber(phoneNumber) {
+            // Remove leading + or 0 from the beginning
+            phoneNumber = phoneNumber.replace(/^\+|^0+/, "");
+            // Remove non-numeric characters and limit to 10 digits
+            phoneNumber = phoneNumber.replace(/\D/g, "").slice(0, 10);
+            return phoneNumber;
+        }
+        setNumber(validatePhoneNumber(e.target.value));
+    }
     const submithandler = async (e) => {
         e.preventDefault();
         setLoading(true)
         const validationErrors = validate();
-        if (!Name || !Email || !Number || !Message || Object.keys(validationErrors).length > 0) {
+        if (!Name || !Email || !Number || !resume || Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             setShowErrors(true);
+            console.log(showErrors, errors)
             setLoading(false)
         } else {
+            console.log(showErrors, errors)
             setLoading(true)
             let date = new Date();
             setErrors({});
@@ -81,6 +94,7 @@ export default function Careerform({ closemodel }) {
             formdata.append('email', Email);
             formdata.append('phonenumber', Number);
             formdata.append('message', Message);
+            formdata.append('jobRole', jobApply);
             formdata.append('date', date.toLocaleDateString());
             // fetch("https://script.google.com/macros/s/AKfycbx47sHgIKLw2QEnhmrZ2EyxiUF7tvTCyx31T0dPESi-Z1YCIxRCOyPD8MAO_wKc_hrG4Q/exec", {
             //     method: "POST",
@@ -89,12 +103,12 @@ export default function Careerform({ closemodel }) {
             formdata.append("resume", resume)
             // dispatch(contactus({ name: Name, email: Email, phonenumber: Number, message: Message, servicerequired, resume: resume[1] }))
             try {
-                let data = await fetch("/admin/contactus/jobapplicant", {
+                let data = await fetch("http://localhost:5000/admin/contactus/jobapplicant", {
                     method: "POST",
                     body: formdata,
                 });
                 let result = await data.json();
-
+                console.log(data)
                 if (result.Status) {
                     setLoading(false)
                     setEmail('')
@@ -102,13 +116,13 @@ export default function Careerform({ closemodel }) {
                     setNumber("");
                     setName("")
                     setEmail("");
-                    setResume(null)
+                    setResume("")
                     closemodel()
                     nav("/thank-you");
-
                 }
             } catch (error) {
-                alert("Error Occured")
+                alert("Error Occured");
+                setLoading(false)
             }
         }
     }
@@ -153,7 +167,7 @@ export default function Careerform({ closemodel }) {
                                 type="text"
                                 name="Number"
                                 value={Number}
-                                onChange={(e) => { setNumber(e.target.value) }}
+                                onChange={(e) => { PhoneNumberHandler(e) }}
                                 className="form-control"
                                 placeholder="Your Number"
                                 autoComplete='off'
@@ -168,10 +182,9 @@ export default function Careerform({ closemodel }) {
                                 value={Message}
                                 onChange={(e) => { setMessage(e.target.value) }}
                                 className="form-control"
-                                placeholder="Your Message"
+                                placeholder="Cover Letter"
                                 autoComplete='off'
                             />
-                            {errors.message && <div className="error text-danger position-absolute" style={{ color: "#f0f1f1" }} >{errors.message}</div>}
                         </div>
                         <div className="inr__input"  >
                             <p> <label>Please attach your update CV* (PDF, Upto 10MB)</label></p>
@@ -183,8 +196,8 @@ export default function Careerform({ closemodel }) {
                                         accept="application/pdf" onChange={addResume} type="file" name="file-upload" />
                                     </span>
                                 </p>
-
                             </div>
+                            {errors.resume && <div className="error text-danger position-absolute" style={{ color: "#f0f1f1" }} >{errors.resume}</div>}
                         </div>
                         {/* <div className="inr__input"  >
                             <span className='icon'><img src="assets/img/message.svg" alt="contact__form" /></span>
@@ -223,7 +236,3 @@ export default function Careerform({ closemodel }) {
         </>
     )
 }
- 
-
- 
-
