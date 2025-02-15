@@ -19,7 +19,7 @@ const BlogPage = () => {
 
 
     let getPublishData = async () => {
-        const { data } = await axios.get('http://localhost:5000/admin/blogs/getpublishedblogpage');
+        const { data } = await axios.get('/admin/blogs/getpublishedblogpage');
         setBlogPageData({ ...data.data })
     }
 
@@ -36,7 +36,7 @@ const BlogPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.put(`http://localhost:5000/admin/blogs/updateblogpage/${blogPageData._id}`, { heroSection, seoSection },
+        await axios.put(`/admin/blogs/updateblogpage/${blogPageData._id}`, { heroSection, seoSection },
             {
                 headers: {
                     "Content-Type": "application/json",

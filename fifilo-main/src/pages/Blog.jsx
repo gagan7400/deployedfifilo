@@ -35,7 +35,7 @@ export default function Blog() {
                 <title>{(!blogloading && publishedblogdata) && publishedblogdata.seoSection.title}</title>
                 <meta name="keywords" content={(!blogloading && publishedblogdata) && publishedblogdata.seoSection.keywords} />
                 <meta name="description" content={(!blogloading && publishedblogdata) && publishedblogdata.seoSection.description} />
-                {(!blogloading && publishedblogdata) && publishedblogdata.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!blogloading && publishedblogdata) && publishedblogdata.seoSection.seoImg.filename}`} />}
+                {(!blogloading && publishedblogdata) && publishedblogdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!blogloading && publishedblogdata) && publishedblogdata.seoSection.seoImg.filename}`} />}
                 <meta property="og:image:alt" content="Description of the feature image" />
             </Helmet>
             <div className="blogs__bnr">
@@ -56,7 +56,7 @@ export default function Blog() {
                                         <div className="card__blog comn__blog" data-aos="fade-up" data-aos-duration="800">
                                             <div className="thumb__img">
                                                 <NavLink to={`/blogs/${value.blogUrl}/`}>
-                                                    <img src={`http://localhost:5000/images/${value.bannerImg.filename}`} alt="" />
+                                                    <img src={`/images/${value.bannerImg.filename}`} alt="" />
                                                 </NavLink>
                                             </div>
                                             <div className="cntnt__bx">
@@ -98,7 +98,7 @@ export default function Blog() {
                                                 <div className="arti__card comn__blog" data-aos="fade-up" data-aos-duration="800">
                                                     <div className="img__box">
                                                         <NavLink to={`/blogs/${value.blogUrl}/`}>
-                                                            <img src={`http://localhost:5000/images/${value.bannerImg.filename}`} alt="" />
+                                                            <img src={`/images/${value.bannerImg.filename}`} alt="" />
                                                         </NavLink>
                                                     </div>
                                                     <div className="cntnt__bx">
@@ -129,7 +129,7 @@ export default function Blog() {
                                                 <div className="arti__card comn__blog" data-aos="fade-up" data-aos-duration="800">
                                                     <div className="img__box">
                                                         <NavLink to={`/blogs/${value.blogUrl}/`}>
-                                                            <img src={`http://localhost:5000/images/${value.bannerImg.filename}`} alt="" />
+                                                            <img src={`/images/${value.bannerImg.filename}`} alt="" />
                                                         </NavLink>
                                                     </div>
                                                     <div className="cntnt__bx">

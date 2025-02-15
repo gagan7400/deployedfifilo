@@ -60,7 +60,7 @@ export default function Services() {
         <title>{(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.title}</title>
         <meta name="keywords" content={(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.keywords} />
         <meta name="description" content={(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.description} />
-        {(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename && <meta property="og:image" content={`http://localhost:5000/images/${(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename}`} />}
+        {(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedServiceLoading && publishedServicePage) && publishedServicePage.seoSection.seoImg.filename}`} />}
         <meta property="og:image:alt" content="Description of the feature image" />
       </Helmet>
 
@@ -1400,7 +1400,7 @@ export default function Services() {
                 </div>
               </div>
             </div> */}
-            <div className="animation-wrapper">
+            <div className="animation-wrapper service-anmation">
               <div className='animationsphare'>
                 <div className='ring1'></div>
                 <div className='ring2'></div>
@@ -1492,7 +1492,7 @@ export default function Services() {
             {!publishedServiceLoading && publishedServicePage ? publishedServicePage.toolSection.toolsLogo.map((img, index) => {
               return <div className="col-lg-3 col-md-4 col-6" key={index}>
                 <div className="card__bx">
-                  <img src={img && img.filename ? `http://localhost:5000/images/${img.filename}` : ''} data-aos="zoom-in" alt="card__bx" />
+                  <img src={img && img.filename ? `/images/${img.filename}` : ''} data-aos="zoom-in" alt="card__bx" />
                 </div>
               </div>
             }) : ""}

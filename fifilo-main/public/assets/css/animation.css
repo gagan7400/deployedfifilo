@@ -1,8 +1,12 @@
+.comn__bnr .animation-wrapper.service-anmation {
+    transform: scale(0.85);
+}
+
 .animationsphare {
     width: 100%;
     height: 100%;
-    -webkit-animation: spinSphere 10s infinite linear;
-    animation: spinSphere 10s infinite linear;
+    -webkit-animation: spinSphere 18s infinite linear;
+    animation: spinSphere 18s infinite linear;
     transform-style: preserve-3d;
 }
 
@@ -12,6 +16,7 @@
     height: 100%;
     border: 2px solid #fdb913;
     border-radius: 50%;
+    z-index: -1;
 }
 
 .animationsphare .ring1 {

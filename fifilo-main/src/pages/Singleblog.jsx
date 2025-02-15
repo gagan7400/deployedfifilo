@@ -39,7 +39,7 @@ export default function Singleblog() {
     }, [location]);
     let getblog = async () => {
         try {
-            let { data } = await axios.get('http://localhost:5000/admin/blogs/getblog/' + name);
+            let { data } = await axios.get('/admin/blogs/getblog/' + name);
             if (data.success) {
                 setBlog(data.data);
                 setLoading(false)
@@ -54,7 +54,7 @@ export default function Singleblog() {
     }
     let alldata = async () => {
         try {
-            let { data } = await axios.get('http://localhost:5000/admin/blogs/getblogs');
+            let { data } = await axios.get('/admin/blogs/getblogs');
             if (data.success) {
                 setBlogs(data.data);
                 setBlogsLoading(false)
@@ -125,7 +125,7 @@ export default function Singleblog() {
                             <span>{!loading && blog && blog.approxTime} Read</span>
                         </div>
                         <div className="single__thumbnails" data-aos="fade-up" data-aos-duration="800">
-                            <img src={`http://localhost:5000/images/${!loading && blog && blog.bannerImg.filename}`} alt="" />
+                            <img src={`/images/${!loading && blog && blog.bannerImg.filename}`} alt="" />
                         </div>
                     </div>
                 </div>
