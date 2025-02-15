@@ -21,6 +21,26 @@ const blogsSchema = new mongoose.Schema({
     },
 }, { timestamps: true })
 
+
+const blogPageSchema = new mongoose.Schema({
+    pageName: { type: String, default: "BlogPage" },
+    heroSection: {
+        heading: String,
+    },
+    seoSection: {
+        title: String,
+        keywords: String,
+        description: String,
+        seoImg: { filename: String, path: String }
+    },
+    published: {
+        type: Boolean,
+        default: false
+    }
+}, { timestamps: true })
+
+
 let blogsModel = mongoose.model("blogs", blogsSchema);
-module.exports = { blogsModel };
+let blogPageModel = mongoose.model("blogpage", blogPageSchema);
+module.exports = { blogsModel, blogPageModel };
 

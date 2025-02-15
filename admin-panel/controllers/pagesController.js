@@ -4,8 +4,8 @@ const aboutModel = require("../models/aboutModel.js");
 const { careerModel } = require("../models/careerModel");
 let { contactPageModel } = require("../models/contactModel");
 let { caseStudyPageModel } = require("../models/caseStudyModel.js");
-
 const { blogPageModel } = require("../models/blogsModel.js");
+
 const getAllPages = async (req, res) => {
     try {
         const [data1, data2, data3, data4, data5, data6, data7] = await Promise.all([
