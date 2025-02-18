@@ -8,8 +8,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import DOMPurify from 'dompurify';
-import { pageAction } from '../redux/actions/pagedataAction';
-import Loader from "../layout/Loader";
+import Loader from "./Loader";
 import { getPublishCasestudyPage } from "../redux/actions/casestudyAction";
 export default function Work() {
   let dispatch = useDispatch();
@@ -39,6 +38,7 @@ export default function Work() {
     alldata();
   }, [])
   useEffect(() => {
+  if(!casestudyloading && publishedcasestudydata){
     $(document).ready(function () {
       function fitElementToParent(el, padding) {
         var timeout = null;
@@ -136,7 +136,8 @@ export default function Work() {
       })();
     });
     return () => { };
-  }, []);
+  }
+  }, [casestudyloading ,publishedcasestudydata]);
   useEffect(() => {
     AOS.init();
   }, []);
@@ -152,6 +153,7 @@ export default function Work() {
   }, []);
   return (
     <>
+    {casestudyloading && !publishedcasestudydata ? <Loader/>:<>
       <Helmet>
         <title>{(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.title}</title>
         <meta name="keywords" content={(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.keywordstitle} />
@@ -243,6 +245,7 @@ export default function Work() {
           </div>
         </div>
       </div >
+    </>}
     </>
   );
 }

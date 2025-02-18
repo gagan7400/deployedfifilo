@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import useCursorPosition from "../layout/useCursorPosition";
 import { useDispatch, useSelector } from "react-redux";
 import { getPublishAboutPage } from "../redux/actions/aboutAction";
+import Loader from "./Loader";
 function Point(x, y, z) {
   this.x = x;
   this.y = y;
@@ -33,6 +34,7 @@ export default function About() {
     dispatch(getPublishAboutPage());
   }, [dispatch])
   useEffect(() => {
+  if(!publishedLoading && publishedData){
     $(document).ready(function () {
       // Add 'active' class to the first .stroke-circle initially
       $(".border-section").first().find(".stroke-circle").addClass("active");
@@ -86,7 +88,8 @@ export default function About() {
       // Trigger the scroll event initially to set the initial state
       $(window).trigger("scroll");
     });
-  }, []);
+  }
+  }, [publishedData ,publishedLoading]);
   useEffect(() => {
     AOS.init();
   }, [publishedData]);
@@ -303,6 +306,7 @@ export default function About() {
   }, []);
   return (
     <>
+    {publishedLoading && !publishedData ? <Loader/>: <>
       <Helmet>
         <title>{(!publishedLoading && publishedData) && publishedData.seoSection.title}</title>
         <meta name="keywords" content={(!publishedLoading && publishedData) && publishedData.seoSection.keywords}></meta>
@@ -455,6 +459,7 @@ export default function About() {
           </div>
         </div>
       </div>
+    </>}
     </>
   );
 }

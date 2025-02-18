@@ -7,6 +7,8 @@ import DOMPurify from 'dompurify';
 import { useSelector, useDispatch } from 'react-redux'
 import { contactus, getPublishContactPage } from '../redux/actions/contactAction';
 import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
+
 export default function ContactUs() {
   let nav = useNavigate()
   let dispatch = useDispatch();
@@ -15,10 +17,8 @@ export default function ContactUs() {
   const [Email, setEmail] = useState("")
   const [Number, setNumber] = useState("")
   const [Message, setMessage] = useState("")
-  // const [servicerequired, setservicerequired] = useState("")
   const [errors, setErrors] = useState({});
   const [showErrors, setShowErrors] = useState(false);
-
   let { publishedcontactdata, publishedcontactloading } = useSelector((state) => state.contactpage);
   const handleWindowLaod = useCallback(() => {
   }, []);
@@ -96,13 +96,7 @@ export default function ContactUs() {
         body: formdata,
       })
       await dispatch(contactus({ name: Name, email: Email, phonenumber: Number, message: Message }))
-      // if (success) {
-      //   setEmail('')
-      //   setMessage("")
-      //   setNumber("");
-      //   setName("")
-      //   nav("/thank-you")
-      // }
+     
     }
   }
   useEffect(() => {
@@ -117,7 +111,8 @@ export default function ContactUs() {
 
 
   return (
-    <>
+  <>
+  {publishedcontactloading && !publishedcontactdata ? <Loader/> :   <>
       <Helmet>
         <title>{(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.keywords} />
@@ -258,7 +253,8 @@ export default function ContactUs() {
           </div>
         </div>
       </div >
-    </>
+    </>}
+  </>
   )
 }
 

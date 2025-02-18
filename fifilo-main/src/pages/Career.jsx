@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getjobs, getpublishCareerPage } from '../redux/actions/careeraction';
 import Job from "./Job";
 import Careerform from "./CareerForm";
+import Loader from "./Loader";
 
 export default function Career() {
   let dispatch = useDispatch(); 
@@ -342,6 +342,7 @@ export default function Career() {
   };
   return (
     <>
+    {publishedcareerloading && !publishedcareerdata ? <Loader/> : <>
       <Helmet>
         <title>{(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.keywords} />
@@ -413,7 +414,7 @@ export default function Career() {
                 <li className={filter === "Sales&Marketing" ? "is-checked" : ""} onClick={() => setFilter("Sales&Marketing")}>
                   Sales & Marketing
                 </li>
-                <li className={filter === "Hr" ? "is-checked" : ""} onClick={() => setFilter("Hr")}>
+                <li className={filter === "HR" ? "is-checked" : ""} onClick={() => setFilter("HR")}>
                   HR
                 </li>
               </ul>
@@ -445,6 +446,7 @@ export default function Career() {
           </div>
         </div>
       </div>
+    </>}
     </>
   );
 }

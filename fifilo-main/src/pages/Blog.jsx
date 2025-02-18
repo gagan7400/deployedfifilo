@@ -6,10 +6,12 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBlogs, getPublishBlogPage } from '../redux/actions/blogAction';
 import { Helmet } from 'react-helmet';
+import Loader from './Loader';
 export default function Blog() {
     let dispatch = useDispatch();
     let { blogdata, blogloading, error, publishedblogdata } = useSelector(state => state.blog)
     useEffect(() => {
+    if(!blogloading && publishedblogdata){
         $(function () {
             $(".blogs__list .col-12").slice(0, 3).show();
             $("body").on("click touchstart", ".load-more", function (e) {
@@ -20,7 +22,8 @@ export default function Blog() {
                 }
             });
         });
-    }, []);
+    }
+    }, [blogloading , publishedblogdata]);
     useEffect(() => {
         AOS.init();
     }, [blogdata, publishedblogdata]);
@@ -31,6 +34,7 @@ export default function Blog() {
 
     return (
         <>
+        {blogloading && !publishedblogdata ? <Loader/>: <>
             <Helmet>
                 <title>{(!blogloading && publishedblogdata) && publishedblogdata.seoSection.title}</title>
                 <meta name="keywords" content={(!blogloading && publishedblogdata) && publishedblogdata.seoSection.keywords} />
@@ -171,6 +175,7 @@ export default function Blog() {
                     </div>
                 </div>
             </div >
+        </>}
         </>
     )
 }
