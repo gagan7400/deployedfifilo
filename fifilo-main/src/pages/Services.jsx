@@ -67,9 +67,9 @@ export default function Services() {
                 <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(!publishedServiceLoading && publishedServicePage ? publishedServicePage.heroSection.heading : "") }} />
                 <h6 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(!publishedServiceLoading && publishedServicePage ? publishedServicePage.heroSection.subHeading : "") }} />
               </div>
-              <div data-aos="fade-up" data-aos-duration="800">
+              {!publishedServiceLoading && publishedServicePage && <div data-aos="fade-up" data-aos-duration="800">
                 <NavLink to={!publishedServiceLoading && publishedServicePage ? publishedServicePage.heroSection.heroButtons.CTA1.url : ""} className="btn">{!publishedServiceLoading && publishedServicePage ? publishedServicePage.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
-              </div>
+              </div>}
               <div className="animation-wrapper service-anmation">
                 <div className='animationsphare'>
                   <div className='ring1'></div>
