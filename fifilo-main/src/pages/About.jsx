@@ -326,9 +326,9 @@ export default function About() {
               }} />
             </div>
 
-            {!publishedLoading && publishedData && <div data-aos="fade-up" data-aos-duration="800">
+            <div data-aos="fade-up" data-aos-duration="800">
               <NavLink to={`${!publishedLoading && publishedData ? publishedData.heroSection.heroButtons.CTA1.url : ""}`} className="btn">{!publishedLoading && publishedData ? publishedData.heroSection.heroButtons.CTA1.name : ''} <span></span ></NavLink>
-            </div>}
+            </div>
 
             <div id="canvas-about" className="animation-wrapper">
               <canvas ref={canvasRef} />

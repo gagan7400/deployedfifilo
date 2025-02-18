@@ -59,24 +59,24 @@ export default function Casestudy() {
         }
     }, [casestudy]);
     useEffect(() => {
-        if (!loading && casestudy) {
+        if(!loading && casestudy){
             getdata();
         }
     }, [casestudy, loading]);
 
     useEffect(() => {
-        if (!loading && casestudy) {
-            function cleanup() {
-                $(window).off("scroll");
-                $(".stroke-circle").removeClass("active");
-                $(".card__bx").removeClass("active");
-                $(".stroke-border").css("height", "0%");
-            }
-            another();
-
-            return cleanup;
+    if(!loading && casestudy){
+        function cleanup() {
+            $(window).off("scroll");
+            $(".stroke-circle").removeClass("active");
+            $(".card__bx").removeClass("active");
+            $(".stroke-border").css("height", "0%");
         }
-    }, [loading, casestudy]);
+        another();
+
+        return cleanup;
+    }
+    }, [loading  , casestudy]);
 
     useEffect(() => {
         AOS.init();

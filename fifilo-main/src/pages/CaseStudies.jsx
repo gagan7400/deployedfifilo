@@ -173,9 +173,9 @@ export default function Work() {
                   __html: DOMPurify.sanitize(!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.subHeading : ``)
                 }} />
               </div>
-              {!casestudyloading && publishedcasestudydata && <div data-aos="fade-up" data-aos-duration="800">
+              <div data-aos="fade-up" data-aos-duration="800">
                 <NavLink to={!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heroButtons.CTA1.url : ""} className="btn" >{!casestudyloading && publishedcasestudydata ? publishedcasestudydata.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
-              </div>}
+              </div>
               <div className="animation-wrapper">
                 <div className="sphere-animation">
                   <svg className="sphere" viewBox="0 0 440 440" stroke="rgba(80,80,80,.35)">

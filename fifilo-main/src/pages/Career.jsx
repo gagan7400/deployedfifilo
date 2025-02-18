@@ -12,8 +12,8 @@ import Careerform from "./CareerForm";
 import Loader from "./Loader";
 
 export default function Career() {
-  let dispatch = useDispatch();
-  let [jobApply, setJobApply] = useState("")
+  let dispatch = useDispatch(); 
+  let [jobApply,setJobApply] = useState("")
   let { jobs, jobloading } = useSelector((state) => state.jobs);
   let { publishedcareerdata, publishedcareerloading } = useSelector((state) => state.careerpage);
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function Career() {
     dispatch(getjobs());
     dispatch(getpublishCareerPage());
   }, [])
-
+ 
   useEffect(() => {
     const $modal = $("#careerModal");
 
@@ -342,111 +342,111 @@ export default function Career() {
   };
   return (
     <>
-      {publishedcareerloading && !publishedcareerdata ? <Loader /> : <>
-        <Helmet>
-          <title>{(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.title}</title>
-          <meta name="keywords" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.keywords} />
-          <meta name="description" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.description} />
-          {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
-          <meta property="og:image:alt" content="Description of the feature image" />
-        </Helmet>
+    {publishedcareerloading && !publishedcareerdata ? <Loader/> : <>
+      <Helmet>
+        <title>{(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.title}</title>
+        <meta name="keywords" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.keywords} />
+        <meta name="description" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.description} />
+        {(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename && <meta property="og:image" content={`/images/${(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.seoImg.filename}`} />}
+        <meta property="og:image:alt" content="Description of the feature image" />
+      </Helmet>
 
-        <div className="comn__bnr service__bnr">
-          <div className="container">
-            <div className="bnr__content">
-              <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
-                <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.heading : "") }} />
-                <h6 dangerouslySetInnerHTML={{
-                  __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.subHeading : ``)
-                }} />
-              </div>
-              {!publishedcareerloading && publishedcareerdata && <div data-aos="fade-up" data-aos-duration="800">
-                <NavLink to={!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.heroButtons.CTA1.url : ""} className="btn" >{!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
-              </div>}
-
-              <div ref={containerRef} className="animation-wrapper">
-                <canvas id="canvas" ref={canvasRef}></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="career__section rn__section__gapTop">
-          <div className="container">
-            <div className="row gx-lg-4 gx-md-3">
-              {!publishedcareerloading && publishedcareerdata ?
-                publishedcareerdata.cardsSection.map((v, i) => {
-                  return <div className="col-lg-4 col-md-4" data-aos="flip-left" data-aos-duration="800" key={i}>
-                    <div className="card__bx">
-                      <img src={v.cardImg ? "/images/" + v.cardImg.filename : "assets/img/icon-01.svg"} alt="career__section" />
-                      <h5>{v.cardHeading ? v.cardHeading : ""}</h5>
-                      <span>{v.cardDescription ? v.cardDescription : ``}</span>
-                    </div>
-                  </div>
-                }
-                )
-                : ""}
-
-            </div>
-          </div>
-        </div>
-
-        <div className="open__roles rn__section__gapTop">
-          <div className="container">
-            <div className="main__heading" data-aos="fade-up">
-              <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.jobSection.heading : "") }} />
-              <p dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.jobSection.subHeading : '')
+      <div className="comn__bnr service__bnr">
+        <div className="container">
+          <div className="bnr__content">
+            <div className="left__bx" data-aos="fade-up" data-aos-duration="800">
+              <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.heading : "") }} />
+              <h6 dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.subHeading : ``)
               }} />
             </div>
-            <div className="isotope__filter inner__gapTop">
-              <div className="filters" data-aos="fade-up">
-                <ul>
-                  <li className={filter === "*" ? "is-checked" : ""} onClick={() => setFilter("*")}>
-                    All Jobs
-                  </li>
-                  <li className={filter === "UI-UX" ? "is-checked" : ""} onClick={() => setFilter("UI-UX")}>
-                    Design
-                  </li>
-                  <li className={filter === "Development" ? "is-checked" : ""} onClick={() => setFilter("Development")}>
-                    Development
-                  </li>
-                  <li className={filter === "Sales&Marketing" ? "is-checked" : ""} onClick={() => setFilter("Sales&Marketing")}>
-                    Sales & Marketing
-                  </li>
-                  <li className={filter === "HR" ? "is-checked" : ""} onClick={() => setFilter("HR")}>
-                    HR
-                  </li>
-                </ul>
-              </div>
+            <div data-aos="fade-up" data-aos-duration="800">
+              <NavLink to={!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.heroButtons.CTA1.url : ""} className="btn" >{!publishedcareerloading && publishedcareerdata ? publishedcareerdata.heroSection.heroButtons.CTA1.name : ""}<span></span></NavLink>
+            </div>
 
-              <div className="rows inner__gapTop grid" data-aos="fade-up" data-aos-duration="800">
-                {jobs && filteredJobs.map((job, index) => {
-                  if (job.jobStatus == "Active") {
-                    return <Job job={job} setJobApply={setJobApply} key={index} isVisible={visibleDetails === job._id} toggleDetails={toggleDetails} />
-                  }
-                })}
-              </div>
+            <div ref={containerRef} className="animation-wrapper">
+              <canvas id="canvas" ref={canvasRef}></canvas>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="modal fade career__modal" id="careerModal" aria-labelledby="careerModalLabel" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5>Excited to Join Us? Let's Talk!</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
-              </div>
-              <div className="modal-body">
-                <div className="contact_formModal">
-                  <Careerform closemodel={closemodel} jobApply={jobApply} />
+      <div className="career__section rn__section__gapTop">
+        <div className="container">
+          <div className="row gx-lg-4 gx-md-3">
+            {!publishedcareerloading && publishedcareerdata ?
+              publishedcareerdata.cardsSection.map((v, i) => {
+                return <div className="col-lg-4 col-md-4" data-aos="flip-left" data-aos-duration="800" key={i}>
+                  <div className="card__bx">
+                    <img src={v.cardImg ? "/images/" + v.cardImg.filename : "assets/img/icon-01.svg"} alt="career__section" />
+                    <h5>{v.cardHeading ? v.cardHeading : ""}</h5>
+                    <span>{v.cardDescription ? v.cardDescription : ``}</span>
+                  </div>
                 </div>
+              }
+              )
+              : ""}
+
+          </div>
+        </div>
+      </div>
+
+      <div className="open__roles rn__section__gapTop">
+        <div className="container">
+          <div className="main__heading" data-aos="fade-up">
+            <h2 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.jobSection.heading : "") }} />
+            <p dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(!publishedcareerloading && publishedcareerdata ? publishedcareerdata.jobSection.subHeading : '')
+            }} />
+          </div>
+          <div className="isotope__filter inner__gapTop">
+            <div className="filters" data-aos="fade-up">
+              <ul>
+                <li className={filter === "*" ? "is-checked" : ""} onClick={() => setFilter("*")}>
+                  All Jobs
+                </li>
+                <li className={filter === "UI-UX" ? "is-checked" : ""} onClick={() => setFilter("UI-UX")}>
+                  Design
+                </li>
+                <li className={filter === "Development" ? "is-checked" : ""} onClick={() => setFilter("Development")}>
+                  Development
+                </li>
+                <li className={filter === "Sales&Marketing" ? "is-checked" : ""} onClick={() => setFilter("Sales&Marketing")}>
+                  Sales & Marketing
+                </li>
+                <li className={filter === "HR" ? "is-checked" : ""} onClick={() => setFilter("HR")}>
+                  HR
+                </li>
+              </ul>
+            </div>
+
+            <div className="rows inner__gapTop grid" data-aos="fade-up" data-aos-duration="800">
+              {jobs && filteredJobs.map((job, index) => {
+                if (job.jobStatus == "Active") {
+                  return <Job job={job} setJobApply={setJobApply} key={index} isVisible={visibleDetails === job._id} toggleDetails={toggleDetails} />
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade career__modal" id="careerModal" aria-labelledby="careerModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5>Excited to Join Us? Let's Talk!</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            </div>
+            <div className="modal-body">
+              <div className="contact_formModal">
+                <Careerform closemodel={closemodel} jobApply={jobApply} />
               </div>
             </div>
           </div>
         </div>
-      </>}
+      </div>
+    </>}
     </>
   );
 }
