@@ -15,7 +15,10 @@ export default function Work() {
   let { publishedcasestudydata, casestudyloading } = useSelector((state) => state.casestudy);
 
   useEffect(() => {
-    dispatch(getPublishCasestudyPage());
+    if(!publishedcasestudydata){
+
+      dispatch(getPublishCasestudyPage());
+    }
   }, [])
   let [casestudy, setCasestudy] = useState(null);
   let [loading, setLoading] = useState(true)

@@ -28,8 +28,10 @@ export default function Blog() {
         AOS.init();
     }, [blogdata, publishedblogdata]);
     useEffect(() => {
+        if(!blogdata){
+            dispatch(getPublishBlogPage())
+        }
         dispatch(getBlogs())
-        dispatch(getPublishBlogPage())
     }, [])
 
     return (

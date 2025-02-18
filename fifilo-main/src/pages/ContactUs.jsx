@@ -31,7 +31,10 @@ export default function ContactUs() {
   }, [handleWindowLaod, publishedcontactloading])
 
   useEffect(() => {
-    dispatch(getPublishContactPage());
+    if(!publishedcontactdata){
+      dispatch(getPublishContactPage());
+
+    }
   }, [dispatch])
 
   useEffect(() => {

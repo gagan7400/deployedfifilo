@@ -14,7 +14,10 @@ export default function Services() {
   let dispatch = useDispatch();
   let { publishedServicePage, publishedServiceLoading } = useSelector(state => state.services)
   useEffect(() => {
-    dispatch(getpublishServicePage())
+    if(!publishedServicePage){
+      dispatch(getpublishServicePage())
+
+    }
 
   }, [dispatch])
   const location = useLocation();

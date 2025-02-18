@@ -31,7 +31,10 @@ export default function About() {
   let { publishedData, publishedLoading } = useSelector((state) => state.about);
 
   useEffect(() => {
-    dispatch(getPublishAboutPage());
+    if(!publishedData){
+
+      dispatch(getPublishAboutPage());
+    }
   }, [dispatch])
   useEffect(() => {
   if(!publishedLoading && publishedData){

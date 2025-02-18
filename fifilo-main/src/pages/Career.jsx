@@ -21,7 +21,10 @@ export default function Career() {
   }, [publishedcareerdata]);
   useEffect(() => {
     dispatch(getjobs());
-    dispatch(getpublishCareerPage());
+    if(!publishedcareerdata){
+
+      dispatch(getpublishCareerPage());
+    }
   }, [])
  
   useEffect(() => {

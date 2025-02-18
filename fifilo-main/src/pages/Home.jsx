@@ -36,7 +36,10 @@ export default function Home() {
     }
   }
   useEffect(() => {
-    dispatch(getpublishHomePage());
+    if(!publishedhomepage){
+
+      dispatch(getpublishHomePage());
+    }
     alldata();
   }, [dispatch])
 
