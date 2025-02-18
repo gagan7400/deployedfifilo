@@ -26,7 +26,6 @@ const Layout = ({ children }) => {
     return (
         <>
             {!shouldHide && <Navbar />}
-            {!shouldHide && loading && <Loader />}
             <main>{children}</main>
             {!shouldHide && <Footer />}
         </>
