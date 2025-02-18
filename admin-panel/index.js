@@ -16,7 +16,7 @@ const pagesRoute = require("./routes/pagesRoute.js");
 const mediaRoute = require("./routes/mediaRoute.js");
 const caseStudyRoute = require("./routes/caseStudyRoute.js");
 const blogsRoute = require("./routes/blogsRoute.js");
-
+const privacyRoute = require("./routes/privacyRoute");
 
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -56,6 +56,8 @@ app.use('/admin/pages', pagesRoute);
 app.use('/api/media', mediaRoute);
 app.use('/admin/casestudy/', caseStudyRoute);
 app.use('/admin/blogs/', blogsRoute);
+app.use('/admin/privacy/', privacyRoute);
+
 app.use(express.static(path.join(__dirname, "../fifilo-main/build")));
 
 app.get("*", (req, res) => {

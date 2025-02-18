@@ -11,7 +11,7 @@ export default function Dashboard() {
     const [loading, setLoading] = useState(true);
     let alldata = async () => {
         try {
-            let { data } = await axios.get('/admin/pages/getallpages');
+            let { data } = await axios.get('http://localhost:5000/admin/pages/getallpages');
             setAllData(data.data);
             setLoading(false)
         } catch (error) {
@@ -60,10 +60,10 @@ export default function Dashboard() {
                             <tbody>
                                 {allData.map((v, i) => {
                                     return <tr key={i}>
-                                        <td>{v.pageName.split("p").join(" P")}</td>
+                                        <td>{v.pageName.split("Page").join(" Page").split("page").join(" Page")}</td>
                                         <td>{v.createdAt && dateformat(v.createdAt)}</td>
                                         <td>{v.updatedAt && dateformat(v.updatedAt)}</td>
-                                        <td> <NavLink to={`/pages/${v.pageName.split(" ").join("").split("page")[0].toLowerCase()}`} onClick={() => { dispatch(pageAction({ ...v })) }} className="btn"> <img src="/assets/imgs/edit.svg" alt="Edit icon" /></NavLink> </td>
+                                        <td> <NavLink to={`/pages/${v.pageName.toLowerCase().split(" ").join("").split("page")[0].toLowerCase()}`} onClick={() => { dispatch(pageAction({ ...v })) }} className="btn"> <img src="/assets/imgs/edit.svg" alt="Edit icon" /></NavLink> </td>
                                     </tr>
                                 })}
                             </tbody>

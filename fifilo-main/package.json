@@ -12,6 +12,7 @@
     "aos": "^2.3.1",
     "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
+    "dashboard": "file:..",
     "dompurify": "^3.1.7",
     "gsap": "^3.12.5",
     "jodit-react": "^4.1.2",
