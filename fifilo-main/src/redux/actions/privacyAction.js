@@ -3,7 +3,7 @@ import axios from 'axios'
 // export const createPrivacyPage = ({ heroSection, content }) => async (dispatch) => {
 //     try {
 //         dispatch({ type: "CREATE_PRIVACYPAGE_REQUEST" });
-//         await fetch("http://localhost:5000/admin/privacy/createprivacypage", {
+//         await fetch("/admin/privacy/createprivacypage", {
 //             method: 'POST',
 //             body: JSON.stringify({ heroSection, content }),
 //             headers: {
@@ -34,7 +34,7 @@ import axios from 'axios'
 // export const getPrivacyPage = () => async (dispatch) => {
 //     try {
 //         dispatch({ type: "ALL_PRIVACYPAGE_REQUEST" });
-//         const { data } = await axios.get('http://localhost:5000/admin/privacy/getprivacypage');
+//         const { data } = await axios.get('/admin/privacy/getprivacypage');
 //         if (data.success) {
 //             dispatch({
 //                 type: "ALL_PRIVACYPAGE_SUCCESS",
@@ -63,7 +63,7 @@ import axios from 'axios'
 //             }
 //         };
 
-//         const { data } = await axios.put(`http://localhost:5000/admin/privacy/publishprivacypage/${id}`, {}, config);
+//         const { data } = await axios.put(`/admin/privacy/publishprivacypage/${id}`, {}, config);
 //         if (data.success) {
 //             dispatch({
 //                 type: "ALL_PUBLISHPRIVACYPAGE_SUCCESS",
@@ -88,7 +88,7 @@ export const getPublishPrivacyPage = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETPUBLISHPRIVACYPAGE_REQUEST" });
 
-        const { data } = await axios.get('http://localhost:5000/admin/privacy/getpublishedprivacypage');
+        const { data } = await axios.get('/admin/privacy/getpublishedprivacypage');
 
         if (data.success) {
             dispatch({
@@ -116,7 +116,7 @@ export const getPublishPrivacyPage = () => async (dispatch) => {
 //                 "x-auth-token": localStorage.getItem("token")
 //             }
 //         };
-//         const { data } = await axios.delete(`http://localhost:5000/admin/privacy/deleteprivacypage/${id}`, config);
+//         const { data } = await axios.delete(`/admin/privacy/deleteprivacypage/${id}`, config);
 //         if (data.success) {
 
 //             await dispatch({
@@ -147,7 +147,7 @@ export const updatePrivacyAction = ({ privacyData, id }) => async (dispatch) => 
                 "x-auth-token": localStorage.getItem("token")
             }
         };
-        const { data } = await axios.put(`http://localhost:5000/admin/privacy/updateprivacypage/${id}`,
+        const { data } = await axios.put(`/admin/privacy/updateprivacypage/${id}`,
             privacyData,
             config
         );
