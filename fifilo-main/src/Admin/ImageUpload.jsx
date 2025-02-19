@@ -35,6 +35,7 @@ const ImageUpload = ({ setImageUplaoded }) => {
                 formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
+                    "x-auth-token": localStorage.getItem("token"),
                 }
             );
             setImageUplaoded(response.data.images);

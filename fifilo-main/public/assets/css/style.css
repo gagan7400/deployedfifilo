@@ -3581,6 +3581,9 @@ select:autofill:focus {
 /* .career__modal .modal-dialog {
   max-width: 100%;
 } */
+.career__modal .modal-dialog {
+  max-width: 600px;
+}
 
 .career__modal .modal-content {
   background-color: transparent;
@@ -4306,7 +4309,7 @@ input:-webkit-autofill {
   border: 1px solid #eaecf0;
   border-radius: 8px;
   padding: 12px;
-  margin-bottom: 12px;
+  margin-top: 12px;
   display: flex;
   align-items: center;
   justify-content: right;

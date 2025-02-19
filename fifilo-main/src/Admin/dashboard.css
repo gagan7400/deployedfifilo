@@ -823,12 +823,12 @@
     border: 2px solid #007bff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
 .media__grids {
-    border-radius: 8px;
-    border: 1px solid #eaecf0;
     background-color: var(--color-white);
+    border: 1px solid #eaecf0;
+    border-radius: 8px;
     padding: 24px;
+    margin-top: 24px;
 }
 
 .media__grids ul {
