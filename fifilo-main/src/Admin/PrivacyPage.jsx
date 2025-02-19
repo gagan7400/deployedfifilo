@@ -38,10 +38,17 @@ const PrivacyPage = () => {
             <Sidebar titles="Privacy Policy Page" />
             <div className="main__content"  >
                 <div className="page__editors">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><NavLink to="/pages">Pages</NavLink></li>
+                            <li className="breadcrumb-item"><img src="assets/imgs/chevron-right.svg" alt="" /></li>
+                            <li className="breadcrumb-item active">Privacy Policy Page</li>
+                        </ol>
+                    </nav>
+
                     <div className="page__title">
                         <h5>Privacy Policy Page</h5>
                     </div>
-
                     <div className="page__editContent">
                         <ul className="nav nav-pills" id="pills-tab" role="tablist">
                             <li className="nav-item" role="presentation">

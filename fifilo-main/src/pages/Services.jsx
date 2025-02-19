@@ -14,7 +14,7 @@ export default function Services() {
   let dispatch = useDispatch();
   let { publishedServicePage, publishedServiceLoading } = useSelector(state => state.services)
   useEffect(() => {
-    if(!publishedServicePage){
+    if (!publishedServicePage) {
       dispatch(getpublishServicePage())
 
     }

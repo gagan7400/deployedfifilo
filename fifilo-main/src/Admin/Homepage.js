@@ -246,7 +246,6 @@ const Homepage = () => {
                     </nav>
 
                     <div className="page__title">
-                        {homeloading && <Loader />}
                         <h5>Home Page</h5>
                     </div>
 
@@ -386,7 +385,7 @@ const Homepage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -409,7 +408,7 @@ const Homepage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" type="button" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -514,7 +513,7 @@ const Homepage = () => {
                                         <button className="btn" onClick={handleAddServicesCard}><img src="assets/imgs/plus.svg" alt="" />Add New Service</button>
                                     </div>
                                     <div className="update__block">
-                                         <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
+                                        <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                         <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                     </div>
                                 </div>
@@ -567,7 +566,7 @@ const Homepage = () => {
                                         <button className="btn" onClick={handleAddReviewCard}><img src="assets/imgs/plus.svg" alt="" />Add New Testimonial</button>
                                     </div>
                                     <div className="update__block">
-                                         <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
+                                        <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                         <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                     </div>
                                 </div>
@@ -614,7 +613,7 @@ const Homepage = () => {
                                             ))}
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
@@ -668,7 +667,7 @@ const Homepage = () => {
                                             </div>
                                         </div>
                                         <div className="update__block">
-                                             <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
+                                            <NavLink className="btn btn__cancel" to="/pages">Cancel</NavLink>
                                             <button className="btn btn__update" onClick={handleSubmit}>Update</button>
                                         </div>
                                     </div>
