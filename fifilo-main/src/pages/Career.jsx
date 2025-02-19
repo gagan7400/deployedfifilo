@@ -9,24 +9,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { getjobs, getpublishCareerPage } from '../redux/actions/careeraction';
 import Job from "./Job";
 import Careerform from "./CareerForm";
-import Loader from "./Loader";
+
 
 export default function Career() {
-  let dispatch = useDispatch(); 
-  let [jobApply,setJobApply] = useState("")
+  let dispatch = useDispatch();
+  let [jobApply, setJobApply] = useState("")
   let { jobs, jobloading } = useSelector((state) => state.jobs);
   let { publishedcareerdata, publishedcareerloading } = useSelector((state) => state.careerpage);
   useEffect(() => {
     AOS.init();
   }, [publishedcareerdata]);
   useEffect(() => {
-    dispatch(getjobs());
-    if(!publishedcareerdata){
-
+    if (!publishedcareerdata) {
+      console.log("run from career")
       dispatch(getpublishCareerPage());
     }
+    if (!jobs.length) {
+      dispatch(getjobs());
+    }
+
   }, [])
- 
+
   useEffect(() => {
     const $modal = $("#careerModal");
 
@@ -345,7 +348,7 @@ export default function Career() {
   };
   return (
     <>
-    {publishedcareerloading && !publishedcareerdata ? <Loader/> : <>
+
       <Helmet>
         <title>{(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcareerloading && publishedcareerdata) && publishedcareerdata.seoSection.keywords} />
@@ -449,7 +452,7 @@ export default function Career() {
           </div>
         </div>
       </div>
-    </>}
+
     </>
   );
 }

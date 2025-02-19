@@ -13,7 +13,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import ScrollToTop from "./layout/Scrolltotop.jsx";
 import AOS from "aos";
 import "owl.carousel";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loaduser } from './redux/actions/adminloginaction.js';
 import "aos/dist/aos.css";
 import Login from './Admin/Login.jsx';
@@ -43,8 +43,77 @@ import NewBlog from "./Admin/NewBlog.js";
 import BlogUpdate from "./Admin/BlogUpdate.js";
 import BlogPage from "./Admin/BlogPage.js";
 import PrivacyPage from "./Admin/PrivacyPage.jsx";
+import { getPublishAboutPage } from "./redux/actions/aboutAction.js";
+import { getBlogs, getPublishBlogPage } from "./redux/actions/blogAction.js";
+import { getjobs, getpublishCareerPage } from "./redux/actions/careeraction.js";
+import { getpublishServicePage } from "./redux/actions/servicesAction.js";
+import { getpublishHomePage } from "./redux/actions/homeAction.js";
+import { getPublishContactPage } from "./redux/actions/contactAction.js";
+import { getPublishCasestudyPage } from "./redux/actions/casestudyAction.js";
+import { getPublishPrivacyPage } from "./redux/actions/privacyAction.js";
 function App() {
   let dispatch = useDispatch();
+  let { publishedcasestudydata, casestudyloading } = useSelector((state) => state.casestudy);
+  let { publishedprivacydata, privacyloading } = useSelector((state) => state.privacy);
+  let { jobs, jobloading } = useSelector((state) => state.jobs);
+  let { publishedcareerdata, publishedcareerloading } = useSelector((state) => state.careerpage);
+  let { publishedcontactdata, publishedcontactloading } = useSelector((state) => state.contactpage);
+  let { publishedhomepage, homeloading } = useSelector((state) => state.homepage);
+  let { publishedServicePage, publishedServiceLoading } = useSelector(state => state.services);
+  let { blogdata, blogloading, error, publishedblogdata } = useSelector(state => state.blog)
+  let { publishedData, publishedLoading } = useSelector((state) => state.about);
+  useEffect(() => {
+    if (!publishedcareerdata) {
+      dispatch(getpublishCareerPage());
+    }
+    if (!jobs.length) {
+      dispatch(getjobs());
+    }
+  }, []);
+  // about page 
+  useEffect(() => {
+    if (!publishedData) {
+      dispatch(getPublishAboutPage());
+    }
+
+  }, [dispatch])
+  // blog page 
+  useEffect(() => {
+    if (!publishedblogdata) {
+      dispatch(getPublishBlogPage())
+    }
+    if (!blogdata) {
+      dispatch(getBlogs())
+    }
+  }, [])
+  // services useeffect
+  useEffect(() => {
+    if (!publishedServicePage) {
+      dispatch(getpublishServicePage())
+    }
+  }, [dispatch])
+  // home useeffect
+  useEffect(() => {
+    if (!publishedhomepage) {
+      dispatch(getpublishHomePage());
+    }
+  }, [dispatch])
+  // 
+  useEffect(() => {
+    if (!publishedcontactdata) {
+      dispatch(getPublishContactPage());
+    }
+  }, [dispatch])
+  useEffect(() => {
+    if (!publishedcasestudydata) {
+      dispatch(getPublishCasestudyPage());
+    }
+  }, [])
+  useEffect(() => {
+    if (!publishedprivacydata) {
+      dispatch(getPublishPrivacyPage());
+    }
+  }, [dispatch])
 
   useEffect(() => {
     $(document).ready(function () {

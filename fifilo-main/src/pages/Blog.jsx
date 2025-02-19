@@ -11,32 +11,34 @@ export default function Blog() {
     let dispatch = useDispatch();
     let { blogdata, blogloading, error, publishedblogdata } = useSelector(state => state.blog)
     useEffect(() => {
-    if(!blogloading && publishedblogdata){
-        $(function () {
-            $(".blogs__list .col-12").slice(0, 3).show();
-            $("body").on("click touchstart", ".load-more", function (e) {
-                e.preventDefault();
-                $(".col-12:hidden").slice(0, 3).slideDown();
-                if ($(".col-12:hidden").length == 0) {
-                    $(".load-more").css("display", "none");
-                }
+        if (!blogloading && publishedblogdata) {
+            $(function () {
+                $(".blogs__list .col-12").slice(0, 3).show();
+                $("body").on("click touchstart", ".load-more", function (e) {
+                    e.preventDefault();
+                    $(".col-12:hidden").slice(0, 3).slideDown();
+                    if ($(".col-12:hidden").length == 0) {
+                        $(".load-more").css("display", "none");
+                    }
+                });
             });
-        });
-    }
-    }, [blogloading , publishedblogdata]);
+        }
+    }, [blogloading, publishedblogdata]);
     useEffect(() => {
         AOS.init();
     }, [blogdata, publishedblogdata]);
     useEffect(() => {
-        if(!blogdata){
+        if (!publishedblogdata) {
             dispatch(getPublishBlogPage())
         }
-        dispatch(getBlogs())
+        if (!blogdata) {
+            dispatch(getBlogs())
+        }
     }, [])
 
     return (
         <>
-        {blogloading && !publishedblogdata ? <Loader/>: <>
+
             <Helmet>
                 <title>{(!blogloading && publishedblogdata) && publishedblogdata.seoSection.title}</title>
                 <meta name="keywords" content={(!blogloading && publishedblogdata) && publishedblogdata.seoSection.keywords} />
@@ -177,7 +179,7 @@ export default function Blog() {
                     </div>
                 </div>
             </div >
-        </>}
+
         </>
     )
 }

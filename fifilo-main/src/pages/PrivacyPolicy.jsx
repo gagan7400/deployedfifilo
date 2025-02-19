@@ -7,12 +7,14 @@ function PrivacyPolicy() {
     let dispatch = useDispatch();
     let { publishedprivacydata, privacyloading } = useSelector((state) => state.privacy);
     useEffect(() => {
-        dispatch(getPublishPrivacyPage());
+        if(!publishedprivacydata){
+            dispatch(getPublishPrivacyPage());
+        }
     }, [dispatch])
 
     return (
         <>
-            {privacyloading && !publishedprivacydata ? <Loader /> : <>
+             
                 <div className='bnr__policy'>
                     <div className='container'>
                         <h2 dangerouslySetInnerHTML={{
@@ -30,7 +32,8 @@ function PrivacyPolicy() {
                         </div>
                     </div>
                 </div>
-            </>}</>
+           
+            </>
     )
 }
 

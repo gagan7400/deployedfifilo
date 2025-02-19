@@ -24,7 +24,6 @@ export default function ContactUs() {
   }, []);
   useEffect(() => {
     window.addEventListener("load", handleWindowLaod);
-
     return () => {
       window.removeEventListener("load", handleWindowLaod);
     }
@@ -33,7 +32,6 @@ export default function ContactUs() {
   useEffect(() => {
     if(!publishedcontactdata){
       dispatch(getPublishContactPage());
-
     }
   }, [dispatch])
 
@@ -115,7 +113,7 @@ export default function ContactUs() {
 
   return (
   <>
-  {publishedcontactloading && !publishedcontactdata ? <Loader/> :   <>
+  
       <Helmet>
         <title>{(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.title}</title>
         <meta name="keywords" content={(!publishedcontactloading && publishedcontactdata) && publishedcontactdata.seoSection.keywords} />
@@ -256,7 +254,7 @@ export default function ContactUs() {
           </div>
         </div>
       </div >
-    </>}
+     
   </>
   )
 }

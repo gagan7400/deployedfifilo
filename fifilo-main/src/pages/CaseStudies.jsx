@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import DOMPurify from 'dompurify';
-import Loader from "./Loader";
+
 import { getPublishCasestudyPage } from "../redux/actions/casestudyAction";
 export default function Work() {
   let dispatch = useDispatch();
@@ -16,7 +16,6 @@ export default function Work() {
 
   useEffect(() => {
     if(!publishedcasestudydata){
-
       dispatch(getPublishCasestudyPage());
     }
   }, [])
@@ -156,7 +155,7 @@ export default function Work() {
   }, []);
   return (
     <>
-      {casestudyloading && !publishedcasestudydata ? <Loader /> : <>
+      
         <Helmet>
           <title>{(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.title}</title>
           <meta name="keywords" content={(!casestudyloading && publishedcasestudydata) && publishedcasestudydata.seoSection.keywordstitle} />
@@ -248,7 +247,7 @@ export default function Work() {
             </div>
           </div>
         </div >
-      </>}
+       
     </>
   );
 }

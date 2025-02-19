@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 import DOMPurify from 'dompurify';
-import Loader from "./Loader";
+
 export default function Casestudy() {
     let { name } = useParams();
     let [casestudy, setCasestudy] = useState(null);
@@ -85,7 +85,7 @@ export default function Casestudy() {
     let classes = ["large", "medium", "normal", "small"]
     return (
         <>
-            {loading && !casestudy ? <Loader /> : <>
+           
                 <Helmet>
                     <title>{(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.title}</title>
                     <meta name="keywords" content={(!loading && casestudy && casestudy.seoSection) && casestudy.seoSection.keywords}></meta>
@@ -455,7 +455,7 @@ export default function Casestudy() {
                     </div>
                 </div>
 
-            </>}
+           
         </>
     );
 }
