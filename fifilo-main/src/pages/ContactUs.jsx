@@ -7,7 +7,7 @@ import DOMPurify from 'dompurify';
 import { useSelector, useDispatch } from 'react-redux'
 import { contactus, getPublishContactPage } from '../redux/actions/contactAction';
 import { useNavigate } from 'react-router-dom';
-import Loader from './Loader';
+
 
 export default function ContactUs() {
   let nav = useNavigate()

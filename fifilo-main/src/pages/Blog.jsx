@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBlogs, getPublishBlogPage } from '../redux/actions/blogAction';
 import { Helmet } from 'react-helmet';
-import Loader from './Loader';
+
 export default function Blog() {
     let dispatch = useDispatch();
     let { blogdata, blogloading, error, publishedblogdata } = useSelector(state => state.blog)

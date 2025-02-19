@@ -3,7 +3,7 @@ import AOS from "aos";
 import DOMPurify from 'dompurify';
 import axios from 'axios';
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Loader from './Loader';
+
 export default function Singleblog() {
     let { name } = useParams();
     let [blog, setBlog] = useState(null);
@@ -107,8 +107,7 @@ export default function Singleblog() {
 
     return (
         <>
-            {loading && !blog ? <Loader /> : <>
-                <div className="blogs__bnr blog__single">
+             <div className="blogs__bnr blog__single">
                     <div className="container">
                         <div className="bnr__inr">
                             <div className="category" data-aos="fade-up" data-aos-duration="800">
@@ -202,7 +201,7 @@ export default function Singleblog() {
                     </div>
 
                 </div>
-            </>}
+            
         </>
     )
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPublishPrivacyPage } from '../redux/actions/privacyAction';
 import DOMPurify from 'dompurify';
-import Loader from './Loader';
+
 function PrivacyPolicy() {
     let dispatch = useDispatch();
     let { publishedprivacydata, privacyloading } = useSelector((state) => state.privacy);
