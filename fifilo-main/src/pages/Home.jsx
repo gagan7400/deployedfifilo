@@ -5,40 +5,26 @@ import $ from "jquery";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
-
 import useCursorPosition from "../layout/useCursorPosition";
 import { getpublishHomePage } from "../redux/actions/homeAction";
 import { useDispatch, useSelector } from "react-redux";
 import DOMPurify from 'dompurify';
-import axios from "axios";
-
+import { getCaseStudies } from "../redux/actions/casestudyAction";
 
 export default function Home() {
   useCursorPosition('dark__bnr');
   let dispatch = useDispatch();
   let { publishedhomepage, homeloading } = useSelector((state) => state.homepage);
-  let [casestudies, setCasestudies] = useState(null);
-  const [loading, setLoading] = useState(true);
+  let { casestudyloading, casestudies } = useSelector((state) => state.casestudy);
 
-  let alldata = async () => {
-    try {
-      let { data } = await axios.get('/admin/casestudy/getcasestudy');
-      if (data.success) {
-        setCasestudies(data.data);
-        setLoading(false)
-      } else {
-        setCasestudies(null);
-        alert("error occured");
-      }
-    } catch (error) {
-      setCasestudies(null)
-    }
-  }
   useEffect(() => {
     if (!publishedhomepage) {
       dispatch(getpublishHomePage());
     }
-    alldata();
+    if (!casestudies) {
+      dispatch(getCaseStudies())
+    }
+
   }, [dispatch])
 
   useEffect(() => {
@@ -210,7 +196,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="inner__gapTop row">
-            {!loading && casestudies && casestudies.map((card, index) => {
+            {!casestudyloading && casestudies && casestudies.map((card, index) => {
               let ca = ["TribeStays", "Cure Hub", "SPV Mortgages"];
               if (ca.includes(card.heroSection.casestudyName)) {
                 return (<div className="col-12" key={index} data-aos={index % 2 === 0 ? "fade-right" : "fade-left"} data-aos-duration="800">
@@ -235,6 +221,7 @@ export default function Home() {
                   </div>
                 </div>)
               }
+              return ""
             })}
 
           </div>
@@ -358,7 +345,6 @@ export default function Home() {
       </div>
 
       <FreqentlyAsk />
-
     </>
   );
 }

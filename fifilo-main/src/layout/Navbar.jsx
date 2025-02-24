@@ -17,13 +17,13 @@ export default function Navbar() {
       $(document).on("click", ".menu-open a, .menu-open button", function (e) {
         $(".menu-btn").removeClass("active");
         $("body").removeClass("open overflow-hidden");
-        $(".menu-open").hide();
+        // $(".menu-open").hide();
       });
 
       // Prevent closing the menu when clicking inside the menu
-      $(".menu-open").on("click", function (e) {
-        e.stopPropagation();
-      });
+      // $(".menu-open").on("click", function (e) {
+      //   e.stopPropagation();
+      // });
     });
 
     // Wobble animation
