@@ -103,7 +103,7 @@ export const updateCasestudyPageAction = ({ casestudydata, id }) => async (dispa
 export const getCaseStudies = () => async (dispatch) => {
     try {
         dispatch({ type: "ALL_GETCASESTUDIES_REQUEST" });
-        const { data } = await axios.get('http://localhost:5000/admin/casestudy/getcasestudy');
+        const { data } = await axios.get('/admin/casestudy/getcasestudy');
         dispatch({ type: "ALL_GETCASESTUDIES_SUCCESS", payload: data.data });
     } catch (error) {
         handleError(error, dispatch, "ALL_GETCASESTUDIES_FAIL");
