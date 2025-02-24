@@ -81,10 +81,10 @@ export default function Careerform({ closemodel, jobApply }) {
         if (!Name || !Email || !Number || !resume || Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             setShowErrors(true);
-            
+
             setLoading(false)
         } else {
-             
+
             setLoading(true)
             let date = new Date();
             setErrors({});
@@ -108,7 +108,10 @@ export default function Careerform({ closemodel, jobApply }) {
                     body: formdata,
                 });
                 let result = await data.json();
-              
+                if (data.status === 400) {
+                    alert("Error Occured");
+                    setLoading(false)
+                }
                 if (result.Status) {
                     setLoading(false)
                     setEmail('')

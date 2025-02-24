@@ -730,7 +730,7 @@ const jobapplicantController = async (req, res) => {
             if (req.file) {
                 data.resume = req.file.path
             } else {
-                return res.json({ "status": "error", "message": "pdf not found" })
+                return res.status(400).send({ "Status": "failed", "message": "pdf not found" })
             }
             await sendEmail({
                 for: "admin",
