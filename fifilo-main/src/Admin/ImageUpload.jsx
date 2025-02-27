@@ -34,8 +34,10 @@ const ImageUpload = ({ setImageUplaoded }) => {
                 "/api/media/upload",
                 formData,
                 {
-                    headers: { "Content-Type": "multipart/form-data" },
-                    "x-auth-token": localStorage.getItem("token"),
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "x-auth-token": localStorage.getItem("token"),
+                    }
                 }
             );
             setImageUplaoded(response.data.images);
