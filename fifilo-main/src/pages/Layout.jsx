@@ -21,9 +21,6 @@ const Layout = ({ children }) => {
     }, [loading]);
     const shouldHide = hideNavbarFooterRoutes.includes(location.pathname.split("/")[1]);
     useEffect(() => {
-        setLoading(true)
-    }, [location.pathname]);
-    useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         }, 1000);

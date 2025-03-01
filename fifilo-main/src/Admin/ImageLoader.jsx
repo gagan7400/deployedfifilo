@@ -26,7 +26,6 @@ const ImageLoader = ({ name, size, uploadComplete, setUploadComplete, clearfun, 
 
     return (
         <>
-            {console.log(filedata)}
             <div class="uploading__card">
                 <div class="upload__header">
                     <h6>Uploading 1 Item</h6>
@@ -36,7 +35,7 @@ const ImageLoader = ({ name, size, uploadComplete, setUploadComplete, clearfun, 
                     }}></button>
                 </div>
                 <div class="upload__body">
-                    {filedata.map((card) => (
+                    {filedata && filedata.map((card) => (
                         <div class="document__card">
                             <div class="icon">
                                 <img src="/assets/imgs/media.svg" alt="" />
@@ -46,11 +45,13 @@ const ImageLoader = ({ name, size, uploadComplete, setUploadComplete, clearfun, 
                                     <h6>{card.name}</h6>
                                     {uploadComplete && <img src="assets/img/check-circle.svg" alt="" />}
                                 </div>
-                                <p>{card.size}KB</p>
+                                <p>{Math.floor(card.size / 1000)}KB</p>
 
-                                <div className="loader-bar" style={{ width: "100%", height: "12px", backgroundColor: "black", borderRadius: "8px", position: "relative", overflow: "hidden", }} >
-                                    <div className="bar-fill" style={{ width: `${progress}%`, height: "100%", backgroundColor: "#00ff00", textAlign: "center", position: "absolute", left: 0, top: 0, }}></div>
-                                    <div className="percentage-text" style={{ position: "absolute", width: "100%", textAlign: "center", fontSize: "10px", color: "white", lineHeight: "13px", fontWeight: "bold", zIndex: 1, }} >
+                                <div className="loader-bar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", }}>
+                                    <div className="loader-fill" style={{ width: "100%", height: "10px", backgroundColor: "black", borderRadius: "8px", position: "relative", overflow: "hidden", }} >
+                                        <div className="bar-fill" style={{ width: `${progress}%`, height: "100%", backgroundColor: "#00ff00", textAlign: "center", }}></div>
+                                    </div>
+                                    <div className="percentage-text" style={{ textAlign: "center", fontSize: "10px", color: "#000", lineHeight: "1", fontWeight: "5000", zIndex: 1, }} >
                                         {progress}%   </div>
                                 </div>
                             </div>
