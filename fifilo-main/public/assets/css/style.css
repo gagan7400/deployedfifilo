@@ -4307,9 +4307,9 @@ input:-webkit-autofill {
 .search__container {
   background-color: var(--color-white);
   border: 1px solid #eaecf0;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 12px;
-  margin-top: 12px;
+  margin: 0 14px 12px 0;
   display: flex;
   align-items: center;
   justify-content: right;

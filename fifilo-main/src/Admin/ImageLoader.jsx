@@ -48,7 +48,7 @@ const ImageLoader = ({ name, size, uploadComplete, setUploadComplete, clearfun, 
                                 <p>{Math.floor(card.size / 1000)}KB</p>
 
                                 <div className="loader-bar" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "12px", }}>
-                                    <div className="loader-fill" style={{ width: "100%", height: "10px", backgroundColor: "black", borderRadius: "8px", position: "relative", overflow: "hidden", }} >
+                                    <div className="loader-fill" style={{ width: "100%", height: "10px", backgroundColor: "#667085", borderRadius: "8px", position: "relative", overflow: "hidden", }} >
                                         <div className="bar-fill" style={{ width: `${progress}%`, height: "100%", backgroundColor: "#00ff00", textAlign: "center", }}></div>
                                     </div>
                                     <div className="percentage-text" style={{ textAlign: "center", fontSize: "10px", color: "#000", lineHeight: "1", fontWeight: "5000", zIndex: 1, }} >
