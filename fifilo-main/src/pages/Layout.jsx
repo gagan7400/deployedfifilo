@@ -8,7 +8,7 @@ import Loader from "../layout/Loader";
 const Layout = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const location = useLocation();
-    const hideNavbarFooterRoutes = ["admin", "pages", "dashboard", "section", "casestudies", "blogadmin"];
+    const hideNavbarFooterRoutes = ["admin", "pages", "thank-you", "dashboard", "section", "casestudies", "blogadmin"];
     useEffect(() => {
         const loadData = () => {
             setTimeout(() => {
@@ -33,3 +33,5 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
+
+ 

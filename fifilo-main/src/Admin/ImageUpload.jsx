@@ -1,17 +1,26 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
+import ImageLoader from "./ImageLoader";
 
-const ImageUpload = ({ setImageUplaoded }) => {
+const ImageUpload = ({ setImageUplaoded, selectedImage, setSelectedImage, openmedi }) => {
     const [altText, setAltText] = useState("");
+    const [filedata, setFiledata] = useState(false); // New state for loading
+    const [loading, setLoading] = useState(false); // New state for loading
+    const [name, setName] = useState(false); // New state for name
+    const [size, setSize] = useState(false); // New state for name
+    const [uploadComplete, setUploadComplete] = useState(false); // New state for name
     const fileInputRef = useRef(null);
 
     const handleFileChange = async (e) => {
         const files = e.target.files;
-
         if (files.length > 0) {
+            setFiledata(Array.from(files))
             if (files.length > 10) {
-                alert("length exceeded; Only 10 Images at a time")
+                alert("length exceeded; Only 10 Images at a time");
             } else {
+                setLoading(true); // Start loading when upload starts
+                setName(files[0].name);
+                setSize(Math.floor(files[0].size / 1000));
                 await handleUpload(files);
                 e.target.value = ""; // Reset the file input
             }
@@ -23,6 +32,8 @@ const ImageUpload = ({ setImageUplaoded }) => {
     };
 
     const handleUpload = async (files) => {
+
+        setLoading(true);
         const formData = new FormData();
         for (let file of files) {
             formData.append("images", file);
@@ -34,16 +45,35 @@ const ImageUpload = ({ setImageUplaoded }) => {
                 "/api/media/upload",
                 formData,
                 {
-                    headers: { "Content-Type": "multipart/form-data" },
-                    "x-auth-token": localStorage.getItem("token"),
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "x-auth-token": localStorage.getItem("token"),
+                    },
                 }
             );
             setImageUplaoded(response.data.images);
-            alert("Images uploaded successfully");
+            console.log(response.data.images)
+
+            // alert("Images uploaded successfully");
         } catch (error) {
             console.error("Error uploading images", error);
+        } finally {
+            setTimeout(() => {
+                // setLoading(false);
+                if (openmedi) {
+                    openmedi();
+                }
+            }, 1000);
         }
     };
+
+    let clearfun = () => {
+        setName("");
+        setSize("");
+        setImageUplaoded(false);
+        setLoading(false);
+    }
+
 
     return (
         <>
@@ -60,12 +90,14 @@ const ImageUpload = ({ setImageUplaoded }) => {
                             onChange={handleFileChange}
                         />
                         <div className="upload__area" id="uploadArea">
-                            <div className="upload__icon">
-                                <img src="assets/imgs/upload-cloud.svg" alt="" />
-                            </div>
-                            <p><span>Click to upload</span></p>
-                            <p>Only SVG, PNG, JPG (Max 10 Images)</p>
-
+                            <>
+                                <div className="upload__icon">
+                                    <img src="assets/imgs/upload-cloud.svg" alt="" />
+                                </div>
+                                <p><span>Click to upload</span></p>
+                                <p>Only SVG, PNG, JPG (Max 10 Images)</p>
+                                {loading && <ImageLoader filedata={filedata} setFiledata={setFiledata} clearfun={clearfun} name={name} size={size} setUploadComplete={setUploadComplete} uploadComplete={uploadComplete} />}
+                            </>
                         </div>
                     </div>
                 </div>
@@ -75,4 +107,3 @@ const ImageUpload = ({ setImageUplaoded }) => {
 };
 
 export default ImageUpload;
-
