@@ -22,10 +22,16 @@ const Layout = ({ children }) => {
     const shouldHide = hideNavbarFooterRoutes.includes(location.pathname.split("/")[1]);
     useEffect(() => {
         setLoading(true)
-    }, [location.pathname])
+    }, [location.pathname]);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000);
+    }, [])
     return (
         <>
             {!shouldHide && <Navbar />}
+            {loading && <Loader />}
             <main>{children}</main>
             {!shouldHide && <Footer />}
         </>
@@ -34,4 +40,3 @@ const Layout = ({ children }) => {
 
 export default Layout;
 
- 
