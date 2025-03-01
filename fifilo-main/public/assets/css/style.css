@@ -4309,11 +4309,15 @@ input:-webkit-autofill {
   border: 1px solid #eaecf0;
   border-radius: 6px;
   padding: 12px;
-  margin: 0 14px 12px 0;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: right;
   gap: 16px;
+}
+
+.attachments-wrapper .search__container {
+  margin: 0 14px 12px 0;
 }
 
 .search__container lebel {
